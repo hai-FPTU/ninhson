@@ -1,0 +1,1970 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Lớp học AI Ninh Sơn</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Giáo trình tương tác Khóa đào tạo tập huấn AI nâng cao cho cán bộ xã Ninh Sơn">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Lexend:wght@500;600;700&display=swap">
+<style>
+/* Bố cục: một cột học liệu rộng tối đa 1120px; thanh tiến độ dính trên đầu; mỗi buổi xen kẽ thẻ kiến thức và bài tập; màu rừng xanh đậm + hổ phách như bộ slide. */
+:root{
+  --bg:#F2F5F1; --surface:#FBFCFA; --surface-2:#E6EDE7; --ink:#14302A; --text:#29362F; --muted:#53625A; --line:#D3DDD5;
+  --accent:#D98A1C; --accent-ink:#8A4F00; --accent-soft:#F7E5C6; --on-accent:#1C1406;
+  --blue:#2A63A0; --blue-soft:#DCE7F3; --good:#2B774A; --good-soft:#DCEFE2; --bad:#B0412B; --bad-soft:#F6DFD8;
+  --hero:#163A30; --hero-2:#1F4A3D; --hero-text:#F2F5F1; --hero-muted:#BCD1C6;
+  --shadow:0 1px 2px rgba(20,48,42,.06),0 8px 24px rgba(20,48,42,.07);
+  --f-display:'Lexend','Be Vietnam Pro',system-ui,-apple-system,'Segoe UI',Arial,sans-serif;
+  --f-body:'Be Vietnam Pro',system-ui,-apple-system,'Segoe UI',Arial,sans-serif;
+  --r:14px;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0E1A16; --surface:#14231E; --surface-2:#1B2E27; --ink:#E5EEE9; --text:#D0DCD5; --muted:#9CAFA5; --line:#293C34;
+  --accent:#EBA640; --accent-ink:#F3C27A; --accent-soft:#3A2B13; --on-accent:#1C1406;
+  --blue:#7FB0E2; --blue-soft:#1A2C40; --good:#62BE86; --good-soft:#15301F; --bad:#E78E79; --bad-soft:#3A1E17;
+  --hero:#0F2A20; --hero-2:#173A2E; --hero-text:#F2F5F1; --hero-muted:#A8C1B5;
+  --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.25); color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0E1A16; --surface:#14231E; --surface-2:#1B2E27; --ink:#E5EEE9; --text:#D0DCD5; --muted:#9CAFA5; --line:#293C34;
+  --accent:#EBA640; --accent-ink:#F3C27A; --accent-soft:#3A2B13; --on-accent:#1C1406;
+  --blue:#7FB0E2; --blue-soft:#1A2C40; --good:#62BE86; --good-soft:#15301F; --bad:#E78E79; --bad-soft:#3A1E17;
+  --hero:#0F2A20; --hero-2:#173A2E; --hero-text:#F2F5F1; --hero-muted:#A8C1B5;
+  --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.25); color-scheme:dark}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:calc(env(safe-area-inset-top,0px) + 76px)}
+body{background:var(--bg);color:var(--text);font-family:var(--f-body);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:30;background:var(--bg)}
+h1,h2,h3,h4{font-family:var(--f-display);color:var(--ink);line-height:1.2;margin:0;text-wrap:balance;font-weight:600}
+p{margin:0}
+a{color:var(--blue)}
+button{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px;border-radius:6px}
+.wrap{max-width:1120px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.ico{width:1.2em;height:1.2em;flex:none;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+
+/* Thanh trên */
+.topbar{position:sticky;top:env(safe-area-inset-top,0px);z-index:25;background:var(--bg);border-bottom:1px solid var(--line)}
+.topbar .wrap{display:flex;align-items:center;gap:16px;padding-block:10px}
+.brand{display:flex;align-items:center;gap:10px;font-family:var(--f-display);font-weight:700;color:var(--ink);text-decoration:none;white-space:nowrap}
+.brand-mark{width:34px;height:34px;border-radius:10px;background:var(--accent);display:grid;place-items:center;color:var(--on-accent);flex:none}
+.nav{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;flex:1;min-width:0}
+.nav::-webkit-scrollbar{display:none}
+.nav a{white-space:nowrap;text-decoration:none;color:var(--muted);font-weight:600;font-size:15px;padding:7px 12px;border-radius:999px;border:1px solid transparent}
+.nav a:hover{color:var(--ink);border-color:var(--line)}
+.nav a.on{background:var(--ink);color:var(--bg)}
+.prog{display:flex;align-items:center;gap:10px;white-space:nowrap;font-size:14px;color:var(--muted)}
+.prog-bar{width:110px;height:8px;border-radius:99px;background:var(--surface-2);overflow:hidden}
+.prog-bar i{display:block;height:100%;width:0;background:var(--accent);border-radius:99px;transition:width .6s cubic-bezier(.2,.8,.2,1)}
+.prog b{color:var(--ink);font-variant-numeric:tabular-nums}
+@media (max-width:760px){.prog-bar{width:60px}.brand span{display:none}}
+
+/* Hero */
+.hero{background:var(--hero);color:var(--hero-text);overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center;padding-block:56px 60px}
+.eyebrow{font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+.hero h1{color:var(--hero-text);font-size:clamp(34px,5vw,54px);font-weight:700;margin:12px 0 16px;letter-spacing:-.01em}
+.hero p.lead{color:var(--hero-muted);font-size:18px;max-width:34em}
+.hero-meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+.pill{display:inline-flex;align-items:center;gap:6px;font-size:14px;font-weight:600;padding:6px 12px;border-radius:999px;border:1px solid rgba(242,245,241,.28);color:var(--hero-text)}
+.pill.solid{background:var(--accent);color:var(--on-accent);border-color:var(--accent)}
+.learner{margin-top:26px;display:grid;grid-template-columns:1fr 1fr auto;gap:10px;max-width:620px}
+.learner label{font-size:13px;color:var(--hero-muted);display:block;margin-bottom:4px}
+.learner input{width:100%;font:inherit;font-size:16px;padding:11px 13px;border-radius:10px;border:1px solid rgba(242,245,241,.25);background:var(--hero-2);color:var(--hero-text)}
+.learner input::placeholder{color:#8FAA9D}
+.learner .btn{align-self:end}
+@media (max-width:860px){.hero .wrap{grid-template-columns:1fr;padding-block:40px}.learner{grid-template-columns:1fr}.hero-art{max-width:420px}}
+.hero-art{width:100%}
+.hero-art > svg{width:100%;height:auto;display:block}
+.motto{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:18px;font-family:var(--f-display);font-weight:600;font-size:15px;color:var(--hero-text)}
+.motto span{padding:6px 12px;border-radius:8px;background:var(--hero-2)}
+.motto span:last-child{background:var(--accent);color:var(--on-accent)}
+.motto svg{color:var(--hero-muted)}
+
+/* Nút */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;cursor:pointer;font-weight:600;font-size:16px;padding:11px 18px;border-radius:10px;background:var(--surface-2);color:var(--ink);transition:transform .15s,background .15s}
+.btn:hover{transform:translateY(-1px)}
+.btn:active{transform:translateY(0)}
+.btn.primary{background:var(--accent);color:var(--on-accent)}
+.btn.dark{background:var(--ink);color:var(--bg)}
+.btn.ghost{background:transparent;border:1px solid var(--line)}
+.btn.small{font-size:14px;padding:7px 12px}
+.btn[disabled]{opacity:.5;cursor:not-allowed;transform:none}
+
+/* Phần buổi học */
+.sec{padding-block:64px 24px}
+.sec-head{display:grid;grid-template-columns:auto 1fr auto;gap:24px;align-items:center;margin-bottom:28px}
+.sec-no{font-family:var(--f-display);font-weight:700;font-size:64px;line-height:1;color:var(--accent)}
+.sec-head h2{font-size:clamp(26px,3.4vw,36px)}
+.sec-head .when{color:var(--muted);font-weight:600;font-size:15px;margin-top:6px}
+.sec-head .topics{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.topic{font-size:13px;font-weight:600;padding:4px 10px;border-radius:6px;background:var(--surface-2);color:var(--ink)}
+.badge{display:flex;flex-direction:column;align-items:center;gap:4px;font-size:13px;color:var(--muted);text-align:center;min-width:96px}
+.badge-ring{width:64px;height:64px}
+.badge-ring circle{fill:none;stroke-width:6}
+.badge-ring .bg{stroke:var(--surface-2)}
+.badge-ring .fg{stroke:var(--accent);stroke-linecap:round;transition:stroke-dashoffset .8s cubic-bezier(.2,.8,.2,1);transform:rotate(-90deg);transform-origin:50% 50%}
+.badge-ring text{font-family:var(--f-display);font-weight:700;font-size:15px;fill:var(--ink)}
+.badge.done .badge-ring .fg{stroke:var(--good)}
+@media (max-width:700px){.sec-head{grid-template-columns:1fr}.sec-no{font-size:48px}.badge{flex-direction:row;justify-content:flex-start}}
+
+.grid{display:grid;gap:18px}
+.g2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.g3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.g4{grid-template-columns:repeat(4,minmax(0,1fr))}
+.g5{grid-template-columns:repeat(5,minmax(0,1fr))}
+@media (max-width:900px){.g4,.g5{grid-template-columns:repeat(2,minmax(0,1fr))}.g3{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:620px){.g2,.g3,.g4,.g5{grid-template-columns:1fr}}
+.stack{display:flex;flex-direction:column;gap:22px}
+
+.lesson{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:26px;box-shadow:var(--shadow);min-width:0}
+.lesson > h3{font-size:22px;margin-bottom:6px}
+.lesson > .sub{color:var(--muted);margin-bottom:18px;max-width:62ch}
+.kicker{font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--accent-ink);margin-bottom:8px;display:block}
+.tile{background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:16px;min-width:0}
+.tile h4{font-size:17px;margin-bottom:4px}
+.tile p{font-size:15px;color:var(--muted)}
+.tile .n{font-family:var(--f-display);font-weight:700;color:var(--accent-ink);font-size:14px;margin-bottom:6px;display:block}
+.tile.dark{background:var(--hero);border-color:var(--hero)}
+.tile.dark h4{color:var(--hero-text)}
+.tile.dark p{color:var(--hero-muted)}
+.tag{display:inline-block;font-size:12px;font-weight:700;padding:3px 9px;border-radius:999px;margin-bottom:8px}
+.tag.blue{background:var(--blue-soft);color:var(--blue)}
+.tag.green{background:var(--good-soft);color:var(--good)}
+.tag.amber{background:var(--accent-soft);color:var(--accent-ink)}
+.prompt{background:var(--hero);color:var(--hero-text);border-radius:12px;padding:18px 20px;font-size:15.5px;line-height:1.65;position:relative}
+.prompt .ph{color:var(--accent)}
+.prompt .lbl{display:block;font-size:12px;font-weight:700;letter-spacing:.12em;color:var(--accent);margin-bottom:6px}
+.note{display:flex;gap:12px;align-items:flex-start;background:var(--accent-soft);color:var(--ink);border-radius:12px;padding:14px 16px;font-size:15.5px}
+.note .ico{color:var(--accent-ink);margin-top:3px}
+.note.blue{background:var(--blue-soft)}
+.note.blue .ico{color:var(--blue)}
+.list{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px}
+.table-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:12px}
+table{border-collapse:collapse;width:100%;font-size:15.5px;min-width:620px}
+th,td{text-align:left;padding:11px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:var(--hero);color:var(--hero-text);font-weight:600;font-size:14px}
+tr:last-child td{border-bottom:0}
+tbody tr:nth-child(even) td{background:var(--surface-2)}
+.num{font-variant-numeric:tabular-nums}
+
+/* Sơ đồ luồng có animation */
+.flow{display:flex;align-items:stretch;gap:10px;flex-wrap:wrap}
+.flow .step{flex:1 1 150px;background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:14px;position:relative;min-width:0}
+.flow .step.ai{background:var(--blue-soft);border-color:transparent}
+.flow .step.human{background:var(--hero);border-color:var(--hero)}
+.flow .step.human h4{color:var(--hero-text)}
+.flow .step.human p{color:var(--hero-muted)}
+.flow .step h4{font-size:16px;margin:6px 0 2px}
+.flow .step p{font-size:14px;color:var(--muted)}
+.flow .arrow{align-self:center;color:var(--muted)}
+.flow .step .ico{width:28px;height:28px;color:var(--accent-ink)}
+.flow .step.ai .ico{color:var(--blue)}
+.flow .step.human .ico{color:var(--accent)}
+.legend{display:flex;gap:18px;flex-wrap:wrap;margin-top:12px;font-size:14px;color:var(--muted)}
+.legend i{display:inline-block;width:14px;height:14px;border-radius:4px;vertical-align:-2px;margin-right:6px}
+@media (max-width:620px){.flow .arrow{transform:rotate(90deg);margin:-4px auto}.flow .step{flex-basis:100%}}
+.dash-flow{stroke-dasharray:6 8;animation:dash 1.4s linear infinite}
+@keyframes dash{to{stroke-dashoffset:-28}}
+.travel{offset-rotate:0deg;animation:travel 4s cubic-bezier(.5,0,.5,1) infinite}
+@keyframes travel{from{offset-distance:0%}to{offset-distance:100%}}
+
+/* Bài tập */
+.ex{background:var(--surface);border:2px solid var(--ink);border-radius:18px;padding:26px;position:relative;min-width:0}
+.ex-head{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.ex-tag{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;background:var(--accent);color:var(--on-accent);padding:5px 10px;border-radius:6px}
+.ex-head h3{font-size:22px;flex:1;min-width:200px}
+.ex-pts{font-size:14px;font-weight:700;color:var(--muted);display:flex;align-items:center;gap:6px}
+.ex-pts.done{color:var(--good)}
+.ex-lead{color:var(--muted);margin:8px 0 18px;max-width:70ch}
+.ex-foot{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;margin-top:18px}
+.ex-actions{display:flex;gap:10px;flex-wrap:wrap}
+.fb{font-weight:600;min-height:1.6em;display:flex;align-items:center;gap:8px}
+.fb.ok{color:var(--good)}
+.fb.bad{color:var(--bad)}
+.shake{animation:shake .38s}
+@keyframes shake{20%,60%{transform:translateX(-6px)}40%,80%{transform:translateX(6px)}}
+.pop{animation:pop .35s cubic-bezier(.3,1.6,.6,1)}
+@keyframes pop{0%{transform:scale(.92)}100%{transform:scale(1)}}
+
+/* Phân loại */
+.cls-item{background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:16px;display:flex;flex-direction:column;gap:12px;transition:background .2s,border-color .2s}
+.cls-item p.q{font-weight:500;color:var(--ink)}
+.cls-btns{display:flex;gap:8px;flex-wrap:wrap}
+.cls-btns .btn{flex:1 1 120px;font-size:15px}
+.cls-item.ok{background:var(--good-soft);border-color:var(--good)}
+.cls-item.bad{background:var(--bad-soft);border-color:var(--bad)}
+.cls-item .why{font-size:14.5px;color:var(--text);display:none}
+.cls-item.ok .why,.cls-item.bad .why{display:block}
+.verdict{font-weight:700;display:flex;gap:6px;align-items:center}
+.cls-item.ok .verdict{color:var(--good)}
+.cls-item.bad .verdict{color:var(--bad)}
+
+/* Lựa chọn */
+.mcq{display:flex;flex-direction:column;gap:18px}
+.mcq-q{border:1px solid var(--line);border-radius:12px;padding:18px;background:var(--bg)}
+.mcq-q .q{font-weight:600;color:var(--ink);margin-bottom:12px}
+.opts{display:grid;gap:8px}
+.opt{text-align:left;border:1px solid var(--line);background:var(--surface);border-radius:10px;padding:11px 14px;cursor:pointer;display:flex;gap:10px;align-items:flex-start;transition:border-color .15s,background .15s}
+.opt:hover:not([disabled]){border-color:var(--ink)}
+.opt .k{font-family:var(--f-display);font-weight:700;color:var(--muted);min-width:1.2em}
+.opt.right{background:var(--good-soft);border-color:var(--good)}
+.opt.wrong{background:var(--bad-soft);border-color:var(--bad)}
+.opt[disabled]{cursor:default}
+.exp{margin-top:10px;font-size:15px;display:none}
+.mcq-q.answered .exp{display:block}
+
+/* Trình tạo câu lệnh */
+.builder{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:22px}
+@media (max-width:860px){.builder{grid-template-columns:1fr}}
+.slot{margin-bottom:14px}
+.slot-h{display:flex;align-items:center;gap:8px;font-weight:700;color:var(--ink);margin-bottom:6px;font-size:15px}
+.slot-h .d{width:24px;height:24px;border-radius:50%;background:var(--accent);color:var(--on-accent);display:grid;place-items:center;font-size:13px;font-family:var(--f-display)}
+.chips{display:flex;flex-direction:column;gap:6px}
+.chip{text-align:left;border:1px solid var(--line);background:var(--bg);border-radius:10px;padding:9px 12px;font-size:15px;cursor:pointer}
+.chip:hover{border-color:var(--ink)}
+.chip.sel{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.preview{position:sticky;top:calc(env(safe-area-inset-top,0px) + 80px);align-self:start;display:flex;flex-direction:column;gap:14px}
+.meter{background:var(--surface-2);border-radius:99px;height:14px;overflow:hidden}
+.meter i{display:block;height:100%;width:0;border-radius:99px;background:var(--bad);transition:width .5s cubic-bezier(.2,.8,.2,1),background .3s}
+.meter-l{display:flex;justify-content:space-between;font-size:14px;font-weight:600}
+.typed{min-height:170px;white-space:pre-wrap}
+.caret{display:inline-block;width:2px;height:1.1em;background:var(--accent);vertical-align:-3px;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+
+/* Đặt vị trí thể thức */
+.place{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:22px;align-items:start}
+@media (max-width:760px){.place{grid-template-columns:1fr}}
+.tray{display:flex;flex-wrap:wrap;gap:8px}
+.lab{border:1px dashed var(--ink);background:var(--bg);border-radius:8px;padding:8px 12px;font-size:14.5px;font-weight:600;cursor:pointer;color:var(--ink)}
+.lab.sel{background:var(--accent);border-style:solid;border-color:var(--accent);color:var(--on-accent)}
+.lab.used{display:none}
+.a4{aspect-ratio:210/297;max-width:430px;width:100%;background:#FFFFFF;border:1px solid #C9D3CE;border-radius:4px;box-shadow:0 12px 30px rgba(20,48,42,.15);padding:6% 5% 6% 9%;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:auto auto auto 1fr auto;gap:8px;color:#14302A}
+.zone{border:2px dashed #AFC0B6;border-radius:6px;min-height:46px;display:flex;align-items:center;justify-content:center;text-align:center;font-size:12.5px;font-weight:600;color:#53625A;padding:4px;cursor:pointer;transition:background .2s,border-color .2s}
+.zone:hover{border-color:#D98A1C}
+.zone.filled{border-style:solid;border-color:#2B774A;background:#DCEFE2;color:#14302A}
+.zone.z5{grid-column:1 / span 2}
+.zone.z6{grid-column:1 / span 2;min-height:90px}
+.mm{font-size:13px;color:var(--muted);margin-top:8px}
+
+/* Ghép cặp */
+.match{display:grid;grid-template-columns:1fr 1fr;gap:12px 28px;max-width:640px}
+.mt{border:1px solid var(--line);background:var(--bg);border-radius:10px;padding:12px 14px;font-weight:600;cursor:pointer;text-align:center;color:var(--ink)}
+.mt.sel{border-color:var(--accent);background:var(--accent-soft)}
+.mt.ok{background:var(--good-soft);border-color:var(--good);color:var(--good);cursor:default}
+.mt.code{font-family:var(--f-display);font-size:18px}
+
+/* Thám tử */
+.detect{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:18px}
+@media (max-width:760px){.detect{grid-template-columns:1fr}}
+.doc{background:#FFFFFF;color:#14302A;border:1px solid #C9D3CE;border-radius:10px;padding:18px;font-family:'Times New Roman',Georgia,serif;font-size:16.5px;line-height:1.65}
+.doc .hd{font-family:var(--f-body);font-size:12px;font-weight:700;letter-spacing:.1em;color:#53625A;margin-bottom:8px}
+.ai-ans{background:var(--blue-soft);border-radius:10px;padding:18px;line-height:1.9;font-size:16px}
+.ai-ans .hd{font-size:12px;font-weight:700;letter-spacing:.1em;color:var(--blue);margin-bottom:8px}
+.seg{cursor:pointer;border-radius:4px;padding:1px 2px;border-bottom:2px dotted var(--muted)}
+.seg:hover{background:var(--surface)}
+.seg.mk{background:var(--accent-soft);border-bottom-color:var(--accent)}
+.seg.r-ok{background:var(--good-soft);border-bottom:2px solid var(--good)}
+.seg.r-bad{background:var(--bad-soft);border-bottom:2px solid var(--bad)}
+.seg.r-miss{outline:2px solid var(--bad);background:var(--bad-soft)}
+
+/* Sắp xếp */
+.order{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+@media (max-width:700px){.order{grid-template-columns:1fr}}
+.pool,.seq{display:flex;flex-direction:column;gap:8px}
+.ob{border:1px solid var(--line);background:var(--bg);border-radius:10px;padding:12px 14px;text-align:left;cursor:pointer;font-weight:500;color:var(--ink)}
+.ob:hover{border-color:var(--ink)}
+.sq{border-radius:10px;padding:12px 14px;background:var(--hero);color:var(--hero-text);display:flex;gap:12px;align-items:center}
+.sq b{font-family:var(--f-display);color:var(--accent)}
+.seq-empty{border:2px dashed var(--line);border-radius:10px;padding:14px;color:var(--muted);font-size:15px;text-align:center}
+.timeline{display:flex;height:46px;border-radius:10px;overflow:hidden;margin-top:14px;background:var(--surface-2)}
+.timeline div{width:0;transition:width .7s cubic-bezier(.2,.8,.2,1);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;white-space:nowrap;overflow:hidden}
+
+/* Bảng kiểm số liệu */
+.chk td.c{cursor:pointer}
+.chk td.c:hover{outline:2px solid var(--accent);outline-offset:-2px}
+.chk td.mk{background:var(--accent-soft)!important}
+.chk td.r-ok{background:var(--good-soft)!important}
+.chk td.r-bad{background:var(--bad-soft)!important}
+.chk td.r-miss{background:var(--bad-soft)!important;outline:2px solid var(--bad);outline-offset:-2px}
+.chk table{min-width:480px}
+
+/* Biểu đồ mẫu */
+.bars{display:flex;align-items:flex-end;gap:28px;height:220px;padding:0 10px;border-bottom:2px solid var(--line)}
+.bar{width:64px;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;gap:4px;height:100%}
+.bar .tot{font-family:var(--f-display);font-weight:700;color:var(--ink);font-size:15px}
+.bar .s{width:100%;display:flex;align-items:center;justify-content:center;font-size:12.5px;font-weight:700;transform-origin:bottom;animation:grow 1s cubic-bezier(.2,.8,.2,1) both}
+.bar .s.on{background:var(--accent);color:var(--on-accent);border-radius:6px 6px 0 0}
+.bar .s.off{background:var(--blue);color:var(--bg)}
+@keyframes grow{from{transform:scaleY(.05)}to{transform:scaleY(1)}}
+.bar-x{display:flex;gap:28px;padding:6px 10px 0}
+.bar-x span{width:64px;text-align:center;font-size:14px;font-weight:600}
+
+/* Chọn biểu đồ */
+.charts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+@media (max-width:620px){.charts{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.cbtn{border:1px solid var(--line);background:var(--surface);border-radius:10px;padding:10px 6px 8px;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:4px;font-size:14px;font-weight:600;color:var(--ink)}
+.cbtn svg{width:86px;height:46px}
+.cbtn:hover:not([disabled]){border-color:var(--ink)}
+.cbtn.right{background:var(--good-soft);border-color:var(--good)}
+.cbtn.wrong{background:var(--bad-soft);border-color:var(--bad)}
+
+/* Trình tạo ảnh */
+.imgb{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:22px}
+@media (max-width:860px){.imgb{grid-template-columns:1fr}}
+.seg-row{display:flex;flex-wrap:wrap;gap:6px}
+.seg-row .chip{flex:0 1 auto}
+.stage{background:var(--surface-2);border-radius:14px;padding:16px;display:grid;place-items:center;min-height:300px}
+.stage svg{max-width:100%;max-height:360px;height:auto;border-radius:6px;box-shadow:0 10px 26px rgba(20,48,42,.18);transition:all .4s}
+.task{background:var(--hero);color:var(--hero-text);border-radius:12px;padding:14px 16px;font-size:15.5px}
+.task b{color:var(--accent)}
+.req{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:6px;font-size:15px}
+.req li{display:flex;gap:8px;align-items:flex-start}
+.req li.y{color:var(--good)}
+.req li.n{color:var(--bad)}
+
+/* Kiểm tra cuối khóa */
+.quiz{background:var(--hero);color:var(--hero-text);border-radius:20px;padding:30px;position:relative;overflow:hidden}
+.quiz h3,.quiz h4{color:var(--hero-text)}
+.quiz .muted{color:var(--hero-muted)}
+.qstats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:20px 0}
+.qstat{background:var(--hero-2);border-radius:12px;padding:14px}
+.qstat b{display:block;font-family:var(--f-display);font-size:34px;color:var(--accent);line-height:1.1}
+.qtop{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:16px}
+.timer{font-family:var(--f-display);font-weight:700;font-size:22px;font-variant-numeric:tabular-nums;background:var(--hero-2);padding:6px 14px;border-radius:10px}
+.timer.warn{background:var(--bad);color:#FFFFFF}
+.dots{display:flex;gap:4px;flex-wrap:wrap}
+.dots i{width:12px;height:12px;border-radius:3px;background:var(--hero-2)}
+.dots i.cur{background:var(--hero-muted)}
+.dots i.a{background:var(--accent)}
+.quiz .opt{background:var(--hero-2);border-color:transparent;color:var(--hero-text)}
+.quiz .opt:hover:not([disabled]){border-color:var(--accent)}
+.quiz .opt.sel{border-color:var(--accent);background:#2E5A4B}
+.quiz .opt .k{color:var(--accent)}
+.qq{font-size:20px;font-weight:600;font-family:var(--f-display);margin-bottom:16px;line-height:1.35}
+.review{display:flex;flex-direction:column;gap:10px;margin-top:16px}
+.rv{background:var(--hero-2);border-radius:10px;padding:12px 14px;font-size:15px}
+.rv b{color:var(--accent)}
+.cert{background:var(--surface);color:var(--text);border-radius:16px;padding:28px;margin-top:20px;border:6px double var(--accent);text-align:center}
+.cert h4{color:var(--ink);font-size:24px;margin:6px 0}
+.cert .who{font-family:var(--f-display);font-size:28px;color:var(--accent-ink);font-weight:700;margin:8px 0}
+
+/* Thư viện */
+.lib-filter{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}
+.lib-filter button{border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:7px 14px;cursor:pointer;font-weight:600;font-size:14.5px;color:var(--ink)}
+.lib-filter button.on{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.card-p{display:flex;flex-direction:column;gap:10px;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px;min-width:0}
+.card-p .top{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.card-p code{font-family:var(--f-display);font-weight:700;font-size:13px;color:var(--accent-ink);background:var(--accent-soft);padding:3px 8px;border-radius:6px}
+.card-p h4{font-size:17px}
+.card-p .txt{font-size:15px;color:var(--text);white-space:pre-wrap;background:var(--bg);border-radius:10px;padding:12px;flex:1}
+.card-p .txt .ph{color:var(--accent-ink);font-weight:600}
+
+/* Bài tập bổ sung */
+.sel{font:inherit;font-size:15px;padding:4px 8px;border-radius:8px;border:1px solid var(--blue);background:var(--surface);color:var(--ink);margin:2px 0;max-width:100%}
+.sel.ok{border-color:var(--good);background:var(--good-soft)}
+.sel.bad{border-color:var(--bad);background:var(--bad-soft)}
+.fill p{margin-bottom:10px}
+.fill td{vertical-align:middle}
+.ref{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:16px;font-size:15.5px}
+.ref .hd{font-size:12px;font-weight:700;letter-spacing:.1em;color:var(--accent-ink);margin-bottom:8px}
+.calc-q{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:10px 16px;align-items:center;border:1px solid var(--line);background:var(--bg);border-radius:12px;padding:14px 16px}
+.calc-q input{width:130px;font:inherit;font-size:17px;font-weight:600;padding:9px 12px;border-radius:10px;border:1px solid var(--line);background:var(--surface);color:var(--ink);text-align:right;font-variant-numeric:tabular-nums}
+.calc-q.ok input{border-color:var(--good);background:var(--good-soft)}
+.calc-q.bad input{border-color:var(--bad);background:var(--bad-soft)}
+.calc-q .exp{grid-column:1 / -1;display:none;font-size:14.5px}
+.calc-q.ok .exp,.calc-q.bad .exp{display:block}
+@media (max-width:560px){.calc-q{grid-template-columns:1fr}.calc-q input{width:100%}}
+.trim{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:22px;align-items:start}
+@media (max-width:860px){.trim{grid-template-columns:1fr}}
+.mini{aspect-ratio:16/9;background:#FFFFFF;color:#14302A;border-radius:10px;border-top:10px solid #163A30;padding:5% 6%;display:flex;flex-direction:column;gap:5%;box-shadow:0 10px 26px rgba(20,48,42,.18);max-width:100%}
+.mini h5{font-family:var(--f-display);font-size:clamp(15px,2vw,20px);margin:0;line-height:1.25;color:#14302A}
+.mini ul{margin:0;padding-left:18px;font-size:clamp(13px,1.6vw,16px);display:flex;flex-direction:column;gap:4px}
+.mini .empty{color:#8A968F;font-size:14px}
+.chip.badpick{background:var(--bad-soft);border-color:var(--bad);color:var(--ink)}
+.chip.goodpick{background:var(--good-soft);border-color:var(--good);color:var(--ink)}
+.proj-form{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-bottom:18px}
+@media (max-width:760px){.proj-form{grid-template-columns:1fr}}
+.proj-form label{font-size:13px;font-weight:600;color:var(--muted);display:block;margin-bottom:4px}
+.proj-form input{width:100%;font:inherit;font-size:15.5px;padding:10px 12px;border-radius:10px;border:1px solid var(--line);background:var(--bg);color:var(--ink)}
+.done-row{display:flex;gap:8px;align-items:center;font-size:15px;font-weight:600;color:var(--ink);cursor:pointer}
+.done-row input{width:20px;height:20px;accent-color:var(--good)}
+.card-p.is-done{border-color:var(--good);background:var(--good-soft)}
+.scn{background:var(--bg);border-radius:14px;padding:22px;border:1px solid var(--line)}
+.scn-top{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;font-weight:700;color:var(--muted);font-size:14px}
+.streak{color:var(--accent-ink);display:flex;gap:6px;align-items:center}
+.scn-bar{height:8px;background:var(--surface-2);border-radius:9px;margin:10px 0 18px;overflow:hidden}
+.scn-bar i{display:block;height:100%;background:var(--accent);transition:width .4s}
+.qq2{font-family:var(--f-display);font-size:clamp(18px,2.2vw,21px);color:var(--ink);margin-bottom:14px;line-height:1.4;font-weight:600}
+.exp2{margin-top:12px;font-size:15.5px}
+.scn-end{text-align:center;padding:10px}
+.scn-end b.big{display:block;font-family:var(--f-display);font-size:56px;color:var(--accent-ink);line-height:1.1}
+
+footer{border-top:1px solid var(--line);margin-top:56px;padding-block:28px 40px;color:var(--muted);font-size:14.5px}
+footer .wrap{display:flex;flex-direction:column;gap:8px}
+
+#fx{position:fixed;inset:0;pointer-events:none;z-index:40;width:100%;height:100%}
+.toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translateX(-50%) translateY(140%);background:var(--ink);color:var(--bg);padding:12px 18px;border-radius:12px;font-weight:600;z-index:41;transition:transform .35s cubic-bezier(.2,.8,.2,1);max-width:calc(100% - 32px);display:flex;gap:10px;align-items:center}
+.toast.show{transform:translateX(-50%) translateY(0)}
+
+/* Animation hero */
+.draw{stroke-dasharray:220;stroke-dashoffset:220;animation:draw 6s ease-in-out infinite}
+.d2{animation-delay:.5s}.d3{animation-delay:1s}.d4{animation-delay:1.5s}
+@keyframes draw{0%{stroke-dashoffset:220}25%,85%{stroke-dashoffset:0}100%{stroke-dashoffset:0}}
+.stamp{transform-origin:428px 300px;animation:stamp 6s ease-in-out infinite}
+@keyframes stamp{0%,40%{transform:scale(1.6) rotate(-14deg);opacity:0}50%{transform:scale(1) rotate(-10deg);opacity:1}88%{opacity:1}100%{opacity:0;transform:scale(1) rotate(-10deg)}}
+.bob{animation:bob 4s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(-8px)}}
+.spark{transform-box:fill-box;transform-origin:center;animation:spark 3s ease-in-out infinite}
+@keyframes spark{50%{transform:scale(.6) rotate(45deg);opacity:.6}}
+
+@supports (animation-timeline: view()){
+  .rise{animation:rise linear both;animation-timeline:view();animation-range:entry 0% entry 40%}
+  @keyframes rise{from{transform:translateY(24px)}to{transform:none}}
+}
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+  .draw{stroke-dashoffset:0}
+  .stamp{opacity:1;transform:rotate(-10deg)}
+}
+</style>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+  <symbol id="i-copy" viewBox="0 0 24 24"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V5a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h3"/></symbol>
+  <symbol id="i-spark" viewBox="0 0 24 24"><path d="M12 3l2 6 6 2-6 2-2 6-2-6-6-2 6-2z"/></symbol>
+  <symbol id="i-lock" viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></symbol>
+  <symbol id="i-doc" viewBox="0 0 24 24"><path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5M10 13h6M10 17h6"/></symbol>
+  <symbol id="i-chart" viewBox="0 0 24 24"><path d="M4 20h16M7 16v-5M12 16V7M17 16v-8"/></symbol>
+  <symbol id="i-mic" viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></symbol>
+  <symbol id="i-image" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="10" r="2"/><path d="M21 16l-5-5-8 8"/></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M10 9l5 3-5 3z"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M9 12l2 2 4-4"/></symbol>
+  <symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3 3-5 6-5s6 2 6 5"/><circle cx="17" cy="9" r="2.5"/><path d="M16 15c2.5 0 5 1.5 5 4"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6"/><path d="M20 20l-4.5-4.5"/></symbol>
+  <symbol id="i-chat" viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/></symbol>
+  <symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13 3L5 14h6l-1 7 8-11h-6z"/></symbol>
+  <symbol id="i-warn" viewBox="0 0 24 24"><path d="M12 4l9 16H3z"/><path d="M12 10v4M12 17v.5"/></symbol>
+  <symbol id="i-key" viewBox="0 0 24 24"><circle cx="8" cy="14" r="4"/><path d="M11 11l9-9M17 5l3 3"/></symbol>
+  <symbol id="i-db" viewBox="0 0 24 24"><ellipse cx="12" cy="6" rx="7" ry="3"/><path d="M5 6v12c0 1.7 3 3 7 3s7-1.3 7-3V6M5 12c0 1.7 3 3 7 3s7-1.3 7-3"/></symbol>
+  <symbol id="i-wrench" viewBox="0 0 24 24"><path d="M15 4a5 5 0 0 0-5 6l-6 6 3 3 6-6a5 5 0 0 0 6-5l-3 1-2-2z"/></symbol>
+  <symbol id="i-star" viewBox="0 0 24 24"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z"/></symbol>
+  <symbol id="i-flag" viewBox="0 0 24 24"><path d="M5 21V4M5 4h12l-2 4 2 4H5"/></symbol>
+</svg>
+
+<canvas id="fx" aria-hidden="true"></canvas>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<header class="topbar">
+  <div class="wrap">
+    <a class="brand" href="#top"><span class="brand-mark"><svg class="ico" style="width:20px;height:20px"><use href="#i-spark"/></svg></span><span>Lớp học AI Ninh Sơn</span></a>
+    <nav class="nav" id="nav" aria-label="Các phần của giáo trình">
+      <a href="#mo-dau">Mở đầu</a>
+      <a href="#buoi-1">Buổi 1</a>
+      <a href="#buoi-2">Buổi 2</a>
+      <a href="#buoi-3">Buổi 3</a>
+      <a href="#buoi-4">Buổi 4</a>
+      <a href="#thu-thach">Thử thách</a>
+      <a href="#kiem-tra">Kiểm tra</a>
+      <a href="#thu-vien">Thư viện Prompt</a>
+    </nav>
+    <div class="prog" title="Tiến độ bài tập">
+      <div class="prog-bar"><i id="progBar"></i></div>
+      <span><b id="progTxt">0/33</b> bài</span>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <span class="eyebrow">Khóa đào tạo tập huấn AI nâng cao · Xã Ninh Sơn</span>
+      <h1>Học dùng AI cho công việc hành chính, làm bài ngay trên trang</h1>
+      <p class="lead">Dành cho cán bộ, công chức, viên chức xã và người hoạt động không chuyên trách thôn. Mỗi buổi gồm thẻ kiến thức ngắn, sơ đồ minh hoạ và bài tập chấm điểm tức thì.</p>
+      <div class="hero-meta">
+        <span class="pill solid">02 ngày · 04 buổi</span>
+        <span class="pill">30 – 31/10/2026</span>
+        <span class="pill" id="exCount">33 bài tập + bài kiểm tra</span>
+      </div>
+      <form class="learner" id="learnerForm">
+        <div><label for="hvTen">Họ và tên học viên</label><input id="hvTen" autocomplete="name" placeholder="Ví dụ: Nguyễn Thị Lan"></div>
+        <div><label for="hvDonVi">Bộ phận, thôn</label><input id="hvDonVi" placeholder="Ví dụ: Phòng Văn hóa – Xã hội"></div>
+        <button class="btn primary" type="submit">Bắt đầu học</button>
+      </form>
+    </div>
+    <div class="hero-art">
+      <svg viewBox="0 0 520 420" role="img" aria-label="Minh hoạ: AI soạn bản nháp, cán bộ kiểm tra và đóng dấu đã kiểm tra">
+        <circle cx="260" cy="215" r="190" fill="#1F4A3D"/>
+        <circle cx="260" cy="215" r="140" fill="#24564A"/>
+        <g class="bob">
+          <rect x="70" y="90" width="210" height="150" rx="16" fill="#F2F5F1"/>
+          <rect x="70" y="90" width="210" height="36" rx="16" fill="#2A63A0"/>
+          <rect x="70" y="110" width="210" height="16" fill="#2A63A0"/>
+          <circle cx="92" cy="108" r="6" fill="#EBA640"/><circle cx="110" cy="108" r="6" fill="#BCD1C6"/>
+          <rect x="88" y="142" width="130" height="28" rx="14" fill="#E6EDE7"/>
+          <path class="draw" d="M100 156 H200" stroke="#53625A" stroke-width="6" stroke-linecap="round"/>
+          <rect x="130" y="182" width="134" height="40" rx="14" fill="#163A30"/>
+          <path class="draw d2" d="M144 196 H246" stroke="#EBA640" stroke-width="6" stroke-linecap="round"/>
+          <path class="draw d3" d="M144 210 H220" stroke="#BCD1C6" stroke-width="5" stroke-linecap="round"/>
+        </g>
+        <g>
+          <rect x="300" y="170" width="170" height="215" rx="8" fill="#FFFFFF"/>
+          <rect x="318" y="190" width="58" height="8" rx="4" fill="#2A63A0"/>
+          <rect x="398" y="190" width="56" height="8" rx="4" fill="#2A63A0"/>
+          <rect x="350" y="214" width="70" height="8" rx="4" fill="#D98A1C"/>
+          <path class="draw" d="M318 244 H452" stroke="#C9D3CE" stroke-width="7" stroke-linecap="round"/>
+          <path class="draw d2" d="M318 262 H452" stroke="#C9D3CE" stroke-width="7" stroke-linecap="round"/>
+          <path class="draw d3" d="M318 280 H430" stroke="#C9D3CE" stroke-width="7" stroke-linecap="round"/>
+          <path class="draw d4" d="M318 298 H400" stroke="#C9D3CE" stroke-width="7" stroke-linecap="round"/>
+          <g class="stamp">
+            <rect x="378" y="320" width="100" height="44" rx="8" fill="none" stroke="#B0412B" stroke-width="4"/>
+            <path d="M392 342 l9 9 l18 -20" fill="none" stroke="#B0412B" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M428 336 h38 M428 350 h28" stroke="#B0412B" stroke-width="4" stroke-linecap="round"/>
+          </g>
+        </g>
+        <path d="M282 165 C 300 150, 310 175, 300 190" fill="none" stroke="#EBA640" stroke-width="3" stroke-dasharray="5 6" class="dash-flow"/>
+        <path class="spark" d="M96 40 l7 21 21 7 -21 7 -7 21 -7 -21 -21 -7 21 -7z" fill="#EBA640"/>
+        <path class="spark" style="animation-delay:1.2s" d="M470 70 l5 14 14 5 -14 5 -5 14 -5 -14 -14 -5 14 -5z" fill="#BCD1C6"/>
+      </svg>
+      <div class="motto" aria-label="Thông điệp xuyên suốt">
+        <span>AI soạn nháp</span><svg class="ico"><use href="#i-arrow"/></svg><span>Cán bộ kiểm tra</span><svg class="ico"><use href="#i-arrow"/></svg><span>Lãnh đạo quyết định</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MỞ ĐẦU -->
+<section class="sec" id="mo-dau">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-no">00</div>
+      <div>
+        <h2>Mở đầu: khung khóa học và nguyên tắc an toàn</h2>
+        <div class="when">Đọc trước khi vào Buổi 1</div>
+      </div>
+      <div class="badge" data-badge="0"></div>
+    </div>
+    <div class="stack">
+      <div class="lesson rise">
+        <span class="kicker">Thông tin khóa học</span>
+        <h3>Lịch 04 buổi</h3>
+        <p class="sub">Hình thức đào tạo trực tiếp tại chỗ; 01 giảng viên chính và 01 trợ giảng đứng lớp; 30–50 học viên/lớp; bài kiểm tra đánh giá trực tuyến sau buổi đào tạo.</p>
+        <div class="grid g4">
+          <a class="tile" href="#buoi-1" style="text-decoration:none"><span class="n">BUỔI 1 · SÁNG 30/10 · 08h30–10h30</span><h4>Kỹ năng sử dụng AI trong công việc hành chính</h4><p>và AI hỗ trợ soạn thảo văn bản</p></a>
+          <a class="tile" href="#buoi-2" style="text-decoration:none"><span class="n">BUỔI 2 · CHIỀU 30/10 · 14h00–16h00</span><h4>AI hỗ trợ xử lý tài liệu và cuộc họp</h4><p>Tóm tắt, tra cứu, biên bản, kết luận</p></a>
+          <a class="tile" href="#buoi-3" style="text-decoration:none"><span class="n">BUỔI 3 · SÁNG 31/10 · 08h30–10h30</span><h4>AI hỗ trợ báo cáo và trình chiếu</h4><p>Báo cáo, số liệu, biểu đồ, slide</p></a>
+          <a class="tile dark" href="#buoi-4" style="text-decoration:none"><span class="n" style="color:var(--accent)">BUỔI 4 · CHIỀU 31/10 · 14h00–16h00</span><h4>AI hỗ trợ truyền thông và thực hành tổng hợp</h4><p>Hình ảnh, infographic, banner, video</p></a>
+        </div>
+      </div>
+
+      <div class="lesson rise">
+        <span class="kicker">Cập nhật đến tháng 10/2026</span>
+        <h3>Hành lang pháp lý khi dùng AI ở cơ quan</h3>
+        <p class="sub">Sáu văn bản cần nắm. Luật An ninh mạng 2018 và Luật An toàn thông tin mạng 2015 đã hết hiệu lực từ 01/7/2026, không trích dẫn trong tài liệu mới.</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th style="width:34%">Văn bản</th><th style="width:14%">Hiệu lực</th><th>Điểm cần nhớ khi dùng AI</th></tr></thead>
+            <tbody>
+              <tr><td><b>Luật Trí tuệ nhân tạo</b><br>số 134/2025/QH15</td><td class="num">01/3/2026</td><td>AI không thay thế thẩm quyền, trách nhiệm của con người. Nội dung do AI tạo dễ gây nhầm lẫn với thật phải thông báo rõ, gắn nhãn.</td></tr>
+              <tr><td><b>Luật Bảo vệ bí mật nhà nước</b><br>số 117/2025/QH15</td><td class="num">01/3/2026</td><td>Nghiêm cấm sử dụng hệ thống AI hoặc công nghệ mới để xâm phạm bí mật nhà nước.</td></tr>
+              <tr><td><b>Luật Bảo vệ dữ liệu cá nhân</b><br>số 91/2025/QH15 và Nghị định 356/2025/NĐ-CP</td><td class="num">01/01/2026</td><td>Bảo vệ dữ liệu cá nhân của người dân khi xử lý, kể cả khi đưa vào công cụ AI. Nghị định 356 thay thế Nghị định 13/2023/NĐ-CP.</td></tr>
+              <tr><td><b>Luật An ninh mạng</b><br>số 116/2025/QH15</td><td class="num">01/7/2026</td><td>Hợp nhất và thay thế Luật An toàn thông tin mạng 2015, Luật An ninh mạng 2018. Cấm dùng AI giả mạo video, hình ảnh, giọng nói người khác.</td></tr>
+              <tr><td><b>Chỉ thị 14/CT-TTg</b><br>ngày 22/4/2026</td><td class="num">22/4/2026</td><td>Đến hết năm 2026, 100% cán bộ, công chức, viên chức có hiểu biết về chuyển đổi số, kiến thức và kỹ năng số.</td></tr>
+              <tr><td><b>Nghị định 30/2020/NĐ-CP</b><br>về công tác văn thư</td><td class="num">05/3/2020</td><td>Thể thức, kỹ thuật trình bày văn bản hành chính.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="lesson rise">
+        <span class="kicker">Áp dụng xuyên suốt 4 buổi</span>
+        <h3>5 nguyên tắc an toàn</h3>
+        <div class="grid g5" style="margin-top:14px">
+          <div class="tile"><svg class="ico" style="width:28px;height:28px;color:var(--accent-ink)"><use href="#i-lock"/></svg><h4 style="margin-top:8px">Không đưa tài liệu mật lên AI công cộng</h4><p>Chỉ dùng tài liệu công khai.</p></div>
+          <div class="tile"><svg class="ico" style="width:28px;height:28px;color:var(--accent-ink)"><use href="#i-key"/></svg><h4 style="margin-top:8px">Ẩn danh dữ liệu cá nhân</h4><p>Thay họ tên, số định danh, số điện thoại bằng [Ông A], [Hộ B].</p></div>
+          <div class="tile"><svg class="ico" style="width:28px;height:28px;color:var(--accent-ink)"><use href="#i-search"/></svg><h4 style="margin-top:8px">Kiểm chứng số liệu, căn cứ</h4><p>AI có thể “bịa” số hiệu văn bản.</p></div>
+          <div class="tile"><svg class="ico" style="width:28px;height:28px;color:var(--accent-ink)"><use href="#i-shield"/></svg><h4 style="margin-top:8px">Con người quyết định</h4><p>AI soạn nháp, lãnh đạo duyệt ký.</p></div>
+          <div class="tile"><svg class="ico" style="width:28px;height:28px;color:var(--accent-ink)"><use href="#i-warn"/></svg><h4 style="margin-top:8px">Gắn nhãn nội dung AI</h4><p>Ảnh, video dễ nhầm với thật phải ghi rõ.</p></div>
+        </div>
+      </div>
+
+      <div class="ex rise" data-ex="safety"></div>
+      <div class="ex rise" data-ex="anon"></div>
+    </div>
+  </div>
+</section>
+
+<!-- BUỔI 1 -->
+<section class="sec" id="buoi-1">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-no">01</div>
+      <div>
+        <h2>Kỹ năng sử dụng AI trong công việc hành chính</h2>
+        <div class="when">Buổi 1 (Sáng) · 08h30 đến 10h30 ngày 30/10/2026</div>
+        <div class="topics"><span class="topic">Kỹ năng sử dụng AI trong công việc hành chính</span><span class="topic">AI hỗ trợ soạn thảo văn bản</span></div>
+      </div>
+      <div class="badge" data-badge="1"></div>
+    </div>
+    <div class="stack">
+      <div class="lesson rise">
+        <span class="kicker">Hiểu đúng về AI</span>
+        <h3>AI tạo sinh làm việc như thế nào?</h3>
+        <p class="sub">AI không “tra cứu sự thật” như cơ sở dữ liệu mà tạo ra câu chữ có vẻ hợp lý nhất. Câu lệnh càng rõ, kết quả càng đúng.</p>
+        <svg viewBox="0 0 1000 170" style="width:100%;height:auto" role="img" aria-label="Sơ đồ: câu lệnh, mô hình AI, bản nháp, cán bộ kiểm tra; chưa đạt thì góp ý và lặp lại">
+          <path style="stroke:var(--line)" id="loopPath" d="M140 70 H860" fill="none" stroke-width="4"/>
+          <path style="stroke:var(--accent)" d="M860 100 C 860 160, 140 160, 140 100" fill="none" stroke-width="3" class="dash-flow"/>
+          <circle r="9" class="travel" style="fill:var(--accent);offset-path:path('M140 70 H860')"/>
+          <g font-family="Be Vietnam Pro, Arial, sans-serif" text-anchor="middle">
+            <rect style="fill:var(--surface);stroke:var(--line)" x="60" y="30" width="160" height="80" rx="14" stroke-width="2"/>
+            <text style="fill:var(--ink)" x="140" y="66" font-size="19" font-weight="700">Câu lệnh</text>
+            <text style="fill:var(--muted)" x="140" y="90" font-size="14">cán bộ giao việc</text>
+            <rect style="fill:var(--blue-soft)" x="300" y="30" width="160" height="80" rx="14"/>
+            <text style="fill:var(--blue)" x="380" y="66" font-size="19" font-weight="700">Mô hình AI</text>
+            <text style="fill:var(--muted)" x="380" y="90" font-size="14">dự đoán câu chữ</text>
+            <rect style="fill:var(--blue-soft)" x="540" y="30" width="160" height="80" rx="14"/>
+            <text style="fill:var(--blue)" x="620" y="66" font-size="19" font-weight="700">Bản nháp</text>
+            <text style="fill:var(--muted)" x="620" y="90" font-size="14">văn bản, bảng, ảnh</text>
+            <rect style="fill:var(--hero)" x="780" y="30" width="160" height="80" rx="14"/>
+            <text x="860" y="66" font-size="19" font-weight="700" fill="#F2F5F1">Cán bộ kiểm tra</text>
+            <text x="860" y="90" font-size="14" fill="#BCD1C6">đối chiếu, sửa</text>
+            <text style="fill:var(--accent-ink)" x="500" y="160" font-size="15" font-weight="600">Chưa đạt: góp ý cụ thể, AI sửa lại (thường 2–3 vòng)</text>
+          </g>
+        </svg>
+      </div>
+
+      <div class="grid g2">
+        <div class="lesson rise">
+          <span class="kicker">Giao việc gì cho AI</span>
+          <h3>AI làm tốt</h3>
+          <ul class="list" style="margin-top:10px">
+            <li>Soạn nháp văn bản theo mẫu</li><li>Tóm tắt tài liệu dài</li><li>Sửa chính tả, chuẩn hóa câu chữ</li><li>Lập dàn ý báo cáo, bài trình chiếu</li><li>Gợi ý ý tưởng tuyên truyền</li><li>Chuyển ghi âm cuộc họp thành văn bản</li>
+          </ul>
+        </div>
+        <div class="lesson rise">
+          <span class="kicker">Bắt buộc kiểm tra kỹ</span>
+          <h3>Cần thận trọng</h3>
+          <ul class="list" style="margin-top:10px">
+            <li>Số liệu, phép tính, tỷ lệ phần trăm</li><li>Số hiệu, trích dẫn văn bản pháp luật</li><li>Thông tin mới, sự việc tại địa phương</li><li>Nội dung có giá trị pháp lý</li><li>Vấn đề nhạy cảm: chính trị, tôn giáo</li><li>Dữ liệu cá nhân, tài liệu mật</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="lesson rise">
+        <span class="kicker">Giới thiệu các công cụ AI phục vụ công việc hành chính</span>
+        <h3>Ba nhóm công cụ</h3>
+        <p class="sub">Không cần dùng hết. Mỗi học viên chọn 1 trợ lý chung, 1 công cụ trên tài liệu và Canva là đủ cho khóa học. Tính năng và gói miễn phí có thể thay đổi.</p>
+        <div class="grid g4">
+          <div class="tile"><span class="tag blue">Trợ lý chung</span><h4>ChatGPT</h4><p>Soạn thảo, tóm tắt, phân tích tệp, tạo ảnh</p></div>
+          <div class="tile"><span class="tag blue">Trợ lý chung</span><h4>Gemini</h4><p>Gắn với Gmail, Docs, Drive</p></div>
+          <div class="tile"><span class="tag blue">Trợ lý chung</span><h4>Copilot</h4><p>Gắn với Word, Excel, PowerPoint (tuỳ gói)</p></div>
+          <div class="tile"><span class="tag blue">Trợ lý chung</span><h4>Claude</h4><p>Đọc văn bản dài, viết và rà soát</p></div>
+          <div class="tile"><span class="tag green">Trên tài liệu</span><h4>NotebookLM</h4><p>Hỏi đáp trên tài liệu tải lên, có trích nguồn</p></div>
+          <div class="tile"><span class="tag green">Trên tài liệu</span><h4>VNPT iKnow</h4><p>Kho tri thức của đơn vị: tra cứu, tóm tắt</p></div>
+          <div class="tile"><span class="tag amber">Truyền thông</span><h4>Canva</h4><p>Banner, infographic, slide, video</p></div>
+          <div class="tile"><span class="tag amber">Truyền thông</span><h4>CapCut</h4><p>Dựng video ngắn, phụ đề tự động</p></div>
+        </div>
+      </div>
+
+      <div class="ex rise" data-ex="tools"></div>
+
+      <div class="lesson rise">
+        <span class="kicker">Kỹ thuật đặt câu lệnh (Prompt) hiệu quả</span>
+        <h3>Công thức câu lệnh 5 thành phần</h3>
+        <p class="sub">Thông tin chưa có thì để trong ngoặc vuông, ví dụ <b>[ngày họp]</b>, để điền sau. Thiếu bối cảnh, AI sẽ tự đoán và dễ sai.</p>
+        <div class="grid g5">
+          <div class="tile"><span class="n">1 · VAI TRÒ</span><h4>AI là ai?</h4><p>“Bạn là chuyên viên Văn phòng HĐND và UBND xã…”</p></div>
+          <div class="tile"><span class="n">2 · NHIỆM VỤ</span><h4>Làm việc gì?</h4><p>“Soạn giấy mời họp giao ban tháng 11/2026…”</p></div>
+          <div class="tile"><span class="n">3 · BỐI CẢNH</span><h4>Cho ai, khi nào?</h4><p>“Thành phần: lãnh đạo UBND, trưởng các phòng, trưởng thôn…”</p></div>
+          <div class="tile"><span class="n">4 · YÊU CẦU</span><h4>Cần lưu ý gì?</h4><p>“Đúng thể thức Nghị định 30/2020/NĐ-CP, ngắn gọn…”</p></div>
+          <div class="tile dark"><span class="n" style="color:var(--accent)">5 · ĐỊNH DẠNG</span><h4>Trình bày ra sao?</h4><p>“Có đủ Quốc hiệu, số ký hiệu, nội dung, nơi nhận.”</p></div>
+        </div>
+      </div>
+
+      <div class="ex rise" data-ex="builder"></div>
+      <div class="ex rise" data-ex="builder2"></div>
+
+      <div class="lesson rise">
+        <span class="kicker">Nâng cao chất lượng câu trả lời</span>
+        <h3>6 kỹ thuật nên dùng</h3>
+        <div class="grid g3" style="margin-top:12px">
+          <div class="tile"><h4>Đưa mẫu cho AI</h4><p>Dán văn bản cũ: “Soạn theo đúng bố cục mẫu sau…”</p></div>
+          <div class="tile"><h4>Chia nhỏ từng bước</h4><p>Duyệt dàn ý rồi mới viết chi tiết.</p></div>
+          <div class="tile"><h4>Yêu cầu AI hỏi lại</h4><p>“Nếu thiếu thông tin, hãy hỏi tôi trước.”</p></div>
+          <div class="tile"><h4>Giới hạn rõ ràng</h4><p>Độ dài, số ý, đối tượng người đọc.</p></div>
+          <div class="tile"><h4>Chỉ định định dạng</h4><p>Bảng 4 cột, đánh số mục I, II, III.</p></div>
+          <div class="tile"><h4>Yêu cầu tự rà soát</h4><p>“Chỗ chưa chắc chắn, đánh dấu [cần kiểm tra].”</p></div>
+        </div>
+      </div>
+
+      <div class="ex rise" data-ex="fixprompt"></div>
+
+      <div class="grid g2">
+        <div class="lesson rise">
+          <span class="kicker">Xây dựng thư viện Prompt cho các nghiệp vụ thường xuyên</span>
+          <h3>Mỗi câu lệnh tốt là một thẻ Prompt</h3>
+          <p class="sub">Thẻ gồm: mã – tên, lĩnh vực, câu lệnh có chỗ trống [ ], thông tin cần điền, lưu ý kiểm tra, người cập nhật. Mã theo nhóm: VP (Văn phòng HĐND và UBND), KT (Phòng Kinh tế), VX (Phòng Văn hóa – Xã hội), HCC (Trung tâm Phục vụ hành chính công), TH (Thôn).</p>
+          <ol class="list">
+            <li>Liệt kê 10 việc lặp lại nhiều nhất</li><li>Viết câu lệnh theo 5 thành phần</li><li>Chạy thử 2–3 lần đến khi đạt</li><li>Lưu thành thẻ có mã</li><li>Dùng chung, rà soát hằng quý</li>
+          </ol>
+          <a class="btn dark small" href="#thu-vien" style="margin-top:16px;text-decoration:none">Mở thư viện Prompt mẫu <svg class="ico"><use href="#i-arrow"/></svg></a>
+        </div>
+        <div class="lesson rise">
+          <span class="kicker">Hệ thống nền tảng tri thức VNPT iKnow</span>
+          <h3>Hỏi trên kho văn bản của đơn vị</h3>
+          <p class="sub">Nền tảng quản lý tri thức ứng dụng AI của VNPT AI: hỏi bằng câu tự nhiên, trả lời kèm trích dẫn nguồn, phân quyền theo vai trò.</p>
+          <div style="display:flex;flex-direction:column;gap:6px">
+            <div class="tile dark" style="padding:10px 14px"><h4 style="font-size:15px">Đơn vị · UBND xã Ninh Sơn</h4></div>
+            <div class="tile" style="padding:10px 14px;margin-left:24px;background:var(--blue-soft);border:0"><h4 style="font-size:15px;color:var(--blue)">Kho · Văn phòng, Kinh tế, Văn hóa – Xã hội</h4></div>
+            <div class="tile" style="padding:10px 14px;margin-left:48px"><h4 style="font-size:15px">Nhóm · Kế hoạch 2026, Báo cáo định kỳ</h4></div>
+            <div class="tile" style="padding:10px 14px;margin-left:72px"><h4 style="font-size:15px">Tài liệu · PDF, Word, bản scan</h4></div>
+          </div>
+          <p class="mm">VNPT AI công bố giảm 80% thời gian tìm kiếm thông tin (vnptai.io/iknow). Luôn mở nguồn trích dẫn trước khi dùng.</p>
+        </div>
+      </div>
+
+      <div class="ex rise" data-ex="template"></div>
+      <div class="ex rise" data-ex="iknow"></div>
+
+      <div class="lesson rise">
+        <span class="kicker">AI hỗ trợ soạn thảo văn bản</span>
+        <h3>Quy trình 5 bước: 4 bước do cán bộ làm</h3>
+        <div class="flow" style="margin-top:14px">
+          <div class="step human"><svg class="ico"><use href="#i-doc"/></svg><h4>Chuẩn bị thông tin</h4><p>Căn cứ, số liệu; đã ẩn danh</p></div>
+          <svg class="ico arrow"><use href="#i-arrow"/></svg>
+          <div class="step human"><svg class="ico"><use href="#i-key"/></svg><h4>Chọn thẻ Prompt</h4><p>Hoặc viết 5 thành phần</p></div>
+          <svg class="ico arrow"><use href="#i-arrow"/></svg>
+          <div class="step ai"><svg class="ico"><use href="#i-bolt"/></svg><h4>AI soạn nháp</h4><p>Góp ý 2–3 vòng</p></div>
+          <svg class="ico arrow"><use href="#i-arrow"/></svg>
+          <div class="step human"><svg class="ico"><use href="#i-search"/></svg><h4>Rà soát</h4><p>Nội dung, thể thức, văn phong</p></div>
+          <svg class="ico arrow"><use href="#i-arrow"/></svg>
+          <div class="step human"><svg class="ico"><use href="#i-check"/></svg><h4>Trình ký</h4><p>Lãnh đạo duyệt, phát hành</p></div>
+        </div>
+        <div class="legend"><span><i style="background:var(--hero)"></i>Cán bộ thực hiện</span><span><i style="background:var(--blue-soft);border:1px solid var(--blue)"></i>AI hỗ trợ</span></div>
+      </div>
+
+      <div class="ex rise" data-ex="structure"></div>
+
+      <div class="lesson rise">
+        <span class="kicker">Hiệu chỉnh văn bản, chuẩn hóa thể thức</span>
+        <h3>Thể thức theo Nghị định 30/2020/NĐ-CP</h3>
+        <p class="sub">AI viết nội dung; căn lề, phông chữ dùng tệp mẫu chuẩn của đơn vị trong Word. Số và ký hiệu do văn thư cấp theo sổ văn bản đi.</p>
+        <div class="grid g3">
+          <div class="tile"><span class="n">KHỔ GIẤY</span><h4>A4 (210 × 297 mm)</h4></div>
+          <div class="tile"><span class="n">PHÔNG CHỮ</span><h4>Times New Roman, Unicode</h4></div>
+          <div class="tile"><span class="n">CỠ CHỮ NỘI DUNG</span><h4>13 – 14</h4></div>
+          <div class="tile"><span class="n">LỀ TRÊN, LỀ DƯỚI</span><h4>20 – 25 mm</h4></div>
+          <div class="tile"><span class="n">LỀ TRÁI</span><h4>30 – 35 mm</h4></div>
+          <div class="tile"><span class="n">LỀ PHẢI</span><h4>15 – 20 mm</h4></div>
+        </div>
+      </div>
+
+      <div class="ex rise" data-ex="layout"></div>
+
+      <div class="lesson rise">
+        <span class="kicker">Hiệu chỉnh văn phong hành chính</span>
+        <h3>Trước và sau</h3>
+        <div class="stack" style="gap:10px;margin-top:12px">
+          <div class="grid g2" style="gap:10px"><div class="tile"><i>“Mong bà con nhớ đi họp đầy đủ nha, rất quan trọng đó!”</i></div><div class="tile" style="background:var(--good-soft);border-color:transparent">“Đề nghị các hộ gia đình cử đại diện tham dự cuộc họp đầy đủ, đúng giờ.”</div></div>
+          <div class="grid g2" style="gap:10px"><div class="tile"><i>“Các thôn nộp báo cáo gấp, chậm là bị phê bình.”</i></div><div class="tile" style="background:var(--good-soft);border-color:transparent">“Đề nghị Trưởng các thôn gửi báo cáo về UBND xã trước ngày [ ].”</div></div>
+        </div>
+      </div>
+
+      <div class="ex rise" data-ex="abbr"></div>
+      <div class="ex rise" data-ex="tone"></div>
+      <div class="ex rise" data-ex="draft"></div>
+    </div>
+  </div>
+</section>
+
+<!-- BUỔI 2 -->
+<section class="sec" id="buoi-2">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-no">02</div>
+      <div>
+        <h2>AI hỗ trợ xử lý tài liệu và cuộc họp</h2>
+        <div class="when">Buổi 2 (Chiều) · 14h00 đến 16h00 ngày 30/10/2026</div>
+      </div>
+      <div class="badge" data-badge="2"></div>
+    </div>
+    <div class="stack">
+      <div class="lesson rise">
+        <span class="kicker">Tóm tắt văn bản</span>
+        <h3>3 mức tóm tắt cho 3 nhu cầu</h3>
+        <div class="grid g3" style="margin-top:12px">
+          <div class="tile"><span class="n">MỨC 1 · 1 CÂU</span><h4>“Văn bản yêu cầu xã làm gì, trước ngày nào?”</h4><p>Vào sổ văn bản đến, phân loại, chuyển xử lý.</p></div>
+          <div class="tile"><span class="n">MỨC 2 · 5 Ý CHÍNH</span><h4>“Tóm tắt thành 5 ý, mỗi ý không quá 2 dòng.”</h4><p>Báo cáo nhanh lãnh đạo, chuẩn bị họp.</p></div>
+          <div class="tile dark"><span class="n" style="color:var(--accent)">MỨC 3 · BẢNG NHIỆM VỤ</span><h4>“Nhiệm vụ – Bộ phận tham mưu – Thời hạn – Điều, khoản.”</h4><p>Tham mưu kế hoạch triển khai văn bản cấp trên.</p></div>
+        </div>
+        <div class="note blue" style="margin-top:14px"><svg class="ico"><use href="#i-lock"/></svg><span>Câu chốt an toàn: “Chỉ dựa vào văn bản; không có thông tin thì ghi <b>Văn bản không nêu</b>.” Văn bản mật không tải lên AI công cộng.</span></div>
+      </div>
+
+      <div class="ex rise" data-ex="sumlevel"></div>
+
+      <div class="lesson rise">
+        <span class="kicker">Tra cứu thông tin</span>
+        <h3>Hỏi đúng nơi, kiểm tra đúng nguồn</h3>
+        <div class="grid g2" style="margin-top:12px">
+          <div class="tile"><span class="tag blue">Trợ lý chung</span><h4>Kiến thức chung, gợi ý cách làm</h4><p>Có thể chưa cập nhật, có thể bịa nguồn. Bật tìm kiếm web, yêu cầu dẫn đường link.</p></div>
+          <div class="tile"><span class="tag green">Trên tài liệu của mình</span><h4>VNPT iKnow, NotebookLM</h4><p>Trả lời dựa trên văn bản đã tải lên, trích dẫn đoạn gốc. Phù hợp văn bản pháp luật, chỉ đạo.</p></div>
+        </div>
+        <p class="mm">Nguồn chính thống: Cơ sở dữ liệu quốc gia về văn bản pháp luật (vbpl.vn), Cổng Dịch vụ công quốc gia, Cổng thông tin điện tử của tỉnh.</p>
+      </div>
+
+      <div class="ex rise" data-ex="detect"></div>
+      <div class="ex rise" data-ex="where"></div>
+
+      <div class="lesson rise">
+        <span class="kicker">Tóm tắt nội dung cuộc họp từ ghi âm hoặc biên bản</span>
+        <h3>Từ ghi âm đến 3 sản phẩm sau cuộc họp</h3>
+        <svg viewBox="0 0 1000 150" style="width:100%;height:auto;margin-top:8px" role="img" aria-label="Sơ đồ: ghi âm, chép lời, làm sạch, tóm tắt, rồi biên bản, kết luận, danh sách nhiệm vụ">
+          <path style="stroke:var(--line)" d="M80 60 H700" stroke-width="4"/>
+          <path style="stroke:var(--accent)" d="M700 60 C 760 60, 760 25, 820 25 M700 60 H820 M700 60 C 760 60, 760 95, 820 95" fill="none" stroke-width="3" class="dash-flow"/>
+          <circle r="8" class="travel" style="fill:var(--blue);offset-path:path('M80 60 H700')"/>
+          <g font-family="Be Vietnam Pro, Arial, sans-serif" text-anchor="middle" font-size="15">
+            <circle style="fill:var(--surface);stroke:var(--line)" cx="80" cy="60" r="30" stroke-width="2"/><text style="fill:var(--ink)" x="80" y="65" font-weight="700">1</text><text style="fill:var(--ink)" x="80" y="118" font-weight="600">Ghi âm</text>
+            <circle style="fill:var(--blue-soft)" cx="287" cy="60" r="30"/><text style="fill:var(--blue)" x="287" y="65" font-weight="700">2</text><text style="fill:var(--ink)" x="287" y="118" font-weight="600">Chép lời</text>
+            <circle style="fill:var(--hero)" cx="493" cy="60" r="30"/><text x="493" y="65" font-weight="700" fill="#EBA640">3</text><text style="fill:var(--ink)" x="493" y="118" font-weight="600">Cán bộ làm sạch</text>
+            <circle style="fill:var(--blue-soft)" cx="700" cy="60" r="30"/><text style="fill:var(--blue)" x="700" y="65" font-weight="700">4</text><text style="fill:var(--ink)" x="700" y="118" font-weight="600">Tóm tắt</text>
+            <g style="fill:var(--ink)" text-anchor="start" font-weight="600">
+              <rect style="fill:var(--hero)" x="822" y="10" width="160" height="30" rx="8"/><text x="836" y="30" fill="#F2F5F1">Biên bản họp</text>
+              <rect style="fill:var(--hero)" x="822" y="80" width="160" height="30" rx="8"/><text x="836" y="100" fill="#F2F5F1">Danh sách nhiệm vụ</text>
+              <rect style="fill:var(--accent)" x="822" y="45" width="160" height="30" rx="8"/><text x="836" y="65" fill="#1C1406">Kết luận cuộc họp</text>
+            </g>
+          </g>
+        </svg>
+        <div class="grid g2" style="margin-top:10px">
+          <div class="note"><svg class="ico"><use href="#i-mic"/></svg><span>Được chủ trì đồng ý trước khi ghi âm; người phát biểu nêu tên, chức vụ. Họp nội dung mật: không dùng AI công cộng.</span></div>
+          <div class="note blue"><svg class="ico"><use href="#i-wrench"/></svg><span>Bước làm sạch do cán bộ thực hiện: chép lời tiếng Việt hay sai tên người, địa danh và con số.</span></div>
+        </div>
+      </div>
+
+      <div class="ex rise" data-ex="meeting"></div>
+      <div class="ex rise" data-ex="transcript"></div>
+
+      <div class="lesson rise">
+        <span class="kicker">Xây dựng biên bản họp, kết luận cuộc họp</span>
+        <h3>Biên bản khác thông báo kết luận thế nào?</h3>
+        <div class="table-wrap" style="margin-top:12px">
+          <table>
+            <thead><tr><th style="width:20%"></th><th>Biên bản họp</th><th>Thông báo kết luận</th></tr></thead>
+            <tbody>
+              <tr><td><b>Ghi nhận</b></td><td>Toàn bộ diễn biến, ý kiến từng người</td><td>Chỉ ý kiến kết luận của chủ trì</td></tr>
+              <tr><td><b>Ký</b></td><td>Thư ký và Chủ trì</td><td>Người có thẩm quyền ban hành</td></tr>
+              <tr><td><b>Mục đích</b></td><td>Lưu hồ sơ, làm bằng chứng</td><td>Giao việc, chỉ đạo thực hiện</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="mm">AI được sửa câu chữ, không được thay đổi ý kiến của người phát biểu.</p>
+      </div>
+
+      <div class="ex rise" data-ex="minutes"></div>
+      <div class="ex rise" data-ex="tasks"></div>
+    </div>
+  </div>
+</section>
+
+<!-- BUỔI 3 -->
+<section class="sec" id="buoi-3">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-no">03</div>
+      <div>
+        <h2>AI hỗ trợ báo cáo và trình chiếu</h2>
+        <div class="when">Buổi 3 (Sáng) · 08h30 đến 10h30 ngày 31/10/2026</div>
+      </div>
+      <div class="badge" data-badge="3"></div>
+    </div>
+    <div class="stack">
+      <div class="lesson rise">
+        <span class="kicker">AI hỗ trợ lập báo cáo tháng, quý, năm và báo cáo chuyên đề</span>
+        <h3>Bảng tính giữ con số. AI viết lời nhận xét.</h3>
+        <div class="grid g2" style="margin-top:12px;align-items:start">
+          <div>
+            <ol class="list">
+              <li><b>Thu thập</b> số liệu các phòng, thôn theo một biểu mẫu</li>
+              <li><b>Tổng hợp</b> vào Excel, dùng công thức tính tổng, tỷ lệ</li>
+              <li><b>AI phân tích</b>: so kỳ trước, cùng kỳ, xu hướng</li>
+              <li><b>AI viết nháp</b> theo đề cương: I. Kết quả; II. Tồn tại, nguyên nhân; III. Nhiệm vụ; IV. Kiến nghị</li>
+              <li><b>Kiểm tra</b> từng con số với bảng gốc, trình ký</li>
+            </ol>
+            <div class="note" style="margin-top:14px"><svg class="ico"><use href="#i-bolt"/></svg><span>Câu bắt buộc trong prompt báo cáo: “<b>Chỉ dùng số liệu được cung cấp</b>, không tự thêm.”</span></div>
+          </div>
+          <div class="tile" style="background:var(--surface)">
+            <span class="n">HỒ SƠ TTHC THEO QUÝ · SỐ LIỆU GIẢ ĐỊNH</span>
+            <h4 style="margin-bottom:12px">Hồ sơ trực tuyến lần đầu vượt trực tiếp ở Quý III</h4>
+            <div class="bars" aria-label="Biểu đồ cột chồng: Quý I 420 trực tiếp, 180 trực tuyến; Quý II 380 và 260; Quý III 310 và 350">
+              <div class="bar"><span class="tot">600</span><div class="s on" style="height:54px;animation-delay:.1s">180</div><div class="s off" style="height:126px">420</div></div>
+              <div class="bar"><span class="tot">640</span><div class="s on" style="height:78px;animation-delay:.3s">260</div><div class="s off" style="height:114px;animation-delay:.2s">380</div></div>
+              <div class="bar"><span class="tot">660</span><div class="s on" style="height:105px;animation-delay:.5s">350</div><div class="s off" style="height:93px;animation-delay:.4s">310</div></div>
+            </div>
+            <div class="bar-x"><span>Quý I</span><span>Quý II</span><span>Quý III</span></div>
+            <div class="legend"><span><i style="background:var(--blue)"></i>Nộp trực tiếp</span><span><i style="background:var(--accent)"></i>Nộp trực tuyến</span></div>
+            <p class="mm">AI nhận xét: tổng hồ sơ tăng 10% (600 lên 660); tỷ lệ trực tuyến tăng từ 30% lên 53%.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="ex rise" data-ex="sections"></div>
+      <div class="ex rise" data-ex="numbers"></div>
+      <div class="ex rise" data-ex="calc"></div>
+
+      <div class="lesson rise">
+        <span class="kicker">Trình bày báo cáo</span>
+        <h3>Chọn biểu đồ theo điều muốn nói</h3>
+        <div class="grid g4" style="margin-top:12px">
+          <div class="tile"><h4>Biểu đồ cột</h4><p>So sánh giữa các thôn, lĩnh vực</p></div>
+          <div class="tile"><h4>Biểu đồ đường</h4><p>Xu hướng theo tháng, quý, năm</p></div>
+          <div class="tile"><h4>Thanh 100%</h4><p>Cơ cấu, tỷ trọng (tối đa 5 nhóm)</p></div>
+          <div class="tile"><h4>Thanh tiến độ</h4><p>Kết quả so với kế hoạch</p></div>
+        </div>
+        <p class="mm">1 biểu đồ – 1 thông điệp; tiêu đề nêu kết luận; ghi đơn vị và nguồn số liệu.</p>
+      </div>
+
+      <div class="ex rise" data-ex="charts"></div>
+
+      <div class="lesson rise">
+        <span class="kicker">Thiết kế bài trình chiếu (PowerPoint) phục vụ hội nghị, họp giao ban, báo cáo lãnh đạo</span>
+        <h3>6 nguyên tắc và 3 bố cục</h3>
+        <div class="grid g3" style="margin-top:12px">
+          <div class="tile"><h4>Một slide – một ý</h4><p>Tiêu đề là câu kết luận.</p></div>
+          <div class="tile"><h4>Chữ đủ to</h4><p>Nội dung từ 24pt.</p></div>
+          <div class="tile"><h4>Tối đa 6 dòng</h4><p>Nhiều hơn thì tách slide.</p></div>
+          <div class="tile"><h4>Số liệu thành biểu đồ</h4><p>Không dán bảng dày đặc.</p></div>
+          <div class="tile"><h4>Màu thống nhất</h4><p>Nền sáng, chữ tối, 1 màu nhấn.</p></div>
+          <div class="tile"><h4>1 phút – 1 slide</h4><p>Trình bày 10 phút: khoảng 10 slide.</p></div>
+        </div>
+        <div class="grid g3" style="margin-top:12px">
+          <div class="tile dark"><span class="n" style="color:var(--accent)">HỘI NGHỊ · 10–15 SLIDE</span><p>Kết quả nổi bật → từng lĩnh vực → tồn tại → phương hướng</p></div>
+          <div class="tile dark"><span class="n" style="color:var(--accent)">GIAO BAN · 5–7 SLIDE</span><p>Đã làm → chậm, vướng → kỳ tới → xin ý kiến</p></div>
+          <div class="tile dark"><span class="n" style="color:var(--accent)">BÁO CÁO LÃNH ĐẠO · 3–5 SLIDE</span><p>Đề xuất ngay đầu → số liệu chứng minh → phương án → kiến nghị</p></div>
+        </div>
+      </div>
+
+      <div class="ex rise" data-ex="slides"></div>
+      <div class="ex rise" data-ex="trim"></div>
+    </div>
+  </div>
+</section>
+
+<!-- BUỔI 4 -->
+<section class="sec" id="buoi-4">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-no">04</div>
+      <div>
+        <h2>AI hỗ trợ truyền thông và thực hành tổng hợp</h2>
+        <div class="when">Buổi 4 (Chiều) · 14h00 đến 16h00 ngày 31/10/2026</div>
+      </div>
+      <div class="badge" data-badge="4"></div>
+    </div>
+    <div class="stack">
+      <div class="lesson rise">
+        <span class="kicker">Tạo hình ảnh, infographic, banner phục vụ tuyên truyền</span>
+        <h3>Chọn khổ hình trước khi tạo</h3>
+        <div class="grid g4" style="margin-top:12px;align-items:end">
+          <div class="tile" style="text-align:center"><div style="width:90px;height:90px;margin:0 auto 10px;background:var(--blue);border-radius:6px;display:grid;place-items:center;color:var(--bg);font-weight:700">1:1</div><h4>Hình ảnh</h4><p>Bài đăng Zalo, Facebook, trang thông tin</p></div>
+          <div class="tile" style="text-align:center"><div style="width:80px;height:100px;margin:0 auto 10px;background:var(--hero);border-radius:6px;display:grid;place-items:center;color:#F2F5F1;font-weight:700">4:5</div><h4>Infographic</h4><p>Quy trình, các bước thủ tục</p></div>
+          <div class="tile" style="text-align:center"><div style="width:150px;max-width:100%;height:50px;margin:0 auto 10px;background:var(--accent);border-radius:6px;display:grid;place-items:center;color:var(--on-accent);font-weight:700">3:1</div><h4>Banner</h4><p>Băng rôn, ảnh bìa; màn hình hội trường 16:9</p></div>
+          <div class="tile" style="text-align:center"><div style="width:60px;height:106px;margin:0 auto 10px;background:var(--good);border-radius:10px;display:grid;place-items:center;color:var(--bg);font-weight:700">9:16</div><h4>Video ngắn</h4><p>30–90 giây, xem trên điện thoại</p></div>
+        </div>
+        <div class="grid g3" style="margin-top:16px">
+          <div class="tile"><span class="n">CÔNG THỨC CÂU LỆNH ẢNH</span><p>Chủ thể · Bối cảnh · Phong cách · Màu sắc · Bố cục, tỉ lệ · Điều cần tránh</p></div>
+          <div class="tile"><span class="n">CHỮ TIẾNG VIỆT</span><p>AI hay viết sai dấu: yêu cầu “không có chữ trong ảnh”, thêm chữ bằng Canva.</p></div>
+          <div class="tile"><span class="n">INFOGRAPHIC</span><p>AI viết nội dung → cán bộ duyệt → dựng trên Canva → rà chính tả, logo, nguồn.</p></div>
+        </div>
+      </div>
+
+      <div class="ex rise" data-ex="image"></div>
+      <div class="ex rise" data-ex="ratio"></div>
+      <div class="ex rise" data-ex="slogan"></div>
+
+      <div class="lesson rise">
+        <span class="kicker">Trước khi đăng</span>
+        <h3>5 lưu ý bắt buộc</h3>
+        <div class="grid g5" style="margin-top:12px">
+          <div class="tile"><h4>Chữ tiếng Việt</h4><p>Sửa dấu, thêm chữ bằng Canva.</p></div>
+          <div class="tile"><h4>Không giả người thật</h4><p>Không tạo hình, giọng nói lãnh đạo hay người dân cụ thể.</p></div>
+          <div class="tile"><h4>Biểu tượng quốc gia</h4><p>Quốc kỳ, Quốc huy, bản đồ: dùng hình chuẩn chính thức.</p></div>
+          <div class="tile"><h4>Gắn nhãn AI</h4><p>“Ảnh minh hoạ tạo bằng AI”.</p></div>
+          <div class="tile"><h4>Bản quyền</h4><p>Ảnh tự chụp, ảnh có giấy phép.</p></div>
+        </div>
+      </div>
+
+      <div class="ex rise" data-ex="publish"></div>
+
+      <div class="lesson rise">
+        <span class="kicker">Tạo video ngắn phục vụ truyền thông và hướng dẫn thủ tục hành chính</span>
+        <h3>6 bước làm video ngắn</h3>
+        <div class="flow" style="margin-top:12px">
+          <div class="step ai"><svg class="ico"><use href="#i-doc"/></svg><h4>Kịch bản</h4><p>Cảnh – hình – lời đọc</p></div>
+          <div class="step ai"><svg class="ico"><use href="#i-mic"/></svg><h4>Lời đọc</h4><p>Giọng AI hoặc tự thu</p></div>
+          <div class="step"><svg class="ico"><use href="#i-image"/></svg><h4>Hình ảnh</h4><p>Quay thật, ảnh minh hoạ</p></div>
+          <div class="step"><svg class="ico"><use href="#i-play"/></svg><h4>Dựng</h4><p>CapCut, Canva</p></div>
+          <div class="step"><svg class="ico"><use href="#i-chat"/></svg><h4>Phụ đề</h4><p>Tự động, sửa lỗi</p></div>
+          <div class="step human"><svg class="ico"><use href="#i-check"/></svg><h4>Duyệt, đăng</h4><p>Gắn nhãn AI nếu cần</p></div>
+        </div>
+      </div>
+
+      <div class="ex rise" data-ex="video"></div>
+      <div class="ex rise" data-ex="project"></div>
+
+      <div class="lesson rise" style="background:var(--hero);border-color:var(--hero)">
+        <span class="kicker" style="color:var(--accent)">Thực hành xây dựng sản phẩm hoàn chỉnh trên dữ liệu của đơn vị · 45 phút</span>
+        <h3 style="color:var(--hero-text)">Mỗi nhóm một chủ đề thật, 5 sản phẩm</h3>
+        <div class="grid g5" style="margin-top:14px">
+          <div class="tile" style="background:var(--hero-2);border:0"><h4 style="color:var(--hero-text)">Văn bản</h4><p style="color:var(--hero-muted)">Kế hoạch hoặc công văn triển khai</p></div>
+          <div class="tile" style="background:var(--hero-2);border:0"><h4 style="color:var(--hero-text)">Báo cáo</h4><p style="color:var(--hero-muted)">Có 1 biểu đồ</p></div>
+          <div class="tile" style="background:var(--hero-2);border:0"><h4 style="color:var(--hero-text)">Slide</h4><p style="color:var(--hero-muted)">5–7 slide báo cáo lãnh đạo</p></div>
+          <div class="tile" style="background:var(--hero-2);border:0"><h4 style="color:var(--hero-text)">Hình ảnh</h4><p style="color:var(--hero-muted)">Banner hoặc infographic</p></div>
+          <div class="tile" style="background:var(--hero-2);border:0"><h4 style="color:var(--hero-text)">Video</h4><p style="color:var(--hero-muted)">30–60 giây</p></div>
+        </div>
+        <p style="color:var(--hero-muted);margin-top:14px;font-size:15px">Chấm 100 điểm: đúng nội dung, số liệu 30 · đúng thể thức, văn phong 25 · tính ứng dụng 25 · an toàn thông tin 20.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- THỬ THÁCH -->
+<section class="sec" id="thu-thach">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-no"><svg class="ico" style="width:56px;height:56px"><use href="#i-flag"/></svg></div>
+      <div>
+        <h2>Thử thách tình huống thực tế</h2>
+        <div class="when">Ngân hàng 24 tình huống ở xã · mỗi lượt rút ngẫu nhiên 10 · làm nhiều lần không trùng</div>
+      </div>
+      <div class="badge" data-badge="5"></div>
+    </div>
+    <div class="ex rise" data-ex="challenge"></div>
+  </div>
+</section>
+
+<!-- KIỂM TRA -->
+<section class="sec" id="kiem-tra">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-no"><svg class="ico" style="width:56px;height:56px"><use href="#i-check"/></svg></div>
+      <div>
+        <h2>Kiểm tra, đánh giá và tổng kết khóa học</h2>
+        <div class="when">Bài kiểm tra đánh giá trực tuyến · 20 câu · 15 phút · đạt từ 70%</div>
+      </div>
+      <div></div>
+    </div>
+    <div class="quiz" id="quiz"></div>
+  </div>
+</section>
+
+<!-- THƯ VIỆN -->
+<section class="sec" id="thu-vien">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-no"><svg class="ico" style="width:56px;height:56px"><use href="#i-copy"/></svg></div>
+      <div>
+        <h2>Thư viện Prompt mẫu</h2>
+        <div class="when">Bấm “Sao chép”, dán vào công cụ AI, điền phần trong [ ]</div>
+      </div>
+      <div></div>
+    </div>
+    <div class="lib-filter" id="libFilter" role="group" aria-label="Lọc theo nhóm"></div>
+    <div class="grid g3" id="lib"></div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p><b style="color:var(--ink)">Khóa đào tạo tập huấn AI nâng cao · Xã Ninh Sơn · 30–31/10/2026</b> · Học liệu tương tác SaigonLab.</p>
+    <p>Văn bản pháp luật cập nhật đến tháng 10/2026; kiểm tra lại văn bản mới nhất trước khi áp dụng. Số liệu trong bài tập là giả định để luyện tập. Tiến độ học lưu trên trình duyệt của bạn.</p>
+    <p><button class="btn ghost small" id="resetAll" type="button">Xóa tiến độ và làm lại từ đầu</button> <span id="resetMsg"></span></p>
+  </div>
+</footer>
+
+<script>
+(function(){
+'use strict';
+var KEY='lop-hoc-ai-ninh-son-v1';
+var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+function load(){try{var v=JSON.parse(localStorage.getItem(KEY));return v&&typeof v==='object'?v:{}}catch(e){return {}}}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}}
+var S=load(); S.done=S.done||{};
+function $(s,r){return (r||document).querySelector(s)}
+function $$(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s))}
+function h(tag,attrs,html){var e=document.createElement(tag);if(attrs)for(var k in attrs){if(k==='class')e.className=attrs[k];else e.setAttribute(k,attrs[k])}if(html!=null)e.innerHTML=html;return e}
+function icon(id,cls){return '<svg class="ico '+(cls||'')+'"><use href="#i-'+id+'"/></svg>'}
+function shuffle(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t}return a}
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+function ph(s){return esc(s).replace(/\[([^\]]*)\]/g,'<span class="ph">[$1]</span>')}
+function shake(el){if(reduce)return;el.classList.remove('shake');void el.offsetWidth;el.classList.add('shake')}
+function pop(el){if(reduce)return;el.classList.remove('pop');void el.offsetWidth;el.classList.add('pop')}
+
+/* Hiệu ứng pháo giấy */
+var fx=$('#fx'),ctx=fx.getContext('2d'),parts=[],raf=0;
+function sizeFx(){var d=window.devicePixelRatio||1;fx.width=innerWidth*d;fx.height=innerHeight*d;ctx.setTransform(d,0,0,d,0,0)}
+sizeFx();addEventListener('resize',sizeFx);
+function burst(x,y,n){if(reduce)return;var cols=['#D98A1C','#EBA640','#2A63A0','#2B774A','#F2F5F1'];for(var i=0;i<(n||60);i++){var a=Math.random()*Math.PI*2,v=3+Math.random()*6;parts.push({x:x,y:y,vx:Math.cos(a)*v,vy:Math.sin(a)*v-4,g:.22,s:4+Math.random()*5,r:Math.random()*6,vr:(Math.random()-.5)*.3,c:cols[i%cols.length],life:70+Math.random()*30})}if(!raf)raf=requestAnimationFrame(tick)}
+function tick(){ctx.clearRect(0,0,innerWidth,innerHeight);parts=parts.filter(function(p){return p.life>0});parts.forEach(function(p){p.vy+=p.g;p.x+=p.vx;p.y+=p.vy;p.vx*=.99;p.r+=p.vr;p.life--;ctx.save();ctx.globalAlpha=Math.min(1,p.life/30);ctx.translate(p.x,p.y);ctx.rotate(p.r);ctx.fillStyle=p.c;ctx.fillRect(-p.s/2,-p.s/3,p.s,p.s*.66);ctx.restore()});raf=parts.length?requestAnimationFrame(tick):0}
+function burstAt(el){var r=el.getBoundingClientRect();burst(r.left+r.width/2,r.top+Math.min(r.height/2,120),70)}
+var tT;function toast(msg){var t=$('#toast');t.innerHTML=icon('star')+' '+msg;t.classList.add('show');clearTimeout(tT);tT=setTimeout(function(){t.classList.remove('show')},3200)}
+
+/* Đăng ký bài tập */
+var REG=[]; // {id,session,el,max}
+var SESSION_OF={safety:0,anon:0,tools:1,builder:1,builder2:1,fixprompt:1,template:1,iknow:1,structure:1,layout:1,abbr:1,tone:1,draft:1,sumlevel:2,detect:2,where:2,meeting:2,transcript:2,minutes:2,tasks:2,sections:3,numbers:3,calc:3,charts:3,slides:3,trim:3,image:4,ratio:4,slogan:4,publish:4,video:4,project:4,challenge:5};
+var BADGE_NAMES=['Người dùng AI an toàn','Người giao việc giỏi','Thám tử tài liệu','Bậc thầy số liệu','Người truyền thông số','Chuyên gia xử lý tình huống'];
+function shell(el,cfg){
+  el.innerHTML='<div class="ex-head"><span class="ex-tag">Bài tập '+cfg.no+'</span><h3>'+cfg.title+'</h3><span class="ex-pts" data-pts></span></div>'+
+  '<p class="ex-lead">'+cfg.lead+'</p><div class="ex-body"></div><div class="ex-foot"><div class="fb" role="status" aria-live="polite"></div><div class="ex-actions"></div></div>';
+  var o={el:el,id:cfg.id,body:$('.ex-body',el),fb:$('.fb',el),act:$('.ex-actions',el),pts:$('[data-pts]',el)};
+  REG.push({id:cfg.id,session:SESSION_OF[cfg.id]});
+  showPts(o);return o;
+}
+function showPts(o){var d=S.done[o.id];if(d!=null){o.pts.className='ex-pts done';o.pts.innerHTML=icon('check')+' Đã làm · '+d+'/10 điểm'}else{o.pts.className='ex-pts';o.pts.textContent='10 điểm'}}
+function fb(o,kind,html){o.fb.className='fb '+(kind||'');o.fb.innerHTML=(kind==='ok'?icon('check'):kind==='bad'?icon('x'):'')+'<span>'+html+'</span>'}
+function award(o,score){
+  score=Math.max(0,Math.min(10,Math.round(score)));
+  var prevSessionDone=sessionDone(SESSION_OF[o.id]);
+  var prev=S.done[o.id];S.done[o.id]=prev==null?score:Math.max(prev,score);save();showPts(o);updateProgress();
+  if(score>=8)burstAt(o.el);
+  var s=SESSION_OF[o.id];
+  if(!prevSessionDone&&sessionDone(s)){setTimeout(function(){toast('Mở khóa huy hiệu: '+BADGE_NAMES[s])},600)}
+}
+function retryBtn(o,fn){var b=h('button',{class:'btn ghost',type:'button'},'Làm lại');b.onclick=fn;o.act.appendChild(b);return b}
+function sessionDone(s){var ids=Object.keys(SESSION_OF).filter(function(k){return SESSION_OF[k]===s});return ids.every(function(k){return S.done[k]!=null})}
+function updateProgress(){
+  var ids=Object.keys(SESSION_OF),n=ids.filter(function(k){return S.done[k]!=null}).length;
+  $('#progBar').style.width=(n/ids.length*100)+'%';$('#progTxt').textContent=n+'/'+ids.length;
+  $$('[data-badge]').forEach(function(b){
+    var s=+b.getAttribute('data-badge');var mine=ids.filter(function(k){return SESSION_OF[k]===s});var d=mine.filter(function(k){return S.done[k]!=null}).length;
+    var C=2*Math.PI*26,off=C*(1-d/mine.length),done=d===mine.length;
+    b.className='badge'+(done?' done':'');
+    b.innerHTML='<svg class="badge-ring" viewBox="0 0 64 64" aria-hidden="true"><circle class="bg" cx="32" cy="32" r="26"/><circle class="fg" cx="32" cy="32" r="26" stroke-dasharray="'+C.toFixed(1)+'" stroke-dashoffset="'+off.toFixed(1)+'"/><text x="32" y="37" text-anchor="middle">'+d+'/'+mine.length+'</text></svg><span>'+(done?'<b style="color:var(--good)">'+BADGE_NAMES[s]+'</b>':'Huy hiệu: '+BADGE_NAMES[s])+'</span>';
+  });
+}
+
+/* --- Thành phần: phân loại --- */
+function classify(o,items,cats){
+  function run(){
+    o.body.innerHTML='';o.act.innerHTML='';fb(o,'','');
+    var grid=h('div',{class:'grid g2'});o.body.appendChild(grid);var right=0,answered=0;
+    shuffle(items).forEach(function(it){
+      var c=h('div',{class:'cls-item'});c.innerHTML='<p class="q">'+it.q+'</p><div class="cls-btns"></div><div class="verdict"></div><p class="why">'+it.why+'</p>';
+      var bx=$('.cls-btns',c);
+      cats.forEach(function(cat,ci){var b=h('button',{class:'btn small',type:'button'},cat);b.onclick=function(){
+        if(c.dataset.done)return;c.dataset.done='1';answered++;var ok=ci===it.a;if(ok)right++;
+        c.classList.add(ok?'ok':'bad');ok?pop(c):shake(c);
+        $('.verdict',c).innerHTML=(ok?icon('check')+' Chính xác':icon('x')+' Đáp án: '+cats[it.a]);
+        $$('button',bx).forEach(function(x){x.disabled=true});
+        if(answered===items.length){var sc=right/items.length*10;fb(o,right/items.length>=.7?'ok':'bad','Đúng '+right+'/'+items.length+' tình huống.');award(o,sc);retryBtn(o,run)}
+        else fb(o,'','Đã làm '+answered+'/'+items.length);
+      };bx.appendChild(b)});
+      grid.appendChild(c);
+    });
+  }
+  run();
+}
+
+/* --- Thành phần: trắc nghiệm nhiều câu --- */
+function mcq(o,qs){
+  function run(){
+    o.body.innerHTML='';o.act.innerHTML='';fb(o,'','');var wrap=h('div',{class:'mcq'});o.body.appendChild(wrap);var right=0,done=0;
+    qs.forEach(function(q,qi){
+      var box=h('div',{class:'mcq-q'});box.innerHTML='<p class="q">'+(qi+1)+'. '+q.q+'</p><div class="opts"></div><p class="exp"></p>';
+      var opts=$('.opts',box);var order=shuffle(q.o.map(function(t,i){return {t:t,i:i}}));
+      order.forEach(function(op,k){var b=h('button',{class:'opt',type:'button'},'<span class="k">'+'ABCD'[k]+'</span><span>'+op.t+'</span>');b.onclick=function(){
+        if(box.classList.contains('answered'))return;box.classList.add('answered');done++;var ok=op.i===q.a;if(ok)right++;
+        b.classList.add(ok?'right':'wrong');if(!ok){shake(b);$$('.opt',opts).forEach(function(x,xi){if(order[xi].i===q.a)x.classList.add('right')})}else pop(b);
+        $$('.opt',opts).forEach(function(x){x.disabled=true});
+        $('.exp',box).innerHTML=(ok?'<b style="color:var(--good)">Chính xác.</b> ':'<b style="color:var(--bad)">Chưa đúng.</b> ')+q.e;
+        if(done===qs.length){fb(o,right/qs.length>=.7?'ok':'bad','Đúng '+right+'/'+qs.length+' câu.');award(o,right/qs.length*10);retryBtn(o,run)}
+      };opts.appendChild(b)});
+      wrap.appendChild(box);
+    });
+  }
+  run();
+}
+
+/* --- Thành phần: sắp xếp thứ tự --- */
+function order(o,steps,onDone){
+  function run(){
+    o.body.innerHTML='';o.act.innerHTML='';fb(o,'','Bấm các bước theo đúng thứ tự.');var miss=0,next=0;
+    var g=h('div',{class:'order'});g.innerHTML='<div><p class="kicker">Các bước (đã xáo trộn)</p><div class="pool"></div></div><div><p class="kicker">Thứ tự của bạn</p><div class="seq"><div class="seq-empty">Chưa có bước nào</div></div></div>';
+    o.body.appendChild(g);var pool=$('.pool',g),seq=$('.seq',g);
+    shuffle(steps.map(function(s,i){return {s:s,i:i}})).forEach(function(st){
+      var b=h('button',{class:'ob',type:'button'},st.s.t);b.onclick=function(){
+        if(st.i===next){next++;b.remove();var e=$('.seq-empty',seq);if(e)e.remove();var r=h('div',{class:'sq'},'<b>'+next+'</b><span>'+st.s.t+(st.s.d?' · <span style="color:var(--hero-muted)">'+st.s.d+'</span>':'')+'</span>');seq.appendChild(r);pop(r);
+          if(next===steps.length){var sc=10-miss*2;fb(o,sc>=8?'ok':'bad','Hoàn thành'+(miss?' với '+miss+' lần chọn sai.':' không sai bước nào.'));award(o,sc);if(onDone)onDone(o);retryBtn(o,run)}
+        }else{miss++;shake(b);fb(o,'bad','Chưa đúng: bước này chưa đến lượt.')}
+      };pool.appendChild(b);
+    });
+  }
+  run();
+}
+
+/* ========== DỮ LIỆU VÀ BÀI TẬP ========== */
+var no=0;function cfg(id,title,lead){no++;return {id:id,no:no,title:title,lead:lead}}
+
+// 1. Đèn xanh – đèn đỏ
+classify(shell($('[data-ex="safety"]'),cfg('safety','An toàn hay không an toàn?','Mỗi tình huống dưới đây là một việc cán bộ định làm với AI. Hãy chọn đèn xanh hoặc đèn đỏ.')),[
+ {q:'Dán Kế hoạch tuyên truyền đã đăng trên cổng thông tin xã để nhờ AI tóm tắt.',a:0,why:'Tài liệu đã công khai, không chứa dữ liệu cá nhân.'},
+ {q:'Dán danh sách hộ nghèo kèm số định danh cá nhân, số điện thoại để AI lập bảng.',a:1,why:'Lộ dữ liệu cá nhân của người dân, trái Luật Bảo vệ dữ liệu cá nhân 91/2025/QH15. Phải ẩn danh trước.'},
+ {q:'Thay họ tên bằng [Hộ A], [Hộ B] rồi nhờ AI tổng hợp số liệu theo thôn.',a:0,why:'Đã ẩn danh đúng cách.'},
+ {q:'Tải văn bản đóng dấu “Mật” lên trợ lý AI công cộng để viết báo cáo nhanh.',a:1,why:'Luật Bảo vệ bí mật nhà nước 2025 nghiêm cấm dùng AI xâm phạm bí mật nhà nước.'},
+ {q:'Dùng ngay số hiệu văn bản AI đưa ra làm căn cứ tờ trình, không tra lại.',a:1,why:'AI có thể bịa số hiệu. Phải tra trên vbpl.vn và đọc văn bản gốc.'},
+ {q:'Nhờ AI sửa chính tả bản thông báo lịch tiêm phòng cho đàn gia súc.',a:0,why:'Nội dung công khai, AI làm tốt việc sửa câu chữ.'},
+ {q:'Dùng AI tạo video giả giọng Chủ tịch xã đọc lời kêu gọi.',a:1,why:'Luật An ninh mạng 2025 cấm dùng AI giả mạo hình ảnh, giọng nói; Luật Trí tuệ nhân tạo yêu cầu gắn nhãn nội dung mô phỏng người thật.'},
+ {q:'Đăng ảnh minh hoạ AI kèm dòng “Ảnh minh hoạ tạo bằng AI”.',a:0,why:'Đã gắn nhãn đúng yêu cầu minh bạch.'}
+],['Đèn xanh: an toàn','Đèn đỏ: không an toàn']);
+
+// 2. Trình tạo câu lệnh
+(function(){
+  var o=shell($('[data-ex="builder"]'),cfg('builder','Lắp ráp câu lệnh 5 thành phần','Nhiệm vụ: nhờ AI soạn giấy mời họp giao ban tháng 11/2026 của UBND xã. Chọn một mảnh ghép cho mỗi thành phần và xem đồng hồ chất lượng thay đổi.'));
+  var slots=[
+    {k:'Vai trò',o:[['Bạn là chuyên viên Văn phòng HĐND và UBND xã Ninh Sơn.',20],['Bạn là một nhà thơ.',0],['(Bỏ qua thành phần này)',0]]},
+    {k:'Nhiệm vụ',o:[['Hãy soạn Giấy mời họp giao ban tháng 11/2026 của UBND xã.',20],['Viết cái gì đó về cuộc họp.',5],['Soạn bài phát biểu khai mạc hội nghị.',0]]},
+    {k:'Bối cảnh',o:[['Thành phần: lãnh đạo UBND xã, trưởng các phòng, trưởng thôn. Thời gian: [giờ, ngày]. Địa điểm: Hội trường UBND xã.',20],['Mời mọi người tới họp.',5],['Thành phần: ông Nguyễn Văn Bình, SĐT 0912 xxx xxx, nhà ở thôn 3…',0]]},
+    {k:'Yêu cầu',o:[['Đúng thể thức Nghị định 30/2020/NĐ-CP, văn phong hành chính, ngắn gọn.',20],['Viết thật hay vào.',5],['Viết càng dài càng tốt.',0]]},
+    {k:'Định dạng',o:[['Trình bày đủ Quốc hiệu – Tiêu ngữ, tên cơ quan, số ký hiệu, nội dung, nơi nhận.',20],['Dạng bảng tính Excel.',5],['Sao cũng được.',0]]}
+  ];
+  var sel=[];
+  var g=h('div',{class:'builder'});var left=h('div');var right=h('div',{class:'preview'});g.appendChild(left);g.appendChild(right);o.body.appendChild(g);
+  slots.forEach(function(s,si){var w=h('div',{class:'slot'});w.innerHTML='<div class="slot-h"><span class="d">'+(si+1)+'</span>'+s.k+'</div><div class="chips"></div>';
+    shuffle(s.o.map(function(x,i){return {t:x[0],v:x[1],i:i}})).forEach(function(op){var c=h('button',{class:'chip',type:'button'},esc(op.t));c.onclick=function(){sel[si]=op;$$('.chip',w).forEach(function(x){x.classList.remove('sel')});c.classList.add('sel');upd(si)};$('.chips',w).appendChild(c)});
+    left.appendChild(w)});
+  right.innerHTML='<div class="meter-l"><span>Chất lượng câu lệnh</span><span id="mv">0/100</span></div><div class="meter"><i id="mbar"></i></div><p id="mlabel" style="font-size:15px;color:var(--muted)">Chọn mảnh ghép để bắt đầu.</p><div class="prompt"><span class="lbl">CÂU LỆNH CỦA BẠN</span><div class="typed" id="typed"><span class="caret"></span></div></div>';
+  var typingTimer;
+  function full(){return slots.map(function(s,i){return sel[i]&&sel[i].v>=0&&sel[i].t.indexOf('(Bỏ qua')!==0?sel[i].t:''}).filter(Boolean).join(' ')}
+  function upd(changed){
+    var sc=sel.reduce(function(a,x){return a+(x?x.v:0)},0);$('#mv',right).textContent=sc+'/100';var bar=$('#mbar',right);bar.style.width=sc+'%';
+    bar.style.background=sc>=90?'var(--good)':sc>=50?'var(--accent)':'var(--bad)';
+    var bad=sel.filter(function(x){return x&&x.v===0}).length;
+    $('#mlabel',right).textContent=sc===100?'Xuất sắc: AI có đủ thông tin để soạn đúng ngay lần đầu.':bad?'Có mảnh ghép sai hoặc thiếu: AI sẽ phải đoán, hoặc làm sai việc.':sc>=50?'Khá: còn chỗ mơ hồ, AI sẽ tự điền.':'AI sẽ phải đoán rất nhiều.';
+    var txt=full();var el=$('#typed',right);clearTimeout(typingTimer);
+    if(reduce){el.innerHTML=ph(txt)+'<span class="caret"></span>';}else{var start=Math.max(0,txt.length-(sel[changed]?sel[changed].t.length:0));var i=start;(function step(){el.innerHTML=ph(txt.slice(0,i))+'<span class="caret"></span>';if(i<txt.length){i+=3;typingTimer=setTimeout(step,12)}})()}
+    if(sel.filter(Boolean).length===slots.length){done.disabled=false}
+  }
+  var done=h('button',{class:'btn primary',type:'button',disabled:''},'Nộp câu lệnh');o.act.appendChild(done);
+  var copy=h('button',{class:'btn ghost',type:'button'},icon('copy')+' Sao chép');o.act.appendChild(copy);
+  copy.onclick=function(){copyText(full(),copy)};
+  done.onclick=function(){var sc=sel.reduce(function(a,x){return a+(x?x.v:0)},0);
+    var tips=[];slots.forEach(function(s,i){if(sel[i]&&sel[i].v<20)tips.push(s.k)});
+    if(sc===100)fb(o,'ok','Hoàn hảo! Đủ 5 thành phần, không lộ dữ liệu cá nhân.');
+    else fb(o,'bad','Đạt '+sc+'/100. Cần sửa: '+tips.join(', ')+'.'+(sel[2]&&sel[2].v===0?' Lưu ý: không nhập số điện thoại, địa chỉ thật của người dân.':''));
+    award(o,sc/10);
+  };
+})();
+
+// 3. Bắt lỗi câu lệnh
+mcq(shell($('[data-ex="fixprompt"]'),cfg('fixprompt','Câu lệnh này thiếu gì?','Đọc từng câu lệnh và chọn điều cần bổ sung nhất.')),[
+ {q:'“Soạn công văn đôn đốc các thôn.”',o:['Bối cảnh: đôn đốc việc gì, căn cứ nào, thời hạn khi nào','Vai trò: “Bạn là nhà văn”','Không thiếu gì, AI tự hiểu'],a:0,e:'Thiếu nội dung, căn cứ, thời hạn thì AI sẽ tự bịa. Nên bổ sung cả vai trò và yêu cầu thể thức.'},
+ {q:'“Bạn là công chức Phòng Kinh tế. Viết báo cáo sản xuất nông nghiệp. Số liệu: [dán bảng].”',o:['Thêm hình ảnh minh hoạ','Yêu cầu và định dạng: đề cương, độ dài, chỉ dùng số liệu được cung cấp','Đổi vai trò thành chuyên gia quốc tế'],a:1,e:'Báo cáo cần đề cương rõ và câu “chỉ dùng số liệu được cung cấp” để AI không tự thêm số.'},
+ {q:'“Tóm tắt văn bản này.” (kèm Kế hoạch 25 trang của tỉnh)',o:['Mức tóm tắt và định dạng: 5 ý chính hay bảng nhiệm vụ của xã','Tăng cỡ chữ văn bản','Không cần thêm gì'],a:0,e:'Nêu rõ mục đích: “Lập bảng nhiệm vụ giao cho cấp xã: Nhiệm vụ – Thời hạn – Điều, khoản.”'},
+ {q:'“Viết bài tuyên truyền về bảo hiểm y tế hộ gia đình.”',o:['Người đọc, độ dài, giọng văn: bà con nông thôn, khoảng 300 chữ, gần gũi','Viết bằng tiếng Anh','Thêm thật nhiều thuật ngữ chuyên môn'],a:0,e:'Bài tuyên truyền cần nêu rõ đối tượng và giọng văn để dễ hiểu với người dân.'}
+]);
+
+// 4. Ghép thể thức
+(function(){
+  var o=shell($('[data-ex="layout"]'),cfg('layout','Đặt thành phần thể thức vào đúng chỗ','Bấm một nhãn bên trái, rồi bấm vào ô đúng vị trí trên trang văn bản A4.'));
+  var parts=[['qh','Quốc hiệu, Tiêu ngữ'],['cq','Tên cơ quan ban hành'],['so','Số, ký hiệu'],['dd','Địa danh, ngày tháng năm'],['tl','Tên loại, trích yếu'],['nd','Nội dung văn bản'],['nn','Nơi nhận'],['ck','Chức vụ, chữ ký, họ tên']];
+  var zones=[['cq','2'],['qh','1'],['so','3'],['dd','4'],['tl','5','z5'],['nd','6','z6'],['nn','9'],['ck','7']];
+  function run(){
+    o.body.innerHTML='';o.act.innerHTML='';fb(o,'','Chọn nhãn để bắt đầu.');var pick=null,miss=0,placed=0;
+    var g=h('div',{class:'place'});g.innerHTML='<div><p class="kicker">Nhãn</p><div class="tray"></div><p class="mm">Mẹo: Quốc hiệu bên phải, tên cơ quan bên trái; nơi nhận ở góc dưới bên trái.</p></div><div><div class="a4"></div></div>';
+    o.body.appendChild(g);var tray=$('.tray',g),a4=$('.a4',g);
+    shuffle(parts).forEach(function(p){var b=h('button',{class:'lab',type:'button','data-k':p[0]},p[1]);b.onclick=function(){$$('.lab',tray).forEach(function(x){x.classList.remove('sel')});b.classList.add('sel');pick=b;fb(o,'','Đã chọn: '+p[1]+'. Bấm vào ô trên trang.')};tray.appendChild(b)});
+    zones.forEach(function(z){var d=h('button',{class:'zone '+(z[2]||''),type:'button','aria-label':'Vị trí số '+z[1]},'?');d.onclick=function(){
+      if(d.classList.contains('filled'))return;if(!pick){fb(o,'bad','Hãy chọn một nhãn trước.');shake(d);return}
+      if(pick.getAttribute('data-k')===z[0]){d.classList.add('filled');d.textContent=pick.textContent;pick.classList.add('used');pick=null;placed++;pop(d);fb(o,'ok','Đúng vị trí!');
+        if(placed===zones.length){var sc=10-miss;fb(o,sc>=8?'ok':'bad','Hoàn thành trang văn bản'+(miss?', sai '+miss+' lần.':' không sai lần nào.'));award(o,sc);retryBtn(o,run)}}
+      else{miss++;shake(d);fb(o,'bad','Chưa đúng chỗ, thử ô khác.')}
+    };a4.appendChild(d)});
+  }
+  run();
+})();
+
+// 5. Ghép cặp chữ viết tắt
+(function(){
+  var o=shell($('[data-ex="abbr"]'),cfg('abbr','Ghép tên loại văn bản với chữ viết tắt','Theo Phụ lục III, Nghị định 30/2020/NĐ-CP. Bấm tên loại ở cột trái, rồi bấm chữ viết tắt ở cột phải.'));
+  var pairs=[['Thông báo','TB'],['Kế hoạch','KH'],['Tờ trình','TTr'],['Giấy mời','GM'],['Báo cáo','BC'],['Biên bản','BB']];
+  function run(){
+    o.body.innerHTML='';o.act.innerHTML='';fb(o,'','');var L=null,miss=0,ok=0;var g=h('div',{class:'match'});o.body.appendChild(g);
+    var ls=shuffle(pairs),rs=shuffle(pairs);
+    for(var i=0;i<pairs.length;i++){(function(l,r){
+      var a=h('button',{class:'mt',type:'button','data-k':l[1]},l[0]);var b=h('button',{class:'mt code',type:'button','data-k':r[1]},r[1]);
+      a.onclick=function(){if(a.classList.contains('ok'))return;$$('.mt:not(.code)',g).forEach(function(x){x.classList.remove('sel')});a.classList.add('sel');L=a};
+      b.onclick=function(){if(b.classList.contains('ok'))return;if(!L){shake(b);fb(o,'bad','Chọn tên loại ở cột trái trước.');return}
+        if(L.getAttribute('data-k')===b.getAttribute('data-k')){L.classList.remove('sel');L.classList.add('ok');b.classList.add('ok');pop(b);L=null;ok++;fb(o,'ok','Khớp!');
+          if(ok===pairs.length){var sc=10-miss*2;fb(o,sc>=8?'ok':'bad','Ghép xong 6 cặp'+(miss?', sai '+miss+' lần.':'.')+' Lưu ý: công văn không ghi tên loại, thể hiện qua trích yếu “V/v…”.');award(o,sc);retryBtn(o,run)}}
+        else{miss++;shake(b);shake(L);fb(o,'bad','Chưa khớp.')}};
+      g.appendChild(a);g.appendChild(b);
+    })(ls[i],rs[i])}
+  }
+  run();
+})();
+
+// 6. Thám tử ảo giác
+(function(){
+  var o=shell($('[data-ex="detect"]'),cfg('detect','Thám tử ảo giác','So bản tóm tắt AI với văn bản gốc. Bấm vào những đoạn AI viết sai hoặc tự thêm, rồi bấm “Kiểm tra”. Văn bản là giả định để luyện tập.'));
+  var segs=[['Kế hoạch đặt mục tiêu đến hết năm 2026,',0],['tỷ lệ hồ sơ trực tuyến cấp xã đạt từ 80% trở lên',1,'Văn bản gốc ghi 60%.'],[', căn cứ Thông tư số 15/2025/TT-BXX.',1,'Văn bản gốc không nêu căn cứ này; số hiệu do AI bịa.'],[' UBND cấp xã báo cáo kết quả về Sở trước ngày 15/12/2026.',0],[' Kinh phí do ngân sách tỉnh hỗ trợ 100%.',1,'Văn bản gốc ghi kinh phí từ ngân sách xã.'],[' Đề nghị các xã chủ động triển khai.',0]];
+  function run(){
+    o.body.innerHTML='';o.act.innerHTML='';fb(o,'','Đã đánh dấu 0 đoạn.');
+    var g=h('div',{class:'detect'});
+    g.innerHTML='<div class="doc"><div class="hd">VĂN BẢN GỐC (TRÍCH) · GIẢ ĐỊNH</div><p>Mục tiêu: đến hết năm 2026, tỷ lệ hồ sơ thủ tục hành chính cấp xã được tiếp nhận trực tuyến đạt từ <b>60%</b> trở lên. UBND cấp xã báo cáo kết quả về Sở trước ngày 15/12/2026. Kinh phí thực hiện từ nguồn <b>ngân sách xã</b>.</p></div><div class="ai-ans"><div class="hd">BẢN TÓM TẮT CỦA AI</div><p class="segs"></p></div>';
+    o.body.appendChild(g);var p=$('.segs',g);
+    segs.forEach(function(s,i){var sp=h('span',{class:'seg',tabindex:'0',role:'button','aria-pressed':'false'},esc(s[0]));function t(){if(p.dataset.lock)return;sp.classList.toggle('mk');sp.setAttribute('aria-pressed',sp.classList.contains('mk'));fb(o,'','Đã đánh dấu '+$$('.seg.mk',p).length+' đoạn.')}
+      sp.onclick=t;sp.onkeydown=function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();t()}};p.appendChild(sp);p.appendChild(document.createTextNode(' '))});
+    var chk=h('button',{class:'btn primary',type:'button'},'Kiểm tra');o.act.appendChild(chk);
+    chk.onclick=function(){p.dataset.lock='1';chk.remove();var tp=0,fp=0,notes=[];
+      $$('.seg',p).forEach(function(sp,i){var bad=segs[i][1],mk=sp.classList.contains('mk');sp.classList.remove('mk');
+        if(bad&&mk){tp++;sp.classList.add('r-ok');notes.push(segs[i][2])}else if(bad&&!mk){sp.classList.add('r-miss');notes.push('Bỏ sót: '+segs[i][2])}else if(!bad&&mk){fp++;sp.classList.add('r-bad')}});
+      var sc=Math.max(0,tp*10/3-fp*2);fb(o,tp===3&&!fp?'ok':'bad','Tìm đúng '+tp+'/3 lỗi'+(fp?', đánh dấu nhầm '+fp+' đoạn đúng':'')+'. '+notes.join(' '));award(o,sc);retryBtn(o,run)};
+  }
+  run();
+})();
+
+// 7. Quy trình cuộc họp
+order(shell($('[data-ex="meeting"]'),cfg('meeting','Sắp xếp quy trình xử lý cuộc họp','Từ lúc bắt đầu họp đến khi giao việc. Bấm các bước theo thứ tự đúng.')),[
+ {t:'Ghi âm (được chủ trì đồng ý)'},{t:'Chép lời thành văn bản'},{t:'Làm sạch: sửa tên người, địa danh, số liệu'},{t:'Tóm tắt theo từng vấn đề'},{t:'Soạn biên bản họp'},{t:'Thông báo kết luận và danh sách nhiệm vụ'}
+]);
+
+// 8. Biên bản hay kết luận
+classify(shell($('[data-ex="minutes"]'),cfg('minutes','Biên bản hay thông báo kết luận?','Mỗi đặc điểm thuộc loại văn bản nào?')),[
+ {q:'Ghi đầy đủ ý kiến phát biểu của từng đại biểu.',a:0,why:'Biên bản ghi nhận toàn bộ diễn biến.'},
+ {q:'Giao Phòng Kinh tế hoàn thành tờ trình trước ngày 15/11.',a:1,why:'Giao nhiệm vụ cụ thể là nội dung của thông báo kết luận.'},
+ {q:'Có chữ ký của Thư ký và Chủ trì cuộc họp.',a:0,why:'Biên bản do Thư ký và Chủ trì ký.'},
+ {q:'Gửi các phòng, thôn được giao nhiệm vụ để thực hiện.',a:1,why:'Thông báo kết luận gửi đơn vị thực hiện.'},
+ {q:'Ghi thời gian bắt đầu và kết thúc cuộc họp.',a:0,why:'Đây là thành phần bắt buộc của biên bản.'},
+ {q:'Chỉ nêu ý kiến kết luận của chủ trì.',a:1,why:'Thông báo kết luận chắt lọc phần chỉ đạo.'}
+],['Biên bản họp','Thông báo kết luận']);
+
+// 9. Kiểm tra số liệu
+(function(){
+  var o=shell($('[data-ex="numbers"]'),cfg('numbers','Soát lỗi bảng số liệu do AI lập','Bảng dưới đây có 3 ô sai. Bấm vào các ô bạn nghi ngờ rồi bấm “Kiểm tra”. Tự tính: Tỷ lệ = Thực hiện ÷ Kế hoạch.'));
+  var rows=[['Thôn 1',120,108,'90%'],['Thôn 2',150,120,'80%'],['Thôn 3',90,81,'95%'],['Thôn 4',140,126,'90%'],['Tổng',500,445,'89%']];
+  var wrong={'2-3':'Thôn 3: 81 ÷ 90 = 90%, không phải 95%.','4-2':'Tổng thực hiện: 108 + 120 + 81 + 126 = 435, không phải 445.','4-3':'Tổng tỷ lệ: 435 ÷ 500 = 87%, không phải 89%.'};
+  function run(){
+    o.body.innerHTML='';o.act.innerHTML='';fb(o,'','Đã chọn 0 ô.');
+    var w=h('div',{class:'table-wrap chk'});var t='<table><thead><tr><th>Thôn</th><th>Kế hoạch (hộ)</th><th>Thực hiện (hộ)</th><th>Tỷ lệ</th></tr></thead><tbody>';
+    rows.forEach(function(r,ri){t+='<tr>'+r.map(function(c,ci){return ci===0?'<td><b>'+c+'</b></td>':'<td class="c num" tabindex="0" data-k="'+ri+'-'+ci+'">'+c+'</td>'}).join('')+'</tr>'});
+    w.innerHTML=t+'</tbody></table>';o.body.appendChild(w);
+    var note=h('p',{class:'mm'},'Bảng giả định: số hộ tham gia bảo hiểm y tế hộ gia đình so với kế hoạch.');o.body.appendChild(note);
+    var lock=false;$$('td.c',w).forEach(function(td){function t(){if(lock)return;td.classList.toggle('mk');fb(o,'','Đã chọn '+$$('td.mk',w).length+' ô.')}td.onclick=t;td.onkeydown=function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();t()}}});
+    var chk=h('button',{class:'btn primary',type:'button'},'Kiểm tra');o.act.appendChild(chk);
+    chk.onclick=function(){lock=true;chk.remove();var tp=0,fp=0,notes=[];
+      $$('td.c',w).forEach(function(td){var k=td.getAttribute('data-k'),mk=td.classList.contains('mk');td.classList.remove('mk');
+        if(wrong[k]&&mk){tp++;td.classList.add('r-ok')}else if(wrong[k]){td.classList.add('r-miss')}else if(mk){fp++;td.classList.add('r-bad')}});
+      Object.keys(wrong).forEach(function(k){notes.push(wrong[k])});
+      fb(o,tp===3&&!fp?'ok':'bad','Tìm đúng '+tp+'/3 ô sai'+(fp?', chọn nhầm '+fp+' ô':'')+'.');
+      var ex=h('div',{class:'note blue',style:'margin-top:12px'},icon('chart')+'<span>'+notes.join(' ')+' Trong Excel: <b>=SUM(C2:C5)</b> cho tổng, <b>=C2/B2</b> cho tỷ lệ.</span>');o.body.appendChild(ex);
+      award(o,Math.max(0,tp*10/3-fp*2));retryBtn(o,run)};
+  }
+  run();
+})();
+
+// 10. Chọn biểu đồ
+(function(){
+  var o=shell($('[data-ex="charts"]'),cfg('charts','Chọn biểu đồ phù hợp','Mỗi tình huống, chọn loại biểu đồ truyền tải đúng thông điệp.'));
+  var C={cot:['Cột','<svg viewBox="0 0 86 46"><path d="M4 42h78" stroke="currentColor" stroke-width="2"/><rect style="fill:var(--blue)" x="10" y="22" width="12" height="20"/><rect style="fill:var(--blue)" x="30" y="10" width="12" height="32"/><rect style="fill:var(--blue)" x="50" y="26" width="12" height="16"/><rect style="fill:var(--accent)" x="70" y="6" width="12" height="36"/></svg>'],
+    duong:['Đường','<svg viewBox="0 0 86 46"><path d="M4 42h78" stroke="currentColor" stroke-width="2"/><polyline style="stroke:var(--blue)" points="6,36 24,30 42,24 60,16 80,6" fill="none" stroke-width="4"/></svg>'],
+    tram:['Thanh 100%','<svg viewBox="0 0 86 46"><rect style="fill:var(--blue)" x="4" y="8" width="40" height="12"/><rect style="fill:var(--accent)" x="44" y="8" width="24" height="12"/><rect style="fill:var(--muted)" x="68" y="8" width="14" height="12"/><rect style="fill:var(--blue)" x="4" y="26" width="30" height="12"/><rect style="fill:var(--accent)" x="34" y="26" width="34" height="12"/><rect style="fill:var(--muted)" x="68" y="26" width="14" height="12"/></svg>'],
+    tiendo:['Tiến độ','<svg viewBox="0 0 86 46"><rect style="fill:var(--surface-2)" x="4" y="8" width="78" height="10" rx="5"/><rect style="fill:var(--blue)" x="4" y="8" width="62" height="10" rx="5"/><rect style="fill:var(--surface-2)" x="4" y="28" width="78" height="10" rx="5"/><rect style="fill:var(--accent)" x="4" y="28" width="30" height="10" rx="5"/></svg>']};
+  var qs=[['So sánh số hộ tham gia bảo hiểm y tế giữa 8 thôn.','cot','So sánh giữa các nhóm: dùng biểu đồ cột.'],['Số hồ sơ trực tuyến qua 12 tháng của năm.','duong','Xu hướng theo thời gian: dùng biểu đồ đường.'],['Cơ cấu nguồn thu ngân sách xã gồm 3 nguồn.','tram','Cơ cấu, tỷ trọng ít nhóm: dùng thanh 100%.'],['Kết quả thu ngân sách so với kế hoạch năm.','tiendo','So với kế hoạch: dùng thanh tiến độ.']];
+  function run(){
+    o.body.innerHTML='';o.act.innerHTML='';fb(o,'','');var right=0,done=0;var wrap=h('div',{class:'mcq'});o.body.appendChild(wrap);
+    qs.forEach(function(q,qi){var box=h('div',{class:'mcq-q'});box.innerHTML='<p class="q">'+(qi+1)+'. '+q[0]+'</p><div class="charts"></div><p class="exp"></p>';
+      Object.keys(C).forEach(function(k){var b=h('button',{class:'cbtn',type:'button'},C[k][1]+'<span>'+C[k][0]+'</span>');b.onclick=function(){
+        if(box.classList.contains('answered'))return;box.classList.add('answered');done++;var ok=k===q[1];if(ok){right++;pop(b)}else shake(b);
+        b.classList.add(ok?'right':'wrong');$$('.cbtn',box).forEach(function(x,xi){x.disabled=true;if(Object.keys(C)[xi]===q[1])x.classList.add('right')});
+        $('.exp',box).innerHTML=(ok?'<b style="color:var(--good)">Chính xác.</b> ':'<b style="color:var(--bad)">Chưa đúng.</b> ')+q[2];
+        if(done===qs.length){fb(o,right>=3?'ok':'bad','Đúng '+right+'/4.');award(o,right/4*10);retryBtn(o,run)}};$('.charts',box).appendChild(b)});
+      wrap.appendChild(box)});
+  }
+  run();
+})();
+
+// 11. Slide
+mcq(shell($('[data-ex="slides"]'),cfg('slides','Bài trình chiếu: chọn cách làm đúng','Ba tình huống thường gặp khi dựng slide từ báo cáo.')),[
+ {q:'Tiêu đề nào tốt hơn cho slide biểu đồ hồ sơ theo quý?',o:['“Hồ sơ trực tuyến lần đầu vượt trực tiếp ở Quý III”','“Số liệu hồ sơ quý III”','“Biểu đồ 1”'],a:0,e:'Tiêu đề nên là câu kết luận, người xem hiểu ngay thông điệp.'},
+ {q:'AI tạo một slide giao ban có 14 dòng chữ. Nên làm gì?',o:['Giảm cỡ chữ xuống 12pt cho vừa','Tách thành 2–3 slide, mỗi slide một ý, tối đa 6 dòng','Giữ nguyên vì đủ thông tin'],a:1,e:'Hội trường cần chữ từ 24pt; nhiều ý thì tách slide.'},
+ {q:'Báo cáo lãnh đạo để xin chủ trương: đề xuất đặt ở đâu?',o:['Slide cuối cùng','Ngay đầu bài trình bày','Không cần nêu, lãnh đạo tự hiểu'],a:1,e:'Lãnh đạo cần biết ngay “xin gì, quyết định gì”, sau đó mới đến số liệu chứng minh.'}
+]);
+
+// 12. Trình tạo ảnh
+(function(){
+  var o=shell($('[data-ex="image"]'),cfg('image','Thiết kế câu lệnh tạo ảnh banner','Chọn từng thành phần và xem bản phác thảo thay đổi. Sau đó bấm “Kiểm tra theo yêu cầu”.'));
+  var P={subj:{l:'Chủ thể',o:[['canbo','Cán bộ hướng dẫn bà con nộp hồ sơ trên điện thoại'],['lua','Bà con nông dân thu hoạch lúa'],['canh','Chỉ có phong cảnh làng quê']]},
+    style:{l:'Phong cách',o:[['flat','Minh hoạ phẳng'],['photo','Ảnh chân thực'],['water','Tranh màu nước']]},
+    pal:{l:'Màu sắc',o:[['gr','Xanh lá – cam'],['bl','Xanh dương – trắng'],['ry','Đỏ – vàng']]},
+    ratio:{l:'Tỉ lệ khung',o:[['169','16:9'],['11','1:1'],['916','9:16'],['31','3:1']]},
+    title:{l:'Chỗ đặt tiêu đề',o:[['yes','Chừa khoảng trống phía trên'],['no','Không chừa']]},
+    text:{l:'Chữ trong ảnh',o:[['none','Không có chữ trong ảnh'],['vi','Có chữ tiếng Việt do AI viết']]}};
+  var v={subj:'canbo',style:'flat',pal:'gr',ratio:'11',title:'no',text:'vi'};
+  var g=h('div',{class:'imgb'});var L=h('div');var R=h('div',{style:'display:flex;flex-direction:column;gap:14px'});g.appendChild(L);g.appendChild(R);o.body.appendChild(g);
+  L.innerHTML='<div class="task">Yêu cầu: ảnh nền chiếu trên <b>màn hình hội trường</b> tuyên truyền <b>dịch vụ công trực tuyến</b>; khẩu hiệu sẽ thêm sau bằng Canva.</div>';
+  Object.keys(P).forEach(function(k){var w=h('div',{class:'slot',style:'margin-top:14px'});w.innerHTML='<div class="slot-h">'+P[k].l+'</div><div class="seg-row"></div>';
+    P[k].o.forEach(function(op){var c=h('button',{class:'chip'+(v[k]===op[0]?' sel':''),type:'button'},op[1]);c.onclick=function(){v[k]=op[0];$$('.chip',w).forEach(function(x){x.classList.remove('sel')});c.classList.add('sel');draw()};$('.seg-row',w).appendChild(c)});L.appendChild(w)});
+  R.innerHTML='<div class="stage" id="stage"></div><div class="prompt"><span class="lbl">CÂU LỆNH TẠO ẢNH</span><div id="imgPrompt"></div></div><ul class="req" id="req"></ul>';
+  var PAL={gr:{sky:'#CFE6D6',sky2:'#F3E2BF',ground:'#4E8A5E',ground2:'#3C7350',a:'#E39A2E',b:'#2A63A0',house:'#F7F3EA',roof:'#B5562F'},
+           bl:{sky:'#DCEBFA',sky2:'#FFFFFF',ground:'#6E9BC9',ground2:'#4F7FB0',a:'#2A63A0',b:'#9BB9DA',house:'#FFFFFF',roof:'#2A63A0'},
+           ry:{sky:'#FFE9B8',sky2:'#FFF6DE',ground:'#D9A23A',ground2:'#C28A22',a:'#C8372D',b:'#F2C230',house:'#FFF6E3',roof:'#C8372D'}};
+  var R0={'169':[640,360],'11':[420,420],'916':[270,480],'31':[720,240]};
+  function person(x,y,s,body,head,phone){return '<g transform="translate('+x+' '+y+') scale('+s+')"><circle cx="0" cy="-58" r="14" fill="'+head+'"/><path d="M-18 -40 Q0 -48 18 -40 L22 10 L-22 10 Z" fill="'+body+'"/><rect x="-14" y="10" width="10" height="34" rx="4" fill="#33413A"/><rect x="4" y="10" width="10" height="34" rx="4" fill="#33413A"/>'+(phone?'<rect x="16" y="-30" width="10" height="18" rx="2" fill="#14302A"/><rect x="18" y="-28" width="6" height="12" fill="#9FD2F5"/>':'')+'</g>'}
+  function scene(){
+    var d=R0[v.ratio],W=d[0],H=d[1],p=PAL[v.pal];var top=v.title==='yes'?H*.3:0;var gy=top+(H-top)*.68;var s=Math.min(W,H-top)/360;
+    var defs='<defs><linearGradient id="sk" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="'+p.sky2+'"/><stop offset="1" stop-color="'+p.sky+'"/></linearGradient><filter id="wc"><feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="4"/><feDisplacementMap in="SourceGraphic" scale="9"/><feGaussianBlur stdDeviation="0.6"/></filter><filter id="sh"><feDropShadow dx="0" dy="4" stdDeviation="4" flood-opacity=".25"/></filter></defs>';
+    var sky=v.style==='photo'?'url(#sk)':p.sky;
+    var g='<rect width="'+W+'" height="'+H+'" fill="'+sky+'"/>';
+    g+='<circle cx="'+(W*.82)+'" cy="'+(top+(gy-top)*.3)+'" r="'+(28*s)+'" fill="'+p.a+'" opacity=".85"/>';
+    g+='<path d="M0 '+gy+' Q '+(W*.25)+' '+(gy-40*s)+' '+(W*.5)+' '+gy+' T '+W+' '+(gy-10*s)+' V '+H+' H 0 Z" fill="'+p.ground+'"/>';
+    g+='<rect x="0" y="'+(gy+16*s)+'" width="'+W+'" height="'+(H-gy)+'" fill="'+p.ground2+'"/>';
+    var hx=W*.08,hw=110*s,hh=70*s;g+='<g'+(v.style==='photo'?' filter="url(#sh)"':'')+'><rect x="'+hx+'" y="'+(gy-hh)+'" width="'+hw+'" height="'+hh+'" fill="'+p.house+'"/><path d="M'+(hx-10*s)+' '+(gy-hh)+' L'+(hx+hw/2)+' '+(gy-hh-40*s)+' L'+(hx+hw+10*s)+' '+(gy-hh)+' Z" fill="'+p.roof+'"/><rect x="'+(hx+hw*.4)+'" y="'+(gy-hh*.55)+'" width="'+(hw*.2)+'" height="'+(hh*.55)+'" fill="#7A5A3A"/></g>';
+    if(v.subj==='canbo'){g+=person(W*.55,gy+14*s,s*1.1,p.b,'#F0C9A0',true)+person(W*.7,gy+14*s,s*1.05,p.a,'#E8BB90',false)}
+    else if(v.subj==='lua'){for(var i=0;i<14;i++){var x=W*.35+i*(W*.045);g+='<path d="M'+x+' '+(gy+30*s)+' q 4 -30 -6 -48" stroke="#E2C04A" stroke-width="'+(3*s)+'" fill="none"/>'}g+=person(W*.6,gy+18*s,s,p.a,'#E8BB90',false)+'<path d="M'+(W*.6-22*s)+' '+(gy-46*s)+' L'+(W*.6)+' '+(gy-70*s)+' L'+(W*.6+22*s)+' '+(gy-46*s)+' Z" fill="#E9D9A6"/>'}
+    if(top){g+='<rect x="'+(W*.06)+'" y="'+(top*.18)+'" width="'+(W*.88)+'" height="'+(top*.64)+'" rx="8" fill="none" stroke="'+p.a+'" stroke-width="2" stroke-dasharray="8 6"/><text x="'+(W/2)+'" y="'+(top*.56)+'" text-anchor="middle" font-family="Be Vietnam Pro, Arial, sans-serif" font-size="'+Math.max(12,14*s)+'" fill="#53625A">Chỗ đặt khẩu hiệu</text>'}
+    if(v.text==='vi'){g+='<text x="'+(W/2)+'" y="'+(top?top*.5+8:(gy-hh-60*s))+'" text-anchor="middle" font-family="Be Vietnam Pro, Arial, sans-serif" font-weight="700" font-size="'+Math.max(14,22*s)+'" fill="#B0412B">DỊCH VỤ CỒNG TRƯC TUYỀN</text>'}
+    var filt=v.style==='water'?' filter="url(#wc)"':'';
+    return '<svg viewBox="0 0 '+W+' '+H+'" width="'+W+'" height="'+H+'" role="img" aria-label="Bản phác thảo theo lựa chọn của bạn">'+defs+'<g'+filt+'>'+g+'</g></svg>';
+  }
+  function label(k){var r=P[k].o.filter(function(x){return x[0]===v[k]})[0];return r?r[1]:''}
+  function promptTxt(){var parts=[label('style')+': '+label('subj').toLowerCase(),'bối cảnh nông thôn Việt Nam','tông '+label('pal').toLowerCase(),v.title==='yes'?'chừa khoảng trống phía trên để đặt khẩu hiệu':'',(v.ratio==='169'?'tỉ lệ 16:9':v.ratio==='11'?'tỉ lệ 1:1':v.ratio==='916'?'tỉ lệ 9:16':'tỉ lệ 3:1'),v.text==='none'?'không có chữ trong ảnh':'có dòng chữ “Dịch vụ công trực tuyến”'];return parts.filter(Boolean).join(', ')+'.'}
+  function draw(){$('#stage',R).innerHTML=scene();$('#imgPrompt',R).textContent=promptTxt();$('#req',R).innerHTML=''}
+  draw();
+  var chk=h('button',{class:'btn primary',type:'button'},'Kiểm tra theo yêu cầu');o.act.appendChild(chk);
+  var cp=h('button',{class:'btn ghost',type:'button'},icon('copy')+' Sao chép câu lệnh');o.act.appendChild(cp);cp.onclick=function(){copyText(promptTxt(),cp)};
+  chk.onclick=function(){var rq=[[v.subj==='canbo','Chủ thể đúng chủ đề dịch vụ công trực tuyến','Chủ thể nên là cán bộ hướng dẫn người dân nộp hồ sơ trực tuyến'],[v.ratio==='169','Tỉ lệ 16:9 vừa màn hình hội trường','Màn hình hội trường dùng khổ ngang 16:9'],[v.title==='yes','Đã chừa chỗ đặt khẩu hiệu','Cần chừa khoảng trống để thêm khẩu hiệu bằng Canva'],[v.text==='none','Không để AI viết chữ','AI hay viết sai dấu tiếng Việt (xem chữ đỏ trên ảnh): yêu cầu “không có chữ trong ảnh”']];
+    var n=rq.filter(function(x){return x[0]}).length;$('#req',R).innerHTML=rq.map(function(x){return '<li class="'+(x[0]?'y':'n')+'">'+icon(x[0]?'check':'x')+'<span>'+(x[0]?x[1]:x[2])+'</span></li>'}).join('');
+    fb(o,n===4?'ok':'bad','Đạt '+n+'/4 yêu cầu.'+(n===4?' Phong cách và màu sắc tùy bạn chọn.':''));award(o,n*2.5)};
+})();
+
+// 13. Kiểm duyệt
+classify(shell($('[data-ex="publish"]'),cfg('publish','Kiểm duyệt trước khi đăng','Bạn là người duyệt bài cho trang thông tin của xã. Mỗi sản phẩm xử lý thế nào?')),[
+ {q:'Ảnh chụp thật buổi ra quân vệ sinh môi trường của thôn.',a:0,why:'Ảnh thật của hoạt động địa phương, đăng được.'},
+ {q:'Ảnh AI minh hoạ người dân dùng VNeID, trông giống ảnh chụp thật.',a:1,why:'Dễ gây nhầm lẫn với ảnh thật: ghi “Ảnh minh hoạ tạo bằng AI”.'},
+ {q:'Bản đồ hành chính xã do AI vẽ lại cho đẹp.',a:2,why:'Bản đồ phải dùng bản chuẩn từ nguồn chính thức, không để AI vẽ.'},
+ {q:'Video AI giả giọng Chủ tịch xã kêu gọi người dân.',a:2,why:'Không giả mạo người thật. Luật An ninh mạng 2025 cấm dùng AI giả mạo giọng nói, hình ảnh.'},
+ {q:'Infographic 5 bước nộp hồ sơ, nội dung đã đối chiếu hướng dẫn chính thức.',a:0,why:'Đã kiểm tra nội dung; nếu dùng hình AI minh hoạ thì ghi chú nhãn.'},
+ {q:'Banner AI có dòng chữ “DỊCH VỤ CỒNG TRƯC TUYỀN”.',a:2,why:'Chữ sai dấu: xóa chữ, thêm lại bằng Canva rồi mới đăng.'}
+],['Đăng được','Đăng kèm nhãn AI','Chưa được đăng']);
+
+// 14. Video
+(function(){
+  var o=shell($('[data-ex="video"]'),cfg('video','Dựng kịch bản video 60 giây','Video “Đăng ký khai sinh cho con ngay tại nhà”. Sắp xếp 5 cảnh theo đúng trình tự. Kịch bản mẫu, cần đối chiếu quy trình hiện hành.'));
+  var sc=[{t:'Logo UBND xã, tiêu đề video',d:'5 giây',s:5},{t:'Đăng nhập Cổng Dịch vụ công quốc gia bằng tài khoản VNeID',d:'10 giây',s:10},{t:'Chọn dịch vụ đăng ký khai sinh, điền thông tin',d:'15 giây',s:15},{t:'Đính kèm giấy chứng sinh, nộp hồ sơ và theo dõi kết quả',d:'20 giây',s:20},{t:'Thông tin liên hệ Trung tâm Phục vụ hành chính công xã',d:'10 giây',s:10}];
+  var cols=['var(--muted)','var(--blue)','var(--hero)','var(--accent)','var(--good)'];
+  order(o,sc,function(o){var tl=h('div',{class:'timeline'});sc.forEach(function(s,i){var d=h('div',{style:'background:'+cols[i]+';color:'+(i===3?'var(--on-accent)':'#F2F5F1')},s.s+'s');tl.appendChild(d)});o.body.appendChild(tl);
+    o.body.appendChild(h('p',{class:'mm'},'Tổng 60 giây, khoảng 130–150 chữ lời đọc.'));
+    requestAnimationFrame(function(){requestAnimationFrame(function(){$$('div',tl).forEach(function(d,i){d.style.width=(sc[i].s/60*100)+'%'})})})});
+})();
+
+/* ================= THÀNH PHẦN BỔ SUNG ================= */
+function hotspot(o,c){
+  function run(){
+    o.body.innerHTML='';o.act.innerHTML='';fb(o,'',c.hint||'Bấm vào các đoạn để đánh dấu.');
+    var wrap=h('div',{class:c.intro?'detect':''});
+    wrap.innerHTML=(c.intro||'')+'<div class="'+(c.paper?'doc':'ai-ans')+'"><div class="hd">'+c.head+'</div><p class="segs"></p></div>';
+    o.body.appendChild(wrap);var p=$('.segs',wrap),nb=0;
+    c.segs.forEach(function(s){
+      if(s[1]==null){p.appendChild(document.createTextNode(s[0]));return}
+      if(s[1])nb++;
+      var sp=h('span',{class:'seg',tabindex:'0',role:'button','aria-pressed':'false'},esc(s[0]));sp._s=s;
+      function t(){if(p.dataset.lock)return;sp.classList.toggle('mk');sp.setAttribute('aria-pressed',sp.classList.contains('mk'));fb(o,'','Đã đánh dấu '+$$('.seg.mk',p).length+' chỗ.')}
+      sp.onclick=t;sp.onkeydown=function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();t()}};p.appendChild(sp);
+    });
+    var chk=h('button',{class:'btn primary',type:'button'},'Kiểm tra');o.act.appendChild(chk);
+    chk.onclick=function(){p.dataset.lock='1';chk.remove();var tp=0,fp=0,notes=[];
+      $$('.seg',p).forEach(function(sp){var s=sp._s,mk=sp.classList.contains('mk');sp.classList.remove('mk');
+        if(s[1]&&mk){tp++;sp.classList.add('r-ok')}else if(s[1]){sp.classList.add('r-miss')}else if(mk){fp++;sp.classList.add('r-bad')}
+        if(s[1]&&s[2])notes.push('<li>'+(mk?'':'<b>Bỏ sót:</b> ')+'“'+esc(s[0])+'” → '+s[2]+'</li>');
+        if(!s[1]&&mk&&s[2])notes.push('<li><b>Không cần đánh dấu:</b> “'+esc(s[0])+'”, '+s[2]+'</li>');
+      });
+      fb(o,tp===nb&&!fp?'ok':'bad','Tìm đúng '+tp+'/'+nb+(fp?', đánh dấu nhầm '+fp+' chỗ':'')+'.');
+      o.body.appendChild(h('div',{class:'note blue',style:'margin-top:14px;display:block'},'<ul class="list">'+notes.join('')+'</ul>'+(c.after?'<p style="margin-top:10px">'+c.after+'</p>':'')));
+      award(o,Math.max(0,tp*10/nb-fp*2));retryBtn(o,run)};
+  }
+  run();
+}
+function fillSelect(o,c){
+  function run(){
+    o.body.innerHTML='';o.act.innerHTML='';fb(o,'','Chọn đáp án cho từng ô.');
+    var html=c.html.replace(/\{\{(\d+)\}\}/g,function(_,i){var b=c.blanks[+i];return '<select class="sel" data-i="'+i+'" aria-label="Ô trống số '+(+i+1)+'"><option value="">— chọn —</option>'+b.o.map(function(x,j){return '<option value="'+j+'">'+esc(x)+'</option>'}).join('')+'</select>'});
+    var w=h('div',{class:c.side?'detect':'stack',style:c.side?'':'gap:14px'});
+    w.innerHTML=(c.ref||'')+'<div class="ai-ans fill"><div class="hd">'+c.head+'</div>'+html+'</div>';o.body.appendChild(w);
+    var chk=h('button',{class:'btn primary',type:'button'},'Kiểm tra');o.act.appendChild(chk);
+    chk.onclick=function(){var sels=$$('.sel',w),right=0,notes=[];
+      sels.forEach(function(s){var b=c.blanks[+s.getAttribute('data-i')],ok=s.value!==''&&+s.value===b.a;if(ok)right++;else notes.push('<li>'+esc(b.o[b.a])+(b.e?': '+b.e:'')+'</li>');s.classList.remove('ok','bad');s.classList.add(ok?'ok':'bad');s.disabled=true});
+      chk.remove();fb(o,right===sels.length?'ok':'bad','Đúng '+right+'/'+sels.length+' ô.');
+      if(notes.length)o.body.appendChild(h('div',{class:'note blue',style:'margin-top:14px;display:block'},'<b>Đáp án đúng cho các ô sai:</b><ul class="list" style="margin-top:6px">'+notes.join('')+'</ul>'));
+      award(o,right/sels.length*10);retryBtn(o,run)};
+  }
+  run();
+}
+function matchPairs(o,pairs,doneMsg){
+  function run(){
+    o.body.innerHTML='';o.act.innerHTML='';fb(o,'','');var L=null,miss=0,ok=0;var g=h('div',{class:'match'});o.body.appendChild(g);
+    var ls=shuffle(pairs),rs=shuffle(pairs);
+    ls.forEach(function(l,i){var r=rs[i];
+      var a=h('button',{class:'mt',type:'button','data-k':l[1]},l[0]);var b=h('button',{class:'mt code',type:'button','data-k':r[1]},r[1]);
+      a.onclick=function(){if(a.classList.contains('ok'))return;$$('.mt:not(.code)',g).forEach(function(x){x.classList.remove('sel')});a.classList.add('sel');L=a};
+      b.onclick=function(){if(b.classList.contains('ok'))return;if(!L){shake(b);fb(o,'bad','Chọn ô ở cột trái trước.');return}
+        if(L.getAttribute('data-k')===b.getAttribute('data-k')){L.classList.remove('sel');L.classList.add('ok');b.classList.add('ok');pop(b);L=null;ok++;fb(o,'ok','Khớp!');
+          if(ok===pairs.length){var sc=10-miss*2;fb(o,sc>=8?'ok':'bad','Ghép xong '+pairs.length+' cặp'+(miss?', sai '+miss+' lần.':'.')+(doneMsg?' '+doneMsg:''));award(o,sc);retryBtn(o,run)}}
+        else{miss++;shake(b);shake(L);fb(o,'bad','Chưa khớp.')}};
+      g.appendChild(a);g.appendChild(b);
+    });
+  }
+  run();
+}
+
+// Ẩn danh dữ liệu
+hotspot(shell($('[data-ex="anon"]'),cfg('anon','Ẩn danh trước khi gửi cho AI','Bạn định nhờ AI lập bảng tổng hợp hộ nghèo. Bấm vào mọi thông tin có thể nhận diện một người cụ thể, cần thay bằng ký hiệu trước khi gửi.')),{
+  head:'ĐOẠN VĂN ĐỊNH DÁN VÀO AI · DỮ LIỆU GIẢ ĐỊNH',
+  segs:[['Lập bảng tổng hợp hộ nghèo thôn 3 gồm: ',null],['hộ ông Trần Văn Hùng',1,'[Hộ A]'],[', ',null],['số định danh cá nhân 075089001234',1,'xóa, không cần cho thống kê'],[', ',null],['4 nhân khẩu',0,'số liệu cần cho thống kê'],[', ',null],['điện thoại 0912 345 678',1,'xóa'],[', ',null],['thu nhập bình quân 1,2 triệu đồng/người/tháng',0,'số liệu cần cho thống kê, không nhận diện được ai'],['; ',null],['bà Lê Thị Mai',1,'[Hộ B]'],[', ',null],['số nhà 15, đường liên thôn',1,'xóa địa chỉ'],[', ',null],['3 nhân khẩu',0,'số liệu cần cho thống kê'],[', ',null],['đang hưởng trợ cấp người cao tuổi',0,'thông tin chính sách cần cho phân loại, không nhận diện được ai khi đã bỏ tên'],['.',null]],
+  after:'Bản an toàn: “Lập bảng tổng hợp hộ nghèo thôn 3 gồm: [Hộ A], 4 nhân khẩu, thu nhập bình quân 1,2 triệu đồng/người/tháng; [Hộ B], 3 nhân khẩu, đang hưởng trợ cấp người cao tuổi.” Cán bộ giữ bảng đối chiếu [Hộ A] = ai ở máy của mình.'
+});
+
+// Chọn công cụ
+mcq(shell($('[data-ex="tools"]'),cfg('tools','Việc này dùng công cụ nào?','Chọn công cụ phù hợp nhất cho từng việc.')),[
+ {q:'Tra nhanh các kế hoạch UBND xã đã ban hành năm 2025, đã lưu trong kho tài liệu của đơn vị.',o:['VNPT iKnow','Canva','CapCut'],a:0,e:'Hỏi trên kho văn bản của đơn vị, câu trả lời có trích dẫn nguồn.'},
+ {q:'Hỏi đáp trên 3 tệp PDF quy định mới vừa tải xuống, cần biết câu trả lời nằm ở trang nào.',o:['CapCut','NotebookLM','Canva'],a:1,e:'NotebookLM trả lời dựa trên tài liệu bạn tải lên và chỉ ra đoạn nguồn.'},
+ {q:'Dựng video hướng dẫn 60 giây, có phụ đề tiếng Việt.',o:['VNPT iKnow','NotebookLM','CapCut'],a:2,e:'CapCut (hoặc Canva) dựng video và tạo phụ đề tự động.'},
+ {q:'Soạn nháp tờ trình ngay trong Word, đơn vị có bản quyền Microsoft 365 kèm Copilot.',o:['Copilot','CapCut','Canva'],a:0,e:'Copilot làm việc trực tiếp trong Word, PowerPoint, Excel (tùy gói bản quyền).'},
+ {q:'Thiết kế banner, infographic từ mẫu có sẵn rồi thêm chữ tiếng Việt chuẩn.',o:['NotebookLM','Canva','VNPT iKnow'],a:1,e:'Canva có mẫu thiết kế và công cụ AI, chữ tiếng Việt gõ chính xác.'}
+]);
+
+// Trình tạo câu lệnh theo lĩnh vực
+(function(){
+  var o=shell($('[data-ex="builder2"]'),cfg('builder2','Lắp câu lệnh cho từng lĩnh vực công tác','Bốn nhiệm vụ của bốn bộ phận. Chọn một nhiệm vụ, lắp đủ 5 mảnh ghép rồi nộp. Điểm là trung bình của cả 4 nhiệm vụ.'));
+  var SC=[
+   {k:'KT',n:'Phòng Kinh tế',t:'Lập đề cương báo cáo sản xuất nông nghiệp vụ Đông Xuân',s:[
+     [['Bạn là công chức Phòng Kinh tế xã Ninh Sơn.',20],['Bạn là nhà báo.',5],['(Bỏ qua thành phần này)',0]],
+     [['Lập đề cương Báo cáo tình hình sản xuất nông nghiệp vụ Đông Xuân [năm].',20],['Viết gì đó về nông nghiệp.',5],['Soạn một bài thơ về mùa lúa.',0]],
+     [['Báo cáo gửi UBND xã, dùng số liệu các thôn gửi về: [dán bảng].',20],['Báo cáo cho ai cũng được.',5],['Kèm danh sách hộ và số điện thoại từng chủ hộ…',0]],
+     [['Chỉ dùng số liệu được cung cấp; chỗ thiếu để trống [số liệu].',20],['Viết càng dài càng tốt.',5],['Tự thêm số liệu cho đầy đủ.',0]],
+     [['Ba phần: kết quả; tồn tại, nguyên nhân; nhiệm vụ tới. Mỗi mục gợi ý chỉ tiêu cần có.',20],['Một đoạn văn liền.',5],['Sao cũng được.',0]]]},
+   {k:'VX',n:'Phòng Văn hóa – Xã hội',t:'Viết bài tuyên truyền bảo hiểm y tế hộ gia đình',s:[
+     [['Bạn là công chức Phòng Văn hóa – Xã hội xã.',20],['Bạn là nhân viên bán bảo hiểm.',5],['(Bỏ qua thành phần này)',0]],
+     [['Viết bài tuyên truyền vận động người dân tham gia bảo hiểm y tế hộ gia đình.',20],['Viết quảng cáo bảo hiểm.',5],['Viết báo cáo tổng kết năm.',0]],
+     [['Người đọc là bà con nông thôn; đăng trang thông tin xã và đọc trên loa thôn.',20],['Người đọc là chuyên gia y tế.',5],['Nêu tên các hộ chưa tham gia để nhắc nhở.',0]],
+     [['Khoảng 300 chữ, giọng gần gũi, không dùng thuật ngữ khó.',20],['Viết thật hay.',5],['Dùng thật nhiều thuật ngữ chuyên môn.',0]],
+     [['Tiêu đề ngắn, 3 đoạn, kết thúc bằng thông tin liên hệ [bộ phận, số điện thoại].',20],['Dạng bảng.',5],['Sao cũng được.',0]]]},
+   {k:'HCC',n:'Trung tâm Phục vụ hành chính công',t:'Viết hướng dẫn thủ tục cho người dân',s:[
+     [['Bạn là công chức Trung tâm Phục vụ hành chính công xã.',20],['Bạn là luật sư nước ngoài.',5],['(Bỏ qua thành phần này)',0]],
+     [['Viết hướng dẫn cho người dân về thủ tục [tên thủ tục].',20],['Giải thích luật hành chính.',5],['Viết tờ trình xin kinh phí.',0]],
+     [['Dựa trên quy trình thủ tục đã công bố dán dưới đây: [dán nội dung].',20],['Thủ tục chắc ai cũng biết.',5],['Tự nhớ lại thủ tục theo hiểu biết của bạn.',0]],
+     [['Câu ngắn, dễ hiểu, dưới 200 chữ, không thêm bước ngoài quy trình.',20],['Viết thật chi tiết, càng dài càng tốt.',5],['Tự thêm lệ phí theo hiểu biết của bạn.',0]],
+     [['Gồm: hồ sơ cần chuẩn bị, các bước đánh số, thời gian giải quyết, lệ phí.',20],['Một đoạn văn liền.',5],['Sao cũng được.',0]]]},
+   {k:'TH',n:'Thôn',t:'Soạn thông báo đọc trên loa thôn',s:[
+     [['Bạn hỗ trợ Trưởng thôn soạn thông báo.',20],['Bạn là phát thanh viên thời sự quốc gia.',5],['(Bỏ qua thành phần này)',0]],
+     [['Soạn thông báo đọc trên loa truyền thanh về lịch tiêm phòng cho đàn gia súc.',20],['Viết về chăn nuôi.',5],['Viết bài phát biểu khai mạc lễ hội.',0]],
+     [['Thôn [tên thôn]; thời gian [ngày, giờ]; điểm tập kết [địa điểm].',20],['Ở đâu đó trong thôn.',5],['Đọc tên từng hộ chưa tiêm kèm số điện thoại.',0]],
+     [['Khoảng 1 phút đọc, câu ngắn, nhắc lại thời gian và địa điểm 2 lần.',20],['Viết hay vào.',5],['Dài 5 trang.',0]],
+     [['Mở đầu “Thông báo của thôn…”, nội dung, lời nhắc cuối.',20],['Sao cũng được.',5],['Dạng bảng Excel.',0]]]}
+  ];
+  var KEYS=['Vai trò','Nhiệm vụ','Bối cảnh','Yêu cầu','Định dạng'];
+  S.b2=S.b2||{};var cur=0;
+  var tabs=h('div',{class:'lib-filter',role:'group','aria-label':'Chọn lĩnh vực'});o.body.appendChild(tabs);
+  var area=h('div');o.body.appendChild(area);
+  function tabsRender(){tabs.innerHTML='';SC.forEach(function(s,i){var d=S.b2[s.k];var b=h('button',{type:'button',class:i===cur?'on':''},s.k+' · '+s.n+(d!=null?' ('+d+')':''));b.onclick=function(){cur=i;tabsRender();render()};tabs.appendChild(b)})}
+  function render(){
+    var s=SC[cur],sel=[];area.innerHTML='';o.act.innerHTML='';fb(o,'','Nhiệm vụ: '+s.t+'.');
+    var g=h('div',{class:'builder'});var left=h('div'),right=h('div',{class:'preview'});g.appendChild(left);g.appendChild(right);area.appendChild(g);
+    s.s.forEach(function(opts,si){var w=h('div',{class:'slot'});w.innerHTML='<div class="slot-h"><span class="d">'+(si+1)+'</span>'+KEYS[si]+'</div><div class="chips"></div>';
+      shuffle(opts.map(function(x){return {t:x[0],v:x[1]}})).forEach(function(op){var c=h('button',{class:'chip',type:'button'},esc(op.t));c.onclick=function(){sel[si]=op;$$('.chip',w).forEach(function(x){x.classList.remove('sel')});c.classList.add('sel');upd()};$('.chips',w).appendChild(c)});left.appendChild(w)});
+    right.innerHTML='<div class="meter-l"><span>Chất lượng câu lệnh</span><span class="mv">0/100</span></div><div class="meter"><i></i></div><div class="prompt"><span class="lbl">'+esc(s.k+' · '+s.t.toUpperCase())+'</span><div class="typed"></div></div>';
+    function txt(){return sel.filter(function(x){return x&&x.t.indexOf('(Bỏ qua')!==0}).map(function(x){return x.t}).join(' ')}
+    function upd(){var sc=sel.reduce(function(a,x){return a+(x?x.v:0)},0);$('.mv',right).textContent=sc+'/100';var bar=$('.meter i',right);bar.style.width=sc+'%';bar.style.background=sc>=90?'var(--good)':sc>=50?'var(--accent)':'var(--bad)';$('.typed',right).innerHTML=ph(txt());submit.disabled=sel.filter(Boolean).length<5}
+    var submit=h('button',{class:'btn primary',type:'button',disabled:''},'Nộp câu lệnh này');o.act.appendChild(submit);
+    var cp=h('button',{class:'btn ghost',type:'button'},icon('copy')+' Sao chép');cp.onclick=function(){copyText(txt(),cp)};o.act.appendChild(cp);
+    submit.onclick=function(){var sc=sel.reduce(function(a,x){return a+x.v},0);S.b2[s.k]=Math.max(S.b2[s.k]||0,sc);save();
+      var weak=[];sel.forEach(function(x,i){if(x.v<20)weak.push(KEYS[i])});
+      var sum=SC.reduce(function(a,x){return a+(S.b2[x.k]||0)},0),n=SC.filter(function(x){return S.b2[x.k]!=null}).length;
+      fb(o,sc===100?'ok':'bad',(sc===100?'Hoàn hảo! ':'Đạt '+sc+'/100, cần sửa: '+weak.join(', ')+'. ')+'Đã làm '+n+'/4 lĩnh vực.');
+      award(o,sum/400*10);tabsRender();
+      if(sc===100&&n<4){var nx=SC.findIndex(function(x){return S.b2[x.k]==null});if(nx>=0){var b=h('button',{class:'btn dark',type:'button'},'Sang lĩnh vực tiếp '+icon('arrow'));b.onclick=function(){cur=nx;tabsRender();render()};o.act.appendChild(b)}}};
+  }
+  tabsRender();render();
+})();
+
+// Biến câu lệnh thành thẻ Prompt
+hotspot(shell($('[data-ex="template"]'),cfg('template','Biến câu lệnh thành thẻ Prompt dùng lại','Câu lệnh dưới đây đã chạy tốt. Để lưu vào thư viện, bấm vào những phần sẽ thay đổi mỗi lần dùng (cần đổi thành chỗ trống [ ]).')),{
+  head:'CÂU LỆNH ĐÃ DÙNG LẦN TRƯỚC',
+  segs:[['Bạn là ',null],['chuyên viên Văn phòng HĐND và UBND xã Ninh Sơn',0,'cố định với thẻ VP'],['. Soạn ',null],['Giấy mời họp',0,'loại văn bản cố định của thẻ'],[' ',null],['sơ kết công tác quý III',1,'[tên cuộc họp]'],['. Thành phần: ',null],['lãnh đạo UBND xã, trưởng các thôn',1,'[thành phần]'],['. Thời gian: ',null],['8 giờ ngày 05/11/2026',1,'[giờ, ngày]'],['. Địa điểm: ',null],['Hội trường UBND xã',1,'[địa điểm]'],['. Đúng thể thức ',null],['Nghị định 30/2020/NĐ-CP',0,'yêu cầu cố định'],['.',null]],
+  after:'Thẻ VP-01: “Bạn là chuyên viên Văn phòng HĐND và UBND xã Ninh Sơn. Soạn Giấy mời họp [tên cuộc họp]. Thành phần: [thành phần]. Thời gian: [giờ, ngày]. Địa điểm: [địa điểm]. Đúng thể thức Nghị định 30/2020/NĐ-CP.”'
+});
+
+// VNPT iKnow
+order(shell($('[data-ex="iknow"]'),cfg('iknow','Các bước dùng VNPT iKnow','Sắp xếp 5 bước sử dụng hệ thống nền tảng tri thức VNPT iKnow theo đúng thứ tự.')),[
+ {t:'Đăng nhập bằng tài khoản do đơn vị cấp'},{t:'Chọn kho, nhóm tài liệu cần hỏi (phạm vi)'},{t:'Đặt câu hỏi bằng câu tự nhiên'},{t:'Đọc câu trả lời, mở trích dẫn đối chiếu văn bản gốc'},{t:'Tải tài liệu mới lên đúng kho, đúng nhóm để lần sau hỏi được'}
+]);
+
+// Bố cục văn bản (nhiều văn bản nối tiếp)
+(function(){
+  var o=shell($('[data-ex="structure"]'),cfg('structure','Sắp xếp bố cục 3 loại văn bản','Khi nhờ AI soạn, bạn cần biết bố cục chuẩn để kiểm tra. Lần lượt sắp xếp các phần của kế hoạch, tờ trình và công văn.'));
+  var DOCS=[{n:'Kế hoạch',s:['I. Mục đích, yêu cầu','II. Nội dung, thời gian, địa điểm','III. Kinh phí','IV. Tổ chức thực hiện (phân công, thời hạn)']},
+            {n:'Tờ trình',s:['Căn cứ pháp lý','Sự cần thiết','Nội dung đề xuất','Kinh phí và nguồn kinh phí','Kiến nghị phê duyệt']},
+            {n:'Công văn',s:['Trích yếu “V/v …”','Kính gửi','Lý do, căn cứ','Yêu cầu cụ thể, thời hạn, đầu mối','Nơi nhận']}];
+  var scores=[],di=0;
+  function start(){scores=[];di=0;stage()}
+  function stage(){
+    var d=DOCS[di],next=0,miss=0;o.body.innerHTML='';o.act.innerHTML='';fb(o,'','Văn bản '+(di+1)+'/3: '+d.n+'. Bấm các phần theo đúng thứ tự.');
+    var tabs=h('div',{class:'lib-filter'});DOCS.forEach(function(x,i){tabs.appendChild(h('button',{type:'button',class:i===di?'on':'',tabindex:'-1','aria-disabled':'true'},(i<di?'✓ ':'')+x.n))});o.body.appendChild(tabs);
+    var g=h('div',{class:'order'});g.innerHTML='<div><p class="kicker">Các phần (đã xáo trộn)</p><div class="pool"></div></div><div><p class="kicker">Bố cục '+d.n.toLowerCase()+'</p><div class="seq"><div class="seq-empty">Chưa có phần nào</div></div></div>';o.body.appendChild(g);
+    var pool=$('.pool',g),seq=$('.seq',g);
+    shuffle(d.s.map(function(t,i){return {t:t,i:i}})).forEach(function(st){var b=h('button',{class:'ob',type:'button'},esc(st.t));b.onclick=function(){
+      if(st.i===next){next++;b.remove();var e=$('.seq-empty',seq);if(e)e.remove();var r=h('div',{class:'sq'},'<b>'+next+'</b><span>'+esc(st.t)+'</span>');seq.appendChild(r);pop(r);
+        if(next===d.s.length){scores.push(Math.max(0,10-miss*2));
+          if(di<DOCS.length-1){fb(o,'ok','Xong '+d.n.toLowerCase()+'!');var nb=h('button',{class:'btn dark',type:'button'},'Văn bản tiếp: '+DOCS[di+1].n+' '+icon('arrow'));nb.onclick=function(){di++;stage()};o.act.appendChild(nb)}
+          else{var avg=scores.reduce(function(a,x){return a+x},0)/scores.length;fb(o,avg>=8?'ok':'bad','Hoàn thành 3 bố cục, điểm trung bình '+avg.toFixed(1)+'/10.');award(o,avg);retryBtn(o,start)}}
+      }else{miss++;shake(b);fb(o,'bad','Phần này chưa đến lượt.')}};pool.appendChild(b)});
+  }
+  start();
+})();
+
+// Văn phong
+mcq(shell($('[data-ex="tone"]'),cfg('tone','Chọn câu đúng văn phong hành chính','Mỗi tình huống có 3 cách viết. Chọn cách phù hợp với văn bản của UBND xã.')),[
+ {q:'Mời dự họp:',o:['“Đề nghị các đồng chí tham dự đầy đủ, đúng giờ.”','“Mọi người nhớ đến đúng giờ nha!”','“Ai không đến thì tự chịu.”'],a:0,e:'Trang trọng, rõ yêu cầu.'},
+ {q:'Báo cáo kết quả:',o:['“Năm nay xã ta làm cực kỳ xuất sắc!”','“UBND xã hoàn thành 18/20 chỉ tiêu, đạt 90% kế hoạch.”','“Kết quả khá ổn.”'],a:1,e:'Văn bản hành chính dùng số liệu cụ thể, khách quan.'},
+ {q:'Đôn đốc các thôn:',o:['“Thôn nào chậm sẽ bị kỷ luật ngay.”','“Các thôn làm nhanh giùm.”','“Đề nghị Trưởng các thôn hoàn thành trước ngày 15/11/2026.”'],a:2,e:'Nêu yêu cầu và thời hạn rõ ràng, không đe dọa.'},
+ {q:'Nêu hạn chế:',o:['“Một số thôn còn chậm cập nhật số liệu, chưa đúng thời hạn.”','“Mấy thôn làm ăn quá tệ.”','“Không có hạn chế gì.”'],a:0,e:'Khách quan, chỉ rõ vấn đề.'},
+ {q:'Trả lời đề nghị chưa giải quyết được:',o:['“Đề nghị này vô lý.”','“Qua xem xét, UBND xã chưa thể giải quyết do chưa đủ điều kiện theo quy định tại [văn bản].”','“Không được đâu.”'],a:1,e:'Nêu lý do và căn cứ, giữ thái độ tôn trọng người dân.'}
+]);
+
+// Soát bản nháp giấy mời
+hotspot(shell($('[data-ex="draft"]'),cfg('draft','Soát lỗi bản nháp giấy mời do AI soạn','Áp dụng checklist 8 điểm. Bấm vào những câu có lỗi rồi bấm “Kiểm tra”.')),{
+  paper:true,head:'BẢN NHÁP DO AI SOẠN · GIẢ ĐỊNH',
+  segs:[['UBND XÃ NINH SƠN · Số: …/GM-UBND. ',null],['Căn cứ Thông tư số 99/2025/TT-BXX về tổ chức hội nghị,',1,'căn cứ do AI bịa; giấy mời không cần căn cứ này'],[' ',null],['UBND xã trân trọng kính mời đại biểu tham dự cuộc họp sơ kết công tác quý III năm 2026.',0],[' ',null],['Thời gian: 8 giờ 00, ngày 31/11/2026.',1,'tháng 11 không có ngày 31'],[' ',null],['Địa điểm: Hội trường UBND xã.',0],[' ',null],['Mong các anh chị nhớ đi đầy đủ nha!',1,'sai văn phong hành chính'],[' ',null],['Liên hệ: ông Nguyễn Văn Bình, CCCD 075089001234.',1,'lộ số định danh cá nhân; chỉ ghi bộ phận và số điện thoại cơ quan'],[' ',null],['Nơi nhận: Như trên; Lưu: VT.',0]],
+  after:'Mẹo: yêu cầu AI tự rà trước bằng câu “Kiểm tra văn bản theo 8 tiêu chí: mục đích, số liệu, căn cứ, chỗ trống, thể thức, số ký hiệu, văn phong, dữ liệu cá nhân”, nhưng người soạn vẫn tự đánh dấu từng điểm.'
+});
+
+// Mức tóm tắt
+mcq(shell($('[data-ex="sumlevel"]'),cfg('sumlevel','Chọn mức tóm tắt phù hợp','Cùng một văn bản dài, mỗi người cần một mức tóm tắt khác nhau.')),[
+ {q:'Văn thư vào sổ văn bản đến, cần ghi nội dung chính.',o:['1 câu','5 ý chính','Bảng nhiệm vụ'],a:0,e:'Một câu: văn bản yêu cầu làm gì, trước ngày nào.'},
+ {q:'Chủ tịch xã cần nắm văn bản trước cuộc họp 10 phút nữa.',o:['1 câu','5 ý chính','Bảng nhiệm vụ'],a:1,e:'5 ý chính đủ để lãnh đạo nắm nhanh.'},
+ {q:'Tham mưu kế hoạch triển khai Kế hoạch của UBND tỉnh tại xã.',o:['1 câu','5 ý chính','Bảng nhiệm vụ'],a:2,e:'Bảng: nhiệm vụ – bộ phận tham mưu – thời hạn – điều, khoản.'},
+ {q:'Phân công văn bản cho phòng nào xử lý.',o:['1 câu','5 ý chính','Bảng nhiệm vụ'],a:0,e:'Chỉ cần biết văn bản thuộc lĩnh vực nào.'}
+]);
+
+// Hỏi đúng nơi
+classify(shell($('[data-ex="where"]'),cfg('where','Hỏi đúng nơi','Mỗi câu hỏi nên hỏi trợ lý AI chung, AI trên tài liệu của đơn vị, hay tra nguồn chính thống?')),[
+ {q:'Gợi ý 5 khẩu hiệu tuyên truyền bảo hiểm y tế.',a:0,why:'Việc sáng tạo, không cần số liệu chính xác.'},
+ {q:'Kế hoạch năm 2025 của UBND xã giao các thôn những việc gì? (đã lưu trong kho)',a:1,why:'Hỏi trên kho văn bản của đơn vị (VNPT iKnow), có trích dẫn.'},
+ {q:'Luật An ninh mạng 2018 còn hiệu lực không?',a:2,why:'Tra vbpl.vn. Luật này đã hết hiệu lực từ 01/7/2026, thay bằng Luật An ninh mạng 2025.'},
+ {q:'So sánh chỉ tiêu năm 2025 và 2026 trong các báo cáo đã lưu.',a:1,why:'Dữ liệu nằm trong tài liệu của đơn vị.'},
+ {q:'Thành phần hồ sơ chính xác của một thủ tục hành chính.',a:2,why:'Tra Cổng Dịch vụ công quốc gia, nơi công bố thủ tục.'},
+ {q:'Giải thích “chuyển đổi số” cho người dân dễ hiểu.',a:0,why:'Kiến thức chung, AI diễn đạt tốt; vẫn đọc lại trước khi dùng.'}
+],['Trợ lý AI chung','AI trên tài liệu đơn vị','Tra nguồn chính thống']);
+
+// Làm sạch bản chép lời
+fillSelect(shell($('[data-ex="transcript"]'),cfg('transcript','Làm sạch bản chép lời cuộc họp','Công cụ chép lời nghe nhầm tên người, địa danh và con số. Dùng danh sách người dự và ghi chép của thư ký để sửa từng ô.')),{
+  side:true,head:'BẢN CHÉP LỜI TỰ ĐỘNG · GIẢ ĐỊNH',
+  ref:'<div class="ref"><div class="hd">DANH SÁCH NGƯỜI DỰ VÀ GHI CHÉP CỦA THƯ KÝ</div><ul class="list"><li>Chủ tịch UBND xã: <b>Lê Văn Tâm</b></li><li>Trưởng phòng Kinh tế: <b>Phạm Thị Hoa</b></li><li>Các thôn: <b>Đông, Tây, Nam, Bắc</b></li><li>Thu ngân sách 9 tháng: <b>3,2 tỷ đồng</b></li><li>Hồ sơ trực tuyến quý III: <b>1.250 hồ sơ</b></li><li>Hạn hoàn thành: <b>15/11/2026</b></li></ul></div>',
+  html:'<p>Chủ tịch {{0}} khai mạc cuộc họp.</p><p>Trưởng phòng {{1}} báo cáo thu ngân sách 9 tháng đạt {{2}}.</p><p>Thôn {{3}} còn chậm nộp báo cáo.</p><p>Quý III tiếp nhận {{4}} hồ sơ trực tuyến.</p><p>Đề nghị hoàn thành trước ngày {{5}}.</p>',
+  blanks:[{o:['Lê Văn Tăm','Lê Văn Tâm','Lê Văn Thâm'],a:1},{o:['Phạm Thị Hòa','Phạm Thị Hoa','Phạm Thị Hóa'],a:1},{o:['32 tỷ đồng','3,2 triệu đồng','3,2 tỷ đồng'],a:2,e:'nghe nhầm dấu phẩy rất thường gặp'},{o:['Đồng','Đông','Đống'],a:1},{o:['12.500','125','1.250'],a:2},{o:['5/11/2026','15/11/2026','50/11/2026'],a:1}]
+});
+
+// Danh sách nhiệm vụ
+fillSelect(shell($('[data-ex="tasks"]'),cfg('tasks','Lập bảng theo dõi nhiệm vụ từ kết luận','Đọc thông báo kết luận, chọn đơn vị chủ trì và thời hạn cho từng nhiệm vụ.')),{
+  head:'BẢNG THEO DÕI NHIỆM VỤ',
+  ref:'<div class="doc"><div class="hd">THÔNG BÁO KẾT LUẬN (TRÍCH) · GIẢ ĐỊNH</div><p>(1) Giao Phòng Kinh tế chủ trì, phối hợp các thôn hoàn thành rà soát diện tích lúa bị thiệt hại trước ngày 10/11/2026. (2) Giao Phòng Văn hóa – Xã hội tổng hợp danh sách hộ cần hỗ trợ, trình UBND xã trước ngày 15/11/2026. (3) Giao Trung tâm Phục vụ hành chính công đẩy mạnh hướng dẫn nộp hồ sơ trực tuyến, báo cáo kết quả trong tháng 11/2026. (4) Văn phòng HĐND và UBND theo dõi, tổng hợp tiến độ, báo cáo tại cuộc họp giao ban tháng 12/2026.</p></div>',
+  html:'<div class="table-wrap"><table><thead><tr><th>Nhiệm vụ</th><th>Chủ trì</th><th>Thời hạn</th></tr></thead><tbody>'+
+   '<tr><td>Rà soát diện tích lúa bị thiệt hại</td><td>{{0}}</td><td>{{1}}</td></tr>'+
+   '<tr><td>Tổng hợp danh sách hộ cần hỗ trợ</td><td>{{2}}</td><td>{{3}}</td></tr>'+
+   '<tr><td>Hướng dẫn nộp hồ sơ trực tuyến</td><td>{{4}}</td><td>{{5}}</td></tr>'+
+   '<tr><td>Theo dõi, tổng hợp tiến độ</td><td>{{6}}</td><td>{{7}}</td></tr></tbody></table></div>',
+  blanks:(function(){var U=['Phòng Kinh tế','Phòng Văn hóa – Xã hội','Trung tâm Phục vụ HCC','Văn phòng HĐND và UBND'],T=['Trước 10/11/2026','Trước 15/11/2026','Trong tháng 11/2026','Họp giao ban tháng 12/2026'];return [{o:U,a:0},{o:T,a:0},{o:U,a:1},{o:T,a:1},{o:U,a:2},{o:T,a:2},{o:U,a:3},{o:T,a:3}]})()
+});
+
+// Xếp nội dung vào mục báo cáo
+classify(shell($('[data-ex="sections"]'),cfg('sections','Xếp nội dung vào đúng mục báo cáo','Mỗi câu thuộc mục nào trong bố cục báo cáo 4 phần? Số liệu giả định.')),[
+ {q:'Thu ngân sách 9 tháng đạt 78% dự toán năm.',a:0,why:'Kết quả thực hiện.'},
+ {q:'Một số thôn gửi số liệu chậm do thiếu người phụ trách.',a:1,why:'Hạn chế kèm nguyên nhân.'},
+ {q:'Tháng 12 tập trung hoàn thành rà soát hộ nghèo.',a:2,why:'Nhiệm vụ thời gian tới.'},
+ {q:'Đề nghị UBND tỉnh hỗ trợ kinh phí sửa đường giao thông nội đồng.',a:3,why:'Kiến nghị với cấp trên.'},
+ {q:'Tỷ lệ hồ sơ nộp trực tuyến đạt 53%.',a:0,why:'Kết quả thực hiện.'},
+ {q:'Hạ tầng mạng ở 2 thôn còn yếu, ảnh hưởng việc nộp hồ sơ trực tuyến.',a:1,why:'Hạn chế kèm nguyên nhân.'},
+ {q:'Tiếp tục hướng dẫn người dân dùng dịch vụ công trực tuyến.',a:2,why:'Nhiệm vụ, giải pháp.'},
+ {q:'Đề nghị Sở bổ sung tài liệu hướng dẫn nghiệp vụ cho cấp xã.',a:3,why:'Kiến nghị, đề xuất.'}
+],['I. Kết quả','II. Tồn tại, nguyên nhân','III. Nhiệm vụ tới','IV. Kiến nghị']);
+
+// Tính nhanh
+(function(){
+  var o=shell($('[data-ex="calc"]'),cfg('calc','Tự tính lại số liệu trước khi tin AI','Nhập kết quả (làm tròn đến số nguyên). Đây là các phép tính bạn sẽ kiểm tra lại bằng Excel.'));
+  var Q=[['Thôn A: kế hoạch 160 hộ, đã thực hiện 136 hộ. Tỷ lệ hoàn thành bao nhiêu %?',85,0.6,'%','136 ÷ 160 = 85%. Excel: =C2/B2'],
+         ['Hồ sơ trực tuyến quý II là 260, quý III là 350. Tăng bao nhiêu %?',35,0.6,'%','(350 − 260) ÷ 260 ≈ 34,6% ≈ 35%. Excel: =(C2-B2)/B2'],
+         ['Tổng thu 4,0 tỷ đồng, trong đó thu phí, lệ phí 0,6 tỷ. Tỷ trọng thu phí, lệ phí bao nhiêu %?',15,0.6,'%','0,6 ÷ 4,0 = 15%. Excel: =B3/B2'],
+         ['Kế hoạch năm 500 hộ, đã thực hiện 435 hộ. Còn thiếu bao nhiêu hộ?',65,0.01,'hộ','500 − 435 = 65 hộ. Excel: =B2-C2']];
+  function run(){
+    o.body.innerHTML='';o.act.innerHTML='';fb(o,'','');var w=h('div',{class:'stack',style:'gap:12px'});o.body.appendChild(w);
+    Q.forEach(function(q,i){var r=h('div',{class:'calc-q'});r.innerHTML='<label for="calc'+i+'" style="font-weight:600;color:var(--ink)">'+(i+1)+'. '+q[0]+'</label><div style="display:flex;gap:8px;align-items:center"><input id="calc'+i+'" inputmode="decimal" autocomplete="off"><span style="color:var(--muted);font-weight:600">'+q[3]+'</span></div><p class="exp"></p>';w.appendChild(r)});
+    var chk=h('button',{class:'btn primary',type:'button'},'Kiểm tra');o.act.appendChild(chk);
+    chk.onclick=function(){var right=0;$$('.calc-q',w).forEach(function(r,i){var q=Q[i],inp=$('input',r),v=parseFloat(String(inp.value).replace(/\s/g,'').replace(',','.'));var ok=!isNaN(v)&&Math.abs(v-q[1])<=q[2];if(ok)right++;r.classList.remove('ok','bad');r.classList.add(ok?'ok':'bad');inp.disabled=true;$('.exp',r).innerHTML=(ok?'<b style="color:var(--good)">Đúng.</b> ':'<b style="color:var(--bad)">Chưa đúng.</b> ')+q[4]});
+      chk.remove();fb(o,right>=3?'ok':'bad','Đúng '+right+'/4 phép tính.');award(o,right/4*10);retryBtn(o,run)};
+  }
+  run();
+})();
+
+// Rút gọn slide
+(function(){
+  var o=shell($('[data-ex="trim"]'),cfg('trim','Rút gọn slide giao ban','AI dựng một slide quá nhiều chữ. Chọn 1 tiêu đề và đúng 3 ý quan trọng nhất; bản xem trước cập nhật ngay. Số liệu giả định.'));
+  var TT=[['Hồ sơ trực tuyến lần đầu vượt trực tiếp',1],['Báo cáo tình hình tiếp nhận hồ sơ quý III năm 2026 của Trung tâm Phục vụ hành chính công xã',0],['Số liệu',0]];
+  var LN=[['53% hồ sơ nộp trực tuyến, tăng từ 30%',1],['Lần đầu số hồ sơ trực tuyến vượt trực tiếp',1],['2 thôn còn dưới 30%: cần hỗ trợ',1],['Hồ sơ được tiếp nhận theo đúng quy định',0],['Cán bộ đã rất cố gắng, nhiệt tình',0],['Ngày 01/7 nhận 5 hồ sơ, ngày 02/7 nhận 7 hồ sơ…',0],['Dịch vụ công trực tuyến là xu thế tất yếu của thời đại',0],['Căn cứ các văn bản liên quan của cấp trên…',0]];
+  function run(){
+    var ti=-1,picked=[];o.body.innerHTML='';o.act.innerHTML='';fb(o,'','Đã chọn 0/3 ý.');
+    var g=h('div',{class:'trim'});var L=h('div'),R=h('div');g.appendChild(L);g.appendChild(R);o.body.appendChild(g);
+    L.innerHTML='<div class="slot-h">Tiêu đề</div><div class="chips" id="trT"></div><div class="slot-h" style="margin-top:14px">Các ý (chọn 3)</div><div class="chips" id="trL"></div>';
+    R.innerHTML='<p class="kicker">Xem trước slide</p><div class="mini"><h5 class="mt5"><span class="empty">Chưa chọn tiêu đề</span></h5><ul class="ml"></ul></div>';
+    shuffle(TT.map(function(x,i){return i})).forEach(function(i){var c=h('button',{class:'chip',type:'button'},esc(TT[i][0]));c.onclick=function(){if(g.dataset.lock)return;ti=i;$$('#trT .chip',L).forEach(function(x){x.classList.remove('sel')});c.classList.add('sel');prev()};$('#trT',L).appendChild(c);c._i=i});
+    shuffle(LN.map(function(x,i){return i})).forEach(function(i){var c=h('button',{class:'chip',type:'button'},esc(LN[i][0]));c._i=i;c.onclick=function(){if(g.dataset.lock)return;var k=picked.indexOf(i);if(k>=0){picked.splice(k,1);c.classList.remove('sel')}else{if(picked.length>=3){shake(c);fb(o,'bad','Tối đa 3 ý. Bỏ bớt một ý trước.');return}picked.push(i);c.classList.add('sel')}prev()};$('#trL',L).appendChild(c)});
+    function prev(){$('.mt5',R).innerHTML=ti<0?'<span class="empty">Chưa chọn tiêu đề</span>':esc(TT[ti][0]);$('.ml',R).innerHTML=picked.length?picked.map(function(i){return '<li>'+esc(LN[i][0])+'</li>'}).join(''):'<li class="empty" style="list-style:none;margin-left:-18px">Chưa chọn ý nào</li>';fb(o,'','Đã chọn '+picked.length+'/3 ý.');chk.disabled=!(ti>=0&&picked.length===3)}
+    var chk=h('button',{class:'btn primary',type:'button',disabled:''},'Chấm slide');o.act.appendChild(chk);
+    chk.onclick=function(){g.dataset.lock='1';chk.remove();var sc=TT[ti][1]?4:0;picked.forEach(function(i){sc+=LN[i][1]?2:-2});sc=Math.max(0,Math.min(10,sc));
+      $$('#trL .chip',L).forEach(function(c){if(picked.indexOf(c._i)>=0)c.classList.add(LN[c._i][1]?'goodpick':'badpick');else if(LN[c._i][1])c.classList.add('goodpick')});
+      $$('#trT .chip',L).forEach(function(c){if(TT[c._i][1])c.classList.add('goodpick');else if(c._i===ti)c.classList.add('badpick')});
+      fb(o,sc>=8?'ok':'bad',sc>=8?'Slide gọn, đúng thông điệp.':'Tiêu đề nên là câu kết luận; giữ ý có số liệu và việc cần làm, bỏ câu chung chung.');award(o,sc);retryBtn(o,run)};
+    prev();
+  }
+  run();
+})();
+
+// Khổ hình
+matchPairs(shell($('[data-ex="ratio"]'),cfg('ratio','Ghép sản phẩm với khổ hình','Bấm sản phẩm ở cột trái, rồi bấm tỉ lệ khung hình phù hợp ở cột phải.')),[
+ ['Video xem trên điện thoại','9:16'],['Màn hình hội trường','16:9'],['Bài đăng vuông Zalo, Facebook','1:1'],['Infographic dọc','4:5'],['Băng rôn treo ngoài trời','3:1']
+],'Chọn khổ trước khi tạo ảnh để không bị cắt mất nội dung.');
+
+// Khẩu hiệu, bài đăng
+mcq(shell($('[data-ex="slogan"]'),cfg('slogan','Biên tập nội dung truyền thông','Chọn cách viết phù hợp cho kênh truyền thông của xã.')),[
+ {q:'Khẩu hiệu trên banner dịch vụ công trực tuyến:',o:['“Nộp hồ sơ trực tuyến – Nhanh hơn, không phải chờ”','“Chuyển đổi số là xu thế tất yếu khách quan của cuộc cách mạng công nghiệp lần thứ tư”','“DVC TT 100%!!!”'],a:0,e:'Ngắn, nêu lợi ích, người đi đường đọc kịp.'},
+ {q:'Bài đăng dùng ảnh AI minh hoạ người dân nộp hồ sơ. Chú thích ảnh:',o:['“Ảnh: người dân thôn Đông nộp hồ sơ”','“Ảnh minh hoạ tạo bằng AI”','Không cần chú thích'],a:1,e:'Ảnh AI dễ nhầm với thật phải ghi rõ, theo Luật Trí tuệ nhân tạo.'},
+ {q:'Tiêu đề bài tuyên truyền phòng chống lừa đảo:',o:['“CẢNH BÁO KHẨN CẤP!!! Mất sạch tiền chỉ sau 1 cuộc gọi”','“Cảnh giác cuộc gọi giả danh công an, ngân hàng: không chuyển tiền, không cung cấp mã OTP”','“Lừa đảo”'],a:1,e:'Rõ hành vi cần tránh, không giật gân.'},
+ {q:'Video 3 phút đăng trang của xã ít người xem hết. Nên:',o:['Rút còn 30–90 giây, nêu ý chính trong 5 giây đầu','Thêm nhạc nền to hơn','Đăng lại nhiều lần'],a:0,e:'Video ngắn xem trên điện thoại cần vào ý chính ngay.'}
+]);
+
+// Dự án nhóm
+(function(){
+  var o=shell($('[data-ex="project"]'),cfg('project','Bộ câu lệnh cho dự án tổng hợp của nhóm','Nhập chủ đề thật của nhóm. Trang tạo sẵn 5 câu lệnh cho 5 sản phẩm (văn bản, báo cáo, slide, hình ảnh, video). Làm xong và rà soát sản phẩm nào thì đánh dấu sản phẩm đó.'));
+  var P=S.proj=S.proj||{topic:'Đẩy mạnh dịch vụ công trực tuyến',unit:'Trung tâm Phục vụ hành chính công xã',time:'tháng 11 – 12/2026',done:[]};
+  var f=h('div',{class:'proj-form'});f.innerHTML='<div><label for="pjT">Chủ đề</label><input id="pjT"></div><div><label for="pjU">Bộ phận chủ trì</label><input id="pjU"></div><div><label for="pjS">Thời gian thực hiện</label><input id="pjS"></div>';o.body.appendChild(f);
+  var gr=h('div',{class:'grid g3'});o.body.appendChild(gr);
+  $('#pjT',f).value=P.topic;$('#pjU',f).value=P.unit;$('#pjS',f).value=P.time;
+  function items(){var t=P.topic||'[chủ đề]',u=P.unit||'[bộ phận]',s=P.time||'[thời gian]';return [
+    ['Văn bản','Bạn là công chức '+u+' xã Ninh Sơn. Lập dàn ý Kế hoạch “'+t+'” của UBND xã, thời gian thực hiện '+s+', gồm: I. Mục đích, yêu cầu; II. Nội dung, thời gian, địa điểm; III. Kinh phí; IV. Tổ chức thực hiện (phân công từng phòng, thôn, thời hạn). Đúng thể thức Nghị định 30/2020/NĐ-CP. Chỗ chưa có thông tin để trong [ ].'],
+    ['Báo cáo','Soạn Báo cáo nhanh kết quả thực hiện “'+t+'” tại xã Ninh Sơn theo đề cương: I. Kết quả; II. Tồn tại, nguyên nhân; III. Nhiệm vụ tới; IV. Kiến nghị. Dữ liệu: [dán bảng số liệu]. Chỉ dùng số liệu được cung cấp; đề xuất 1 biểu đồ phù hợp và nêu thông điệp của biểu đồ.'],
+    ['Slide','Từ báo cáo trên, lập dàn ý 6 slide báo cáo lãnh đạo UBND xã về “'+t+'”: slide đầu nêu ngay đề xuất; mỗi slide có tiêu đề là một câu kết luận, tối đa 4 ý ngắn, gợi ý biểu đồ và lời nói cho người trình bày.'],
+    ['Hình ảnh','Ảnh nền banner tỉ lệ 16:9 tuyên truyền “'+t+'”: minh hoạ phẳng, bối cảnh nông thôn Việt Nam, tông xanh lá và cam, chừa khoảng trống phía trên để đặt khẩu hiệu, không có chữ trong ảnh. Gợi ý thêm 3 khẩu hiệu dưới 10 chữ.'],
+    ['Video','Viết kịch bản video dọc 9:16, dài 60 giây, tuyên truyền “'+t+'” cho người dân xã Ninh Sơn. Bảng: Cảnh – Thời gian – Hình ảnh – Lời đọc; lời đọc khoảng 130–150 chữ, kết thúc bằng thông tin liên hệ '+u+' [số điện thoại].']]}
+  function render(){gr.innerHTML='';items().forEach(function(x,i){var done=P.done.indexOf(i)>=0;var c=h('div',{class:'card-p'+(done?' is-done':'')});
+    c.innerHTML='<div class="top"><code>'+(i+1)+' · '+x[0].toUpperCase()+'</code></div><div class="txt">'+ph(x[1])+'</div>';
+    var row=h('div',{style:'display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;align-items:center'});
+    var b=h('button',{class:'btn dark small',type:'button'},icon('copy')+' Sao chép');b.onclick=function(){copyText(x[1],b)};
+    var lab=h('label',{class:'done-row'},'<input type="checkbox"'+(done?' checked':'')+'> Đã làm, đã rà soát');
+    $('input',lab).onchange=function(e){var k=P.done.indexOf(i);if(e.target.checked&&k<0)P.done.push(i);if(!e.target.checked&&k>=0)P.done.splice(k,1);save();c.classList.toggle('is-done',e.target.checked);status()};
+    row.appendChild(b);row.appendChild(lab);c.appendChild(row);gr.appendChild(c)})}
+  function status(){var n=P.done.length;fb(o,n===5?'ok':'',n===5?'Nhóm đã hoàn thành đủ 5 sản phẩm. Nhớ chấm theo thang 100 điểm của lớp.':'Đã hoàn thành '+n+'/5 sản phẩm.');if(n===5&&S.done.project==null)award(o,10)}
+  $$('input',f).forEach(function(inp){inp.addEventListener('input',function(){P.topic=$('#pjT',f).value.trim();P.unit=$('#pjU',f).value.trim();P.time=$('#pjS',f).value.trim();save();render()})});
+  render();status();
+})();
+
+// Thử thách tình huống
+(function(){
+  var o=shell($('[data-ex="challenge"]'),cfg('challenge','Thử thách 10 tình huống','Mỗi lượt rút ngẫu nhiên 10 tình huống. Trả lời đúng liên tiếp để tăng chuỗi. Làm lại để gặp tình huống mới.'));
+  var B=[
+   ['Chủ tịch xã cần gấp một công văn trong 10 phút. Bạn làm gì đầu tiên?',['Chọn thẻ Prompt có sẵn trong thư viện, điền thông tin','Gõ “viết công văn” cho nhanh','Chép nguyên công văn năm trước'],0,'Thẻ Prompt đã chạy thử giúp có bản nháp đạt ngay lần đầu.'],
+   ['AI trả lời rất tự tin: “Theo Điều 15 Luật X…”. Bạn làm gì?',['Dùng luôn vì AI trả lời chắc chắn','Mở văn bản gốc, tra đúng Điều 15','Hỏi lại AI xem có chắc không là đủ'],1,'AI có thể bịa điều khoản; chỉ văn bản gốc mới đáng tin.'],
+   ['Người dân gửi phản ánh có họ tên, số điện thoại. Bạn muốn AI soạn văn bản trả lời.',['Dán nguyên phản ánh vào AI','Thay họ tên, số điện thoại bằng [Ông A] trước khi dán','Không dùng AI cho mọi văn bản'],1,'Ẩn danh dữ liệu cá nhân theo Luật Bảo vệ dữ liệu cá nhân.'],
+   ['Bản chép lời ghi “thu ngân sách đạt 32 tỷ”, trong khi dự toán cả năm chỉ 4 tỷ.',['Giữ nguyên vì máy ghi','Nghe lại đoạn ghi âm và đối chiếu báo cáo','Xóa con số đi'],1,'Chép lời hay nhầm dấu phẩy; con số bất thường phải kiểm tra.'],
+   ['AI tạo 20 slide cho buổi giao ban 10 phút.',['Giữ nguyên, trình chiếu nhanh','Rút còn 5–7 slide, mỗi slide một ý','Giảm cỡ chữ để gộp slide'],1,'1 phút – 1 slide; giao ban dùng 5–7 slide.'],
+   ['Banner AI đẹp nhưng chữ “Ninh Sơn” bị sai dấu.',['Đăng luôn vì người dân vẫn hiểu','Xóa chữ, thêm lại bằng Canva','Yêu cầu AI tạo lại đến khi đúng chữ'],1,'Cách chắc chắn nhất là không để AI viết chữ tiếng Việt.'],
+   ['Đồng nghiệp đề nghị tải hồ sơ đóng dấu “Mật” lên ChatGPT “cho nhanh”.',['Đồng ý vì chỉ dùng nội bộ','Từ chối: Luật Bảo vệ bí mật nhà nước 2025 cấm dùng AI xâm phạm bí mật nhà nước','Chỉ tải trang đầu'],1,'Tài liệu mật không đưa lên AI công cộng dưới mọi hình thức.'],
+   ['AI viết thông báo loa thôn quá dài, nhiều từ văn hoa.',['Yêu cầu khoảng 1 phút đọc, câu ngắn, nhắc lại thời gian 2 lần','Đọc nhanh hơn','Giữ nguyên cho trang trọng'],0,'Thông báo loa cần ngắn, dễ nghe, lặp lại thông tin chính.'],
+   ['Bạn cần biết chính xác hồ sơ đăng ký khai sinh gồm những gì để hướng dẫn dân.',['Hỏi trợ lý AI chung','Tra thủ tục đã công bố trên Cổng Dịch vụ công quốc gia','Theo trí nhớ'],1,'Thủ tục hành chính phải lấy từ nguồn công bố chính thức.'],
+   ['Lãnh đạo hỏi số hồ sơ trực tuyến tăng bao nhiêu %. AI đưa ra một con số.',['Báo cáo ngay con số đó','Tính lại bằng công thức Excel trước khi báo cáo','Làm tròn cho đẹp'],1,'Bảng tính giữ con số, AI chỉ viết nhận xét.'],
+   ['Bạn cần AI soạn kế hoạch dài 8 trang.',['Yêu cầu viết một lần cả 8 trang','Lập dàn ý trước, duyệt rồi viết từng phần','Bảo AI tự quyết định nội dung'],1,'Chia nhỏ từng bước giúp không lệch trọng tâm.'],
+   ['VNPT iKnow trả lời không có thông tin về kế hoạch mới ban hành tuần trước.',['Kết luận kế hoạch không tồn tại','Kiểm tra kế hoạch đã được tải lên kho chưa','Hỏi trợ lý AI chung thay thế'],1,'iKnow chỉ trả lời trên tài liệu đã có trong kho.'],
+   ['Cần ảnh cho bài “Ngày hội Đại đoàn kết” nhưng chưa có ảnh thật.',['Dùng ảnh AI, ghi “Ảnh minh hoạ tạo bằng AI”','Dùng ảnh AI, ghi “Ảnh: Ngày hội tại thôn Đông”','Lấy ảnh của xã khác'],0,'Ảnh AI được dùng khi gắn nhãn rõ ràng.'],
+   ['Có ý tưởng tạo video AI giả giọng Chủ tịch xã cho “sinh động”.',['Làm, vì mục đích tốt','Không làm: không giả mạo người thật','Làm nhưng không công bố'],1,'Luật An ninh mạng 2025 cấm dùng AI giả mạo hình ảnh, giọng nói.'],
+   ['AI làm biên bản “gọn hơn” bằng cách bỏ ý kiến phản đối của một đại biểu.',['Chấp nhận cho gọn','Bổ sung lại: biên bản phải ghi trung thực','Hỏi đại biểu có đồng ý bỏ không'],1,'AI được sửa câu chữ, không được thay đổi ý kiến phát biểu.'],
+   ['Báo cáo cần so sánh tỷ lệ tham gia bảo hiểm y tế của 8 thôn.',['Biểu đồ tròn 8 phần','Biểu đồ cột','Biểu đồ đường'],1,'So sánh giữa các nhóm: biểu đồ cột.'],
+   ['AI tóm tắt kế hoạch của tỉnh nhưng không nêu thời hạn cho xã.',['Tự đoán thời hạn','Yêu cầu bảng Nhiệm vụ – Thời hạn – Điều, khoản; thiếu thì ghi “Văn bản không nêu”','Bỏ qua thời hạn'],1,'Câu chốt giúp phân biệt văn bản không nêu với AI bỏ sót.'],
+   ['Bạn vừa có một câu lệnh rất tốt cho báo cáo tháng.',['Lưu thành thẻ Prompt có mã, chia sẻ cho bộ phận','Nhớ trong đầu','Không cần lưu'],0,'Thư viện Prompt giúp cả bộ phận dùng lại.'],
+   ['Cần bản đồ xã cho infographic.',['Nhờ AI vẽ bản đồ','Dùng bản đồ chuẩn từ nguồn chính thức','Vẽ tay ước lượng'],1,'Bản đồ là nội dung nhạy cảm, phải dùng bản chuẩn.'],
+   ['AI tự thêm “chỉ tiêu 95%” vào kế hoạch dù cấp trên không giao.',['Giữ lại cho đẹp','Bỏ đi, chỉ dùng chỉ tiêu từ văn bản giao','Tăng lên 100%'],1,'Chỉ tiêu phải có căn cứ.'],
+   ['AI viết công văn có câu “bà con ơi”.',['Yêu cầu chuyển sang văn phong hành chính','Giữ cho gần gũi','Bỏ cả đoạn'],0,'Công văn cần văn phong trang trọng; giọng gần gũi dành cho bài tuyên truyền.'],
+   ['Bạn chưa chắc AI hiểu đúng yêu cầu.',['Thêm câu “Nếu thiếu thông tin, hãy hỏi tôi trước khi viết”','Chạy liên tục nhiều lần','Bỏ cuộc'],0,'Kỹ thuật yêu cầu AI hỏi lại.'],
+   ['Muốn ghi âm cuộc họp để chép lời. Việc trước tiên?',['Bật máy ghi luôn','Xin phép chủ trì, báo cho người dự','Ghi âm bí mật'],1,'Ghi âm phải được chủ trì đồng ý.'],
+   ['Ảnh AI tạo ra có người giống hệt một cán bộ thật của xã.',['Dùng vì trông thân thiện','Không dùng; không mô phỏng người thật','Dùng nhưng làm mờ'],1,'Tránh nhầm lẫn và xâm phạm hình ảnh cá nhân.']
+  ];
+  function start(){
+    var set=shuffle(B).slice(0,10),i=0,right=0,streak=0,best=0;
+    function show(){
+      var it=set[i];o.act.innerHTML='';fb(o,'','');
+      o.body.innerHTML='<div class="scn"><div class="scn-top"><span>Tình huống '+(i+1)+'/10 · Đúng '+right+'</span><span class="streak">'+icon('star')+' Chuỗi đúng: '+streak+'</span></div><div class="scn-bar"><i style="width:'+(i*10)+'%"></i></div><p class="qq2">'+it[0]+'</p><div class="opts"></div><p class="exp2"></p></div>';
+      var opts=$('.opts',o.body),ord=shuffle(it[1].map(function(t,k){return k}));
+      ord.forEach(function(k,j){var b=h('button',{class:'opt',type:'button'},'<span class="k">'+'ABC'[j]+'</span><span>'+it[1][k]+'</span>');b.onclick=function(){
+        if(opts.dataset.done)return;opts.dataset.done='1';var ok=k===it[2];
+        if(ok){right++;streak++;best=Math.max(best,streak);b.classList.add('right');pop(b);if(streak>=3&&!reduce)burstAt(b)}else{streak=0;b.classList.add('wrong');shake(b);$$('.opt',opts).forEach(function(x,xi){if(ord[xi]===it[2])x.classList.add('right')})}
+        $$('.opt',opts).forEach(function(x){x.disabled=true});
+        $('.exp2',o.body).innerHTML=(ok?'<b style="color:var(--good)">Chính xác.</b> ':'<b style="color:var(--bad)">Chưa đúng.</b> ')+it[3];
+        $('.streak',o.body).innerHTML=icon('star')+' Chuỗi đúng: '+streak;
+        var nx=h('button',{class:'btn dark',type:'button'},i<9?'Tình huống tiếp '+icon('arrow'):'Xem kết quả');nx.onclick=function(){i++;if(i<10)show();else end()};o.act.appendChild(nx);nx.focus({preventScroll:true});
+      };opts.appendChild(b)});
+    }
+    function end(){o.body.innerHTML='<div class="scn scn-end"><b class="big">'+right+'/10</b><p>tình huống xử lý đúng · chuỗi dài nhất <b>'+best+'</b></p></div>';o.act.innerHTML='';
+      fb(o,right>=8?'ok':'bad',right>=8?'Xuất sắc! Bạn xử lý tình huống rất vững.':'Làm thêm lượt mới để gặp các tình huống khác.');award(o,right);
+      var a=h('button',{class:'btn primary',type:'button'},'Lượt mới');a.onclick=start;o.act.appendChild(a)}
+    show();
+  }
+  start();
+})();
+
+/* --- Sao chép --- */
+function copyText(t,btn){function ok(){var o=btn.innerHTML;btn.innerHTML=icon('check')+' Đã sao chép';setTimeout(function(){btn.innerHTML=o},1600)}
+  try{navigator.clipboard.writeText(t).then(ok,function(){fallback(t);ok()})}catch(e){fallback(t);ok()}}
+function fallback(t){var ta=h('textarea');ta.value=t;ta.style.position='fixed';ta.style.opacity='0';document.body.appendChild(ta);ta.select();try{document.execCommand('copy')}catch(e){}ta.remove()}
+
+/* --- Bài kiểm tra cuối khóa --- */
+var QUIZ_ALL=[
+ ['Công thức câu lệnh 5 thành phần gồm những gì?',['Vai trò, nhiệm vụ, bối cảnh, yêu cầu, định dạng','Tiêu đề, mở bài, thân bài, kết bài, ký tên','Câu hỏi, đáp án, giải thích, ví dụ, nguồn'],0,'Buổi 1'],
+ ['Thông tin chưa có khi viết câu lệnh nên xử lý thế nào?',['Để AI tự điền cho nhanh','Để trong ngoặc vuông [ ] và điền sau','Bỏ qua phần đó'],1,'Buổi 1'],
+ ['VNPT iKnow khác trợ lý AI công cộng ở điểm nào?',['Chỉ tạo hình ảnh','Trả lời trên kho tài liệu của đơn vị, có trích dẫn nguồn và phân quyền','Không cần đăng nhập'],1,'Buổi 1'],
+ ['Theo Nghị định 30/2020/NĐ-CP, phông chữ văn bản hành chính là:',['Arial','Times New Roman, bộ mã Unicode','Tùy người soạn'],1,'Buổi 1'],
+ ['Lề trái của văn bản hành chính là bao nhiêu?',['15 – 20 mm','20 – 25 mm','30 – 35 mm'],2,'Buổi 1'],
+ ['Chữ viết tắt tên loại “Tờ trình” là:',['TT','TTr','TTR'],1,'Buổi 1'],
+ ['Tóm tắt văn bản cấp trên để tham mưu triển khai, nên dùng mức nào?',['1 câu','5 ý chính','Bảng nhiệm vụ: nhiệm vụ – thời hạn – điều, khoản'],2,'Buổi 2'],
+ ['AI đưa ra một số hiệu văn bản làm căn cứ. Việc đầu tiên cần làm?',['Đưa ngay vào văn bản','Tra trên nguồn chính thống (vbpl.vn) và đọc văn bản gốc','Hỏi đồng nghiệp xem có nghe quen không'],1,'Buổi 2'],
+ ['Trong quy trình xử lý ghi âm cuộc họp, bước nào do cán bộ làm?',['Chép lời','Làm sạch: sửa tên người, địa danh, số liệu','Không có bước nào'],1,'Buổi 2'],
+ ['Biên bản họp do ai ký?',['Thư ký và Chủ trì cuộc họp','Tất cả người dự họp','Chỉ văn thư'],0,'Buổi 2'],
+ ['Cuộc họp có nội dung mật thì:',['Ghi âm bằng điện thoại rồi tải lên AI công cộng','Không dùng AI công cộng để ghi âm, chép lời','Chỉ cần xóa tệp sau khi dùng'],1,'Buổi 2'],
+ ['Phép tính tổng, tỷ lệ trong báo cáo nên làm bằng gì?',['Để AI tính nhẩm','Công thức Excel','Ước lượng'],1,'Buổi 3'],
+ ['So sánh số liệu giữa các thôn nên dùng biểu đồ nào?',['Biểu đồ cột','Biểu đồ đường','Biểu đồ tròn nhiều phần'],0,'Buổi 3'],
+ ['Tiêu đề slide tốt là:',['Tên chung như “Số liệu quý III”','Một câu kết luận','Càng dài càng đủ ý'],1,'Buổi 3'],
+ ['Prompt báo cáo nên có câu nào để tránh số liệu bịa?',['“Viết thật hay”','“Chỉ dùng số liệu được cung cấp, không tự thêm”','“Thêm số liệu nếu thiếu”'],1,'Buổi 3'],
+ ['Văn bản nào nghiêm cấm dùng AI để xâm phạm bí mật nhà nước?',['Luật Bảo vệ bí mật nhà nước 2025 (số 117/2025/QH15)','Nghị định 30/2020/NĐ-CP','Chỉ thị 14/CT-TTg'],0,'Pháp lý'],
+ ['Khổ hình phù hợp cho video xem trên điện thoại:',['16:9','9:16','3:1'],1,'Buổi 4'],
+ ['Ảnh AI có chữ tiếng Việt sai dấu. Cách làm đúng?',['Đăng luôn vì người dân vẫn hiểu','Yêu cầu “không có chữ trong ảnh”, thêm chữ bằng Canva','Tăng độ phân giải ảnh'],1,'Buổi 4'],
+ ['Luật nào yêu cầu thông báo, gắn nhãn nội dung AI dễ gây nhầm lẫn với thật?',['Luật Trí tuệ nhân tạo số 134/2025/QH15','Luật Đất đai','Luật Lưu trữ'],0,'Pháp lý'],
+ ['Luật An ninh mạng đang có hiệu lực (từ 01/7/2026) là:',['Luật An ninh mạng 2018','Luật An ninh mạng 2025, số 116/2025/QH15','Luật An toàn thông tin mạng 2015'],1,'Pháp lý']
+];
+QUIZ_ALL=QUIZ_ALL.concat([
+ ['Biên bản họp khác thông báo kết luận ở điểm nào?',['Thông báo kết luận chỉ nêu ý kiến kết luận và giao việc','Hai loại giống hệt nhau','Biên bản không cần chữ ký'],0,'Buổi 2'],
+ ['Chừa khoảng trống phía trên khi tạo ảnh banner để làm gì?',['Cho ảnh nhẹ hơn','Thêm khẩu hiệu bằng Canva','Để AI tự viết chữ vào'],1,'Buổi 4'],
+ ['Câu “Nếu thiếu thông tin, hãy hỏi tôi trước khi viết” thuộc kỹ thuật nào?',['Đưa mẫu cho AI','Yêu cầu AI hỏi lại','Chỉ định định dạng'],1,'Buổi 1'],
+ ['Cách ẩn danh đúng trước khi nhờ AI tổng hợp danh sách hộ?',['Giữ họ tên, chỉ xóa số điện thoại','Thay họ tên bằng [Hộ A], xóa số định danh, số điện thoại, địa chỉ','Viết tắt họ tên'],1,'Pháp lý'],
+ ['Nghị định 356/2025/NĐ-CP thay thế nghị định nào?',['Nghị định 13/2023/NĐ-CP về bảo vệ dữ liệu cá nhân','Nghị định 30/2020/NĐ-CP','Nghị định 150/2025/NĐ-CP'],0,'Pháp lý'],
+ ['Chỉ thị 14/CT-TTg đặt mục tiêu gì đến hết năm 2026?',['100% cán bộ, công chức, viên chức có hiểu biết về chuyển đổi số, kiến thức và kỹ năng số','Mỗi xã có một trợ lý AI riêng','Bỏ hoàn toàn văn bản giấy'],0,'Pháp lý'],
+ ['Lề phải của văn bản hành chính là bao nhiêu?',['15 – 20 mm','30 – 35 mm','25 – 30 mm'],0,'Buổi 1'],
+ ['Cỡ chữ phần nội dung văn bản hành chính:',['11 – 12','13 – 14','15 – 16'],1,'Buổi 1'],
+ ['Thư viện Prompt của đơn vị nên được rà soát:',['Không cần rà soát','Hằng quý, bỏ câu lệnh không còn phù hợp','Mỗi 5 năm'],1,'Buổi 1'],
+ ['Video 60 giây cần khoảng bao nhiêu chữ lời đọc?',['30 – 50 chữ','130 – 150 chữ','400 – 500 chữ'],1,'Buổi 4'],
+ ['Bài trình chiếu báo cáo lãnh đạo để xin chủ trương nên có khoảng:',['3 – 5 slide','15 – 20 slide','30 slide'],0,'Buổi 3'],
+ ['Hồ sơ trực tuyến tăng từ 260 lên 350, tức tăng khoảng:',['25%','35%','90%'],1,'Buổi 3'],
+ ['Mã nhóm “HCC” trong thư viện Prompt là của:',['Hội đồng nhân dân','Trung tâm Phục vụ hành chính công','Hội Cựu chiến binh'],1,'Buổi 1'],
+ ['Công cụ hỏi đáp trên tài liệu tải lên, có chỉ ra đoạn nguồn:',['NotebookLM','CapCut','Canva'],0,'Buổi 1'],
+ ['Khi chép lời ghi âm tiếng Việt, AI hay sai ở đâu nhất?',['Dấu chấm câu','Tên người, địa danh, con số','Màu chữ'],1,'Buổi 2'],
+ ['Đặc điểm của văn phong hành chính:',['Chính xác, khách quan, ngắn gọn, trang trọng','Bay bổng, giàu cảm xúc','Dùng nhiều từ địa phương'],0,'Buổi 1'],
+ ['Chữ viết tắt tên loại “Thông báo”:',['TBo','TB','THB'],1,'Buổi 1'],
+ ['Phần IV trong bố cục kế hoạch là:',['Kinh phí','Tổ chức thực hiện','Mục đích, yêu cầu'],1,'Buổi 1'],
+ ['Luật Bảo vệ dữ liệu cá nhân số 91/2025/QH15 có hiệu lực từ:',['01/01/2026','01/7/2025','01/3/2026'],0,'Pháp lý'],
+ ['Khổ hình gợi ý cho infographic dọc đăng mạng xã hội:',['4:5','3:1','16:9'],0,'Buổi 4']
+]);
+var QUIZ=QUIZ_ALL.slice(0,20);
+var Q={i:0,ans:[],t:0,timer:null,order:[]};
+function quizIntro(){
+  var q=$('#quiz');clearInterval(Q.timer);
+  var best=S.quizBest!=null?'<p class="muted" style="margin-top:8px">Điểm cao nhất của bạn: <b style="color:var(--accent)">'+S.quizBest+'/20</b></p>':'';
+  q.innerHTML='<span class="eyebrow">Bài kiểm tra đánh giá trực tuyến</span><h3 style="font-size:28px;margin-top:8px">Sẵn sàng kiểm tra kiến thức 4 buổi?</h3>'+
+  '<div class="qstats"><div class="qstat"><b>20</b>câu trắc nghiệm</div><div class="qstat"><b>15’</b>làm bài</div><div class="qstat"><b>70%</b>để đạt (14 câu)</div></div>'+
+  '<p class="muted">Mỗi lần làm, trang rút ngẫu nhiên 20 câu từ ngân hàng 40 câu (Buổi 1 đến Buổi 4 và văn bản pháp lý), nên có thể làm lại nhiều lần. Có thể đổi câu trả lời trước khi nộp. Đạt yêu cầu sẽ hiện thẻ chứng nhận hoàn thành trên trang.</p>'+best+
+  '<div style="display:flex;gap:10px;margin-top:20px;flex-wrap:wrap"><button class="btn primary" id="qStart" type="button">'+icon('clock')+' Bắt đầu làm bài</button></div>';
+  $('#qStart').onclick=quizStart;
+}
+function quizStart(){QUIZ=shuffle(QUIZ_ALL).slice(0,20);Q.i=0;Q.ans=new Array(QUIZ.length);Q.t=15*60;Q.order=QUIZ.map(function(x){return shuffle(x[1].map(function(t,i){return i}))});clearInterval(Q.timer);Q.timer=setInterval(function(){Q.t--;var el=$('#qTimer');if(el){el.textContent=fmt(Q.t);el.classList.toggle('warn',Q.t<=60)}if(Q.t<=0){clearInterval(Q.timer);quizEnd(true)}},1000);quizShow()}
+function fmt(s){var m=Math.floor(s/60),x=s%60;return (m<10?'0':'')+m+':'+(x<10?'0':'')+x}
+function quizShow(){
+  var q=$('#quiz'),it=QUIZ[Q.i];var dots='';for(var k=0;k<QUIZ.length;k++)dots+='<i class="'+(k===Q.i?'cur':Q.ans[k]!=null?'a':'')+'"></i>';
+  q.innerHTML='<div class="qtop"><div><span class="eyebrow">'+it[3]+' · Câu '+(Q.i+1)+'/'+QUIZ.length+'</span><div class="dots" style="margin-top:8px">'+dots+'</div></div><div class="timer" id="qTimer">'+fmt(Q.t)+'</div></div>'+
+  '<p class="qq">'+it[0]+'</p><div class="opts" id="qOpts"></div>'+
+  '<div style="display:flex;justify-content:space-between;gap:10px;margin-top:20px;flex-wrap:wrap"><button class="btn ghost" id="qPrev" type="button" style="color:var(--hero-text);border-color:rgba(242,245,241,.3)"'+(Q.i===0?' disabled':'')+'>Câu trước</button><div style="display:flex;gap:10px;flex-wrap:wrap"><button class="btn" id="qNext" type="button">'+(Q.i===QUIZ.length-1?'Xem lại':'Câu tiếp')+'</button><button class="btn primary" id="qSubmit" type="button">Nộp bài</button></div></div><p class="muted" id="qMsg" style="margin-top:10px;min-height:1.5em"></p>';
+  Q.order[Q.i].forEach(function(oi,k){var b=h('button',{class:'opt'+(Q.ans[Q.i]===oi?' sel':''),type:'button'},'<span class="k">'+'ABC'[k]+'</span><span>'+it[1][oi]+'</span>');b.onclick=function(){Q.ans[Q.i]=oi;$$('#qOpts .opt').forEach(function(x){x.classList.remove('sel')});b.classList.add('sel');setTimeout(function(){if(Q.i<QUIZ.length-1){Q.i++;quizShow()}else{$('#qMsg').textContent='Đã trả lời câu cuối. Bấm “Nộp bài” khi sẵn sàng.'}},reduce?0:260)};$('#qOpts').appendChild(b)});
+  $('#qPrev').onclick=function(){if(Q.i>0){Q.i--;quizShow()}};
+  $('#qNext').onclick=function(){if(Q.i<QUIZ.length-1){Q.i++;quizShow()}else{var first=Q.ans.findIndex?firstEmpty():-1;if(first>=0){Q.i=first;quizShow()}else $('#qMsg').textContent='Bạn đã trả lời đủ 20 câu.'}};
+  $('#qSubmit').onclick=function(){var miss=QUIZ.length-Q.ans.filter(function(x){return x!=null}).length;var btn=$('#qSubmit');
+    if(miss&&!btn.dataset.sure){btn.dataset.sure='1';btn.textContent='Vẫn nộp ('+miss+' câu trống)';$('#qMsg').textContent='Còn '+miss+' câu chưa trả lời. Bấm lần nữa để nộp.';return}quizEnd(false)};
+}
+function firstEmpty(){for(var i=0;i<QUIZ.length;i++)if(Q.ans[i]==null)return i;return -1}
+function quizEnd(timeout){
+  clearInterval(Q.timer);var right=0,rv='';
+  QUIZ.forEach(function(it,i){if(Q.ans[i]===it[2])right++;else rv+='<div class="rv"><b>Câu '+(i+1)+'.</b> '+it[0]+'<br>Đáp án đúng: <b>'+it[1][it[2]]+'</b></div>'});
+  S.quizBest=Math.max(S.quizBest||0,right);if(right>=14)S.quizPass=S.quizPass||new Date().toISOString();save();
+  var pass=right>=14,q=$('#quiz');var name=S.name||'Học viên',unit=S.unit||'';
+  var d=new Date(),ds=d.getDate()+'/'+(d.getMonth()+1)+'/'+d.getFullYear();
+  q.innerHTML='<span class="eyebrow">'+(timeout?'Hết giờ · ':'')+'Kết quả bài kiểm tra</span><h3 style="font-size:30px;margin-top:8px">'+(pass?'Chúc mừng, bạn đã đạt yêu cầu!':'Chưa đạt, hãy ôn lại và làm lần nữa')+'</h3>'+
+  '<div class="qstats"><div class="qstat"><b>'+right+'/20</b>câu đúng</div><div class="qstat"><b>'+Math.round(right/20*100)+'%</b>kết quả</div><div class="qstat"><b>'+(pass?'Đạt':'Chưa đạt')+'</b>ngưỡng 70%</div></div>'+
+  (pass?'<div class="cert"><span class="kicker">Chứng nhận hoàn thành</span><h4>Khóa đào tạo tập huấn AI nâng cao</h4><p>Xã Ninh Sơn · 30–31/10/2026</p><div class="who">'+esc(name)+'</div><p>'+esc(unit)+'</p><p style="margin-top:10px">Đạt '+right+'/20 câu bài kiểm tra trực tuyến · Ngày '+ds+'</p><p class="mm">Thẻ hiển thị trên trang học liệu, không thay thế giấy chứng nhận chính thức của đơn vị tổ chức.</p></div>':'')+
+  (rv?'<h4 style="margin-top:22px">Các câu cần xem lại</h4><div class="review">'+rv+'</div>':'')+
+  '<div style="display:flex;gap:10px;margin-top:20px;flex-wrap:wrap"><button class="btn primary" id="qAgain" type="button">Làm lại bài kiểm tra</button></div>';
+  $('#qAgain').onclick=quizIntro;if(pass)burstAt(q);
+  q.scrollIntoView({behavior:reduce?'auto':'smooth',block:'start'});
+}
+quizIntro();
+
+/* --- Thư viện Prompt --- */
+var LIB=[
+ ['VP-01','Văn bản','Giấy mời họp','Bạn là chuyên viên Văn phòng HĐND và UBND xã Ninh Sơn. Soạn Giấy mời họp [tên cuộc họp]. Thành phần: [thành phần]. Thời gian: [giờ, ngày]. Địa điểm: [địa điểm]. Đúng thể thức Nghị định 30/2020/NĐ-CP.'],
+ ['VP-02','Văn bản','Lịch công tác tuần','Bạn là chuyên viên Văn phòng HĐND và UBND xã. Từ các nội dung dưới đây, lập Lịch công tác tuần [từ ngày… đến ngày…] của lãnh đạo UBND xã dạng bảng 5 cột: Thứ, ngày – Giờ – Nội dung – Chủ trì – Địa điểm. Sắp xếp theo thời gian; ghi “Chưa rõ” nếu thiếu thông tin. Nội dung: [dán danh sách công việc].'],
+ ['CV-01','Văn bản','Công văn đôn đốc','Bạn là chuyên viên Văn phòng HĐND và UBND xã Ninh Sơn. Soạn công văn của UBND xã gửi [Trưởng các thôn] về việc [nội dung]. Căn cứ: [số, ký hiệu văn bản cấp trên]. Nêu lý do, yêu cầu cụ thể, thời hạn [ngày], đầu mối liên hệ [bộ phận]. Văn phong hành chính, dưới 1 trang, đúng thể thức Nghị định 30/2020/NĐ-CP, có trích yếu “V/v” và “Nơi nhận”.'],
+ ['TB-01','Văn bản','Thông báo','Soạn Thông báo của UBND xã Ninh Sơn về [lịch tiếp công dân tháng … của Chủ tịch UBND xã]. Nêu rõ thời gian, địa điểm, thành phần, nội dung. Yêu cầu niêm yết tại trụ sở và thông báo trên loa truyền thanh các thôn. Đúng thể thức Nghị định 30/2020/NĐ-CP, ký hiệu TB-UBND.'],
+ ['KH-01','Văn bản','Kế hoạch (2 bước)','Bước 1: Bạn là công chức [bộ phận] xã Ninh Sơn. Lập dàn ý Kế hoạch [tên kế hoạch] của UBND xã theo 4 phần: Mục đích, yêu cầu; Nội dung, thời gian, địa điểm; Kinh phí; Tổ chức thực hiện. Chưa viết chi tiết.\nBước 2: “Dàn ý đã duyệt. Viết chi tiết phần IV thành bảng: Nhiệm vụ – Đơn vị chủ trì – Phối hợp – Thời hạn.”'],
+ ['TTR-01','Văn bản','Tờ trình','Bạn là công chức Phòng Kinh tế xã Ninh Sơn. Soạn Tờ trình trình UBND xã về việc [nội dung đề nghị]. Bố cục: căn cứ; sự cần thiết; nội dung đề xuất; dự toán [số liệu] và nguồn kinh phí; kiến nghị. Không tự đặt số liệu hay số hiệu văn bản; chỗ nào chưa có thì để trống [ ].'],
+ ['VPH-01','Văn bản','Hiệu chỉnh văn phong','Chuyển đoạn văn sau sang văn phong hành chính: chính xác, khách quan, ngắn gọn, trang trọng; bỏ từ địa phương và từ cảm xúc; giữ nguyên số liệu. Liệt kê các chỗ đã sửa. Đoạn văn: [dán nội dung].'],
+ ['HCC-01','Văn bản','Hướng dẫn thủ tục cho người dân','Bạn là công chức Trung tâm Phục vụ hành chính công xã. Dựa trên quy trình thủ tục [tên thủ tục] dưới đây, viết hướng dẫn cho người dân gồm: hồ sơ cần chuẩn bị, các bước thực hiện, thời gian giải quyết, lệ phí. Câu ngắn, đánh số từng bước, không quá 200 chữ. Quy trình: [dán nội dung thủ tục đã công bố].'],
+ ['TT-01','Tài liệu & họp','Tóm tắt văn bản chỉ đạo','Bạn là chuyên viên tham mưu của UBND xã. Đọc văn bản đính kèm [Kế hoạch số… của UBND tỉnh] và: 1. Tóm tắt mục đích trong 2 câu. 2. Lập bảng nhiệm vụ giao cho cấp xã: Nhiệm vụ – Thời hạn – Điều, khoản. 3. Nêu các mốc thời hạn trong 3 tháng tới. 4. Chỉ dựa vào văn bản; không có thông tin thì ghi “Văn bản không nêu”.'],
+ ['TT-02','Tài liệu & họp','So sánh hai văn bản','So sánh [Kế hoạch năm 2025] và [Kế hoạch năm 2026] đính kèm: điểm mới, điểm bỏ, chỉ tiêu thay đổi. Trình bày thành bảng, ghi rõ trang hoặc mục trích dẫn.'],
+ ['HOP-01','Tài liệu & họp','Tóm tắt cuộc họp','Dưới đây là bản chép lời cuộc họp [tên cuộc họp] ngày [ ]. Người dự: [họ tên – chức vụ]. Tóm tắt theo: 1. Thông tin chung; 2. Nội dung từng vấn đề, ý kiến chính của từng người; 3. Ý kiến đã thống nhất và chưa thống nhất; 4. Kết luận của chủ trì. Không thêm ý không có trong bản chép lời; chỗ nghe không rõ ghi [không rõ].'],
+ ['HOP-02','Tài liệu & họp','Biên bản họp','Từ bản tóm tắt đã duyệt dưới đây, soạn Biên bản họp [tên cuộc họp] đúng thể thức Nghị định 30/2020/NĐ-CP. Ghi rõ thời gian bắt đầu, kết thúc, thành phần, chủ trì, thư ký; nội dung theo từng vấn đề; phần ký của Thư ký và Chủ trì.'],
+ ['HOP-03','Tài liệu & họp','Thông báo kết luận','Từ biên bản họp dưới đây, soạn Thông báo kết luận của Chủ tịch UBND xã tại cuộc họp [ ]: đánh giá ngắn gọn kết quả; kết luận theo từng vấn đề; giao nhiệm vụ cụ thể cho từng phòng, thôn kèm thời hạn. Chỉ dùng nội dung có trong phần kết luận của chủ trì.'],
+ ['HOP-04','Tài liệu & họp','Danh sách nhiệm vụ','Từ thông báo kết luận, lập bảng 5 cột: Nhiệm vụ – Chủ trì – Phối hợp – Thời hạn – Sản phẩm. Thiếu thời hạn ghi [cần xác định].'],
+ ['BC-01','Báo cáo & slide','Báo cáo tháng','Bạn là chuyên viên Văn phòng HĐND và UBND xã Ninh Sơn. Soạn Báo cáo tình hình kinh tế – xã hội tháng [ ] theo đề cương: I. Kết quả thực hiện; II. Tồn tại, hạn chế, nguyên nhân; III. Nhiệm vụ trọng tâm tháng tới; IV. Kiến nghị. Dữ liệu: [dán bảng số liệu]. Chỉ dùng số liệu được cung cấp; mỗi chỉ tiêu so sánh với tháng trước, cùng kỳ (nếu có); tối đa 3 trang.'],
+ ['BC-02','Báo cáo & slide','Gộp số liệu các thôn','Gộp các bảng số liệu của các thôn dưới đây thành 1 bảng: mỗi thôn một dòng, thêm dòng Tổng cộng và cột Tỷ lệ % so với kế hoạch. Viết công thức Excel cho cột Tổng và Tỷ lệ. Đánh dấu ô thiếu số liệu hoặc bất thường. Dữ liệu: [dán số liệu].'],
+ ['BC-03','Báo cáo & slide','Đề cương báo cáo chuyên đề','Đề xuất đề cương chi tiết cho Báo cáo chuyên đề [tên chuyên đề] gồm: bối cảnh; thực trạng; nguyên nhân; giải pháp; kiến nghị. Mỗi mục gợi ý câu hỏi cần trả lời và số liệu cần có.'],
+ ['SL-01','Báo cáo & slide','Dàn ý bài trình chiếu','Từ báo cáo đính kèm, lập dàn ý bài trình chiếu [10 slide] cho [họp giao ban tháng … của UBND xã], thời lượng [10 phút]. Mỗi slide: tiêu đề là một câu kết luận; tối đa 4 ý, mỗi ý dưới 12 chữ; gợi ý hình ảnh hoặc biểu đồ; lời nói cho người trình bày. Chỉ dùng số liệu trong báo cáo.'],
+ ['TTH-01','Truyền thông','Ảnh nền banner','Ảnh nền banner tỉ lệ [3:1 hoặc 16:9] tuyên truyền [chủ đề]: [chủ thể, hoạt động], minh hoạ phẳng, bối cảnh nông thôn Việt Nam, tông [màu], chừa khoảng trống [vị trí] để đặt khẩu hiệu, không có chữ trong ảnh.'],
+ ['TTH-02','Truyền thông','Nội dung infographic','Viết nội dung infographic 5 bước [chủ đề]: mỗi bước một tiêu đề dưới 6 chữ, một câu giải thích dưới 15 chữ, gợi ý biểu tượng cho từng bước. Dựa trên hướng dẫn sau: [dán hướng dẫn chính thức].'],
+ ['TTH-03','Truyền thông','Kịch bản video 60 giây','Viết kịch bản video dọc 9:16, dài 60 giây, hướng dẫn người dân [thủ tục], dựa trên quy trình sau: [dán hướng dẫn chính thức]. Trình bày bảng: Cảnh – Thời gian – Hình ảnh – Lời đọc. Lời đọc thân thiện, câu ngắn, khoảng 130–150 chữ. Không thêm bước ngoài quy trình đã cho.'],
+ ['VX-01','Truyền thông','Bài tuyên truyền','Bạn là công chức Phòng Văn hóa – Xã hội xã. Viết bài tuyên truyền khoảng 300 chữ về [chủ đề]. Giọng gần gũi, dễ hiểu với bà con; kết thúc bằng thông tin liên hệ [bộ phận, số điện thoại].'],
+ ['TH-01','Truyền thông','Thông báo loa thôn','Bạn hỗ trợ Trưởng thôn soạn thông báo đọc trên loa truyền thanh khoảng 1 phút về [nội dung] tại thôn [tên thôn]. Câu ngắn, nhắc lại thời gian và địa điểm 2 lần.']
+];
+(function(){
+  var cats=['Tất cả','Văn bản','Tài liệu & họp','Báo cáo & slide','Truyền thông'],cur='Tất cả';var f=$('#libFilter'),grid=$('#lib');
+  cats.forEach(function(c){var b=h('button',{type:'button','aria-pressed':c===cur?'true':'false',class:c===cur?'on':''},c);b.onclick=function(){cur=c;$$('button',f).forEach(function(x){x.classList.toggle('on',x===b);x.setAttribute('aria-pressed',x===b)});render()};f.appendChild(b)});
+  function render(){grid.innerHTML='';LIB.filter(function(x){return cur==='Tất cả'||x[1]===cur}).forEach(function(x){
+    var c=h('div',{class:'card-p'});c.innerHTML='<div class="top"><code>'+x[0]+'</code><span class="tag '+(x[1]==='Văn bản'?'blue':x[1]==='Truyền thông'?'amber':'green')+'" style="margin:0">'+x[1]+'</span></div><h4>'+x[2]+'</h4><div class="txt">'+ph(x[3])+'</div>';
+    var b=h('button',{class:'btn dark small',type:'button'},icon('copy')+' Sao chép');b.onclick=function(){copyText(x[3],b)};c.appendChild(b);grid.appendChild(c)})}
+  render();
+})();
+
+/* --- Học viên --- */
+var tn=$('#hvTen'),dv=$('#hvDonVi');tn.value=S.name||'';dv.value=S.unit||'';
+function saveLearner(){S.name=tn.value.trim();S.unit=dv.value.trim();save()}
+tn.addEventListener('input',saveLearner);dv.addEventListener('input',saveLearner);
+$('#learnerForm').addEventListener('submit',function(e){e.preventDefault();saveLearner();if(S.name)toast('Chào '+esc(S.name)+', bắt đầu với phần Mở đầu nhé!');document.getElementById('mo-dau').scrollIntoView({behavior:reduce?'auto':'smooth'})});
+
+/* --- Xóa tiến độ --- */
+var rb=$('#resetAll');rb.onclick=function(){if(!rb.dataset.sure){rb.dataset.sure='1';rb.textContent='Bấm lần nữa để xóa toàn bộ tiến độ';$('#resetMsg').textContent='';return}
+  S={done:{},name:S.name,unit:S.unit};save();rb.dataset.sure='';rb.textContent='Xóa tiến độ và làm lại từ đầu';$('#resetMsg').textContent='Đã xóa tiến độ. Tải lại trang để làm lại các bài.';updateProgress();$$('.ex').forEach(function(){})};
+
+/* --- Đánh dấu mục đang xem trên thanh điều hướng --- */
+var links=$$('#nav a');var secs=links.map(function(a){return document.getElementById(a.getAttribute('href').slice(1))});
+function onScroll(){var y=scrollY+120,cur=-1;secs.forEach(function(s,i){if(s&&s.offsetTop<=y)cur=i});links.forEach(function(a,i){a.classList.toggle('on',i===cur);if(i===cur&&a.scrollIntoView&&a.dataset.vis!=='1'){}})}
+addEventListener('scroll',onScroll,{passive:true});onScroll();
+
+$$('.ex').forEach(function(e,i){var t=$('.ex-tag',e);if(t)t.textContent='Bài tập '+(i+1)});
+$('#exCount').textContent=Object.keys(SESSION_OF).length+' bài tập + bài kiểm tra';
+updateProgress();
+})();
+</script>
+
+</body></html>
